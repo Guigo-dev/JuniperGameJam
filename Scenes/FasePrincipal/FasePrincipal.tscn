@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://bve8417uknmvi"]
 
-[ext_resource type="Script" uid="uid://bf0ow8cb6r4ar" path="res://Scripts/fase_principal.gd" id="1_7kxa5"]
-[ext_resource type="PackedScene" uid="uid://r3ugmixsldxe" path="res://Scenes/arma.tscn" id="1_x5p2i"]
-[ext_resource type="PackedScene" uid="uid://cuge5u3bblqwa" path="res://Scenes/enemy_spawner.tscn" id="2_1lh45"]
-[ext_resource type="PackedScene" uid="uid://13ixk6h33t1i" path="res://Scenes/Balao.tscn" id="3_82kia"]
+[ext_resource type="Script" uid="uid://bf0ow8cb6r4ar" path="res://Scripts/FasePrincipal/fase_principal.gd" id="1_7kxa5"]
+[ext_resource type="PackedScene" uid="uid://r3ugmixsldxe" path="res://Scenes/FasePrincipal/arma.tscn" id="1_x5p2i"]
+[ext_resource type="PackedScene" uid="uid://cuge5u3bblqwa" path="res://Scenes/FasePrincipal/enemy_spawner.tscn" id="2_1lh45"]
+[ext_resource type="PackedScene" uid="uid://13ixk6h33t1i" path="res://Scenes/FasePrincipal/Balao.tscn" id="3_82kia"]
 
 [node name="FasePrincipal" type="Node2D" unique_id=1502453635]
 script = ExtResource("1_7kxa5")

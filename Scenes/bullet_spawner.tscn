@@ -1,8 +1,0 @@
-[gd_scene format=3 uid="uid://bou3lv488i73w"]
-
-[ext_resource type="Script" uid="uid://boemys4v5i1gw" path="res://Scripts/bullet_spawner.gd" id="1_4fhvc"]
-[ext_resource type="PackedScene" uid="uid://scitov56cg4l" path="res://Scenes/Bala.tscn" id="2_1jpf4"]
-
-[node name="BulletSpawner" type="Node2D" unique_id=102571180]
-script = ExtResource("1_4fhvc")
-bala = ExtResource("2_1jpf4")
