@@ -1,13 +1,11 @@
 extends Area2D
 
 @onready var healthComponent: HealthComponent = %HealthComponent
-
 @export var speed : float
 var target: Node2D
 
 func _ready() -> void:
 	add_to_group("enemy")
-	print("spawnei")
 	
 func _process(delta):
 	if target == null:
@@ -15,4 +13,9 @@ func _process(delta):
 
 	var direction = global_position.direction_to(target.global_position)
 	global_position += direction * speed * delta
-	
+
+func _on_area_entered(area: Area2D) -> void:
+	if(area.is_in_group("bala")):
+		healthComponent.updateLP(-1)
+	if(area.is_in_group("lifeGainer")):
+		healthComponent.updateLP(1)

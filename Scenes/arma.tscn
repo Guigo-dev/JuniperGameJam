@@ -3,6 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://xwfmax7wg3rc" path="res://Sprites/Arma.png" id="1_7bvn3"]
 [ext_resource type="Script" uid="uid://dortgqdt8w8cr" path="res://Scripts/arma.gd" id="1_bjc62"]
 [ext_resource type="Script" uid="uid://dj8j1pu2ilxua" path="res://Scripts/HealthComponent.gd" id="2_ckcjq"]
+[ext_resource type="Script" uid="uid://boemys4v5i1gw" path="res://Scripts/bullet_spawner.gd" id="4_c0822"]
+[ext_resource type="PackedScene" uid="uid://scitov56cg4l" path="res://Scenes/Bala.tscn" id="5_3dn1k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ckcjq"]
 size = Vector2(26, 27)
@@ -25,6 +27,18 @@ script = ExtResource("2_ckcjq")
 MAX_LIFE = 3
 lifePoints = 3
 metadata/_custom_type_script = "uid://dj8j1pu2ilxua"
+
+[node name="BulletSpawner" type="Node2D" parent="." unique_id=87924760]
+unique_name_in_owner = true
+position = Vector2(14, -7)
+script = ExtResource("4_c0822")
+bala = ExtResource("5_3dn1k")
+metadata/_custom_type_script = "uid://boemys4v5i1gw"
+
+[node name="Timer" type="Timer" parent="." unique_id=1789207473]
+wait_time = 0.5
+one_shot = true
+autostart = true
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="died" from="HealthComponent" to="." method="_on_health_component_died"]
