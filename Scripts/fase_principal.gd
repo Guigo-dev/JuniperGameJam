@@ -10,3 +10,11 @@ func _process(delta: float) -> void:
 
 func _on_enemy_spawner_enemy_died() -> void:
 	pontos += 1
+
+
+func _on_enemy_spawner_2_enemy_died() -> void:
+	pontos += 1
+
+
+func _on_enemy_spawner_3_enemy_died() -> void:
+	pontos += 1
