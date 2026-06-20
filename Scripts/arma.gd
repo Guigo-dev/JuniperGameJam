@@ -5,6 +5,8 @@ extends Area2D
 @onready var bulletCooldown := $Timer
 var direction = 1
 
+func _ready() -> void:
+	add_to_group("arma")
 
 func _physics_process(delta: float) -> void:
 	if(Input.is_action_pressed("Direita")):
@@ -22,6 +24,7 @@ func _on_health_component_died() -> void:
 
 func _on_area_entered(area: Area2D) -> void:
 	if(area.is_in_group("enemy")):
+		print("acertou")
 		healthComponent.updateLP(-1)
 	if(area.is_in_group("lifeGainer")):
 		healthComponent.updateLP(1)

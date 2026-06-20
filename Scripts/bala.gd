@@ -9,3 +9,6 @@ var target: Node2D
 func _process(delta: float) -> void:
 	direction = global_position.direction_to(target.global_position)
 	global_position += direction * speed * delta * -1
+
+func _ready() -> void:
+	add_to_group("bala")
