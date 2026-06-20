@@ -9,11 +9,14 @@ func _ready() -> void:
 	add_to_group("arma")
 
 func _physics_process(delta: float) -> void:
+	var speed := 35
 	if(Input.is_action_pressed("Direita")):
 		direction = 1
+		speed = 25
 	elif(Input.is_action_pressed("Esquerda")):
 		direction = -1
-	rotate((PI/30)*direction)
+		speed = 25
+	rotate((PI/speed)*direction)
 	
 	if(Input.is_action_just_pressed("atirar") && bulletCooldown.is_stopped()):
 		bulletSpawner.spawnBullet()
