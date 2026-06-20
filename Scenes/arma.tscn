@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://r3ugmixsldxe"]
+
+[ext_resource type="Texture2D" uid="uid://xwfmax7wg3rc" path="res://Sprites/Arma.png" id="1_7bvn3"]
+[ext_resource type="Script" uid="uid://dortgqdt8w8cr" path="res://Scripts/arma.gd" id="1_bjc62"]
+[ext_resource type="Script" uid="uid://dj8j1pu2ilxua" path="res://Scripts/HealthComponent.gd" id="2_ckcjq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ckcjq"]
+size = Vector2(26, 27)
+
+[node name="Arma" type="Area2D" unique_id=44014132]
+script = ExtResource("1_bjc62")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=464802998]
+texture_filter = 1
+texture = ExtResource("1_7bvn3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=818591544]
+position = Vector2(0, 1.5)
+shape = SubResource("RectangleShape2D_ckcjq")
+
+[node name="HealthComponent" type="Node" parent="." unique_id=226578181]
+unique_name_in_owner = true
+script = ExtResource("2_ckcjq")
+MAX_LIFE = 3
+lifePoints = 3
+metadata/_custom_type_script = "uid://dj8j1pu2ilxua"
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="died" from="HealthComponent" to="." method="_on_health_component_died"]

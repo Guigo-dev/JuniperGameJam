@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://bve8417uknmvi"]
+
+[ext_resource type="PackedScene" uid="uid://r3ugmixsldxe" path="res://Scenes/arma.tscn" id="1_x5p2i"]
+[ext_resource type="PackedScene" uid="uid://cuge5u3bblqwa" path="res://Scenes/enemy_spawner.tscn" id="2_1lh45"]
+[ext_resource type="PackedScene" uid="uid://13ixk6h33t1i" path="res://Scenes/Balao.tscn" id="3_82kia"]
+
+[node name="FasePrincipal" type="Node2D" unique_id=1502453635]
+
+[node name="Arma" parent="." unique_id=44014132 instance=ExtResource("1_x5p2i")]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1483222113]
+z_index = -1
+offset_left = -287.0
+offset_top = -167.0
+offset_right = 293.0
+offset_bottom = 161.0
+color = Color(0.69868207, 0.43942723, 0.32323346, 1)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1385811518]
+zoom = Vector2(2, 2)
+
+[node name="EnemySpawner" parent="." unique_id=134133923 node_paths=PackedStringArray("target") instance=ExtResource("2_1lh45")]
+position = Vector2(1, -173)
+enemyScene = ExtResource("3_82kia")
+cooldown = 2.0
+target = NodePath("../Arma")
+
+[node name="EnemySpawner2" parent="." unique_id=1017127940 node_paths=PackedStringArray("target") instance=ExtResource("2_1lh45")]
+position = Vector2(300, -2)
+enemyScene = ExtResource("3_82kia")
+cooldown = 3.0
+target = NodePath("../Arma")
+
+[node name="EnemySpawner3" parent="." unique_id=119011415 node_paths=PackedStringArray("target") instance=ExtResource("2_1lh45")]
+position = Vector2(1, 166)
+enemyScene = ExtResource("3_82kia")
+cooldown = 2.5
+target = NodePath("../Arma")
