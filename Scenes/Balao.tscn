@@ -27,3 +27,4 @@ lifePoints = 1
 metadata/_custom_type_script = "uid://dj8j1pu2ilxua"
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="died" from="HealthComponent" to="." method="_on_health_component_died"]
