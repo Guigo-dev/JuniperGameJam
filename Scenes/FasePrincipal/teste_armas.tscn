@@ -4,24 +4,14 @@
 [ext_resource type="PackedScene" uid="uid://chlfhvwo5bpts" path="res://Scenes/FasePrincipal/arma_de_fogo.tscn" id="2_d1jif"]
 [ext_resource type="PackedScene" uid="uid://cuge5u3bblqwa" path="res://Scenes/FasePrincipal/enemy_spawner.tscn" id="3_6tpii"]
 [ext_resource type="PackedScene" uid="uid://13ixk6h33t1i" path="res://Scenes/FasePrincipal/EnemyDefault.tscn" id="4_i0fb1"]
+[ext_resource type="Texture2D" uid="uid://bhf18linav7ue" path="res://Sprites/PNG/fundo_fase.png" id="5_6tpii"]
+[ext_resource type="Texture2D" uid="uid://rogtftkam8yd" path="res://Sprites/PNG/village.png" id="6_i0fb1"]
 
 [node name="TesteArmas" type="Node2D" unique_id=1449589759 node_paths=PackedStringArray("arma")]
 script = ExtResource("1_u0kin")
 arma = NodePath("ArmaDeFogo")
 
 [node name="ArmaDeFogo" parent="." unique_id=955160628 instance=ExtResource("2_d1jif")]
-
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1428716523]
-z_index = -1
-offset_left = -287.0
-offset_top = -167.0
-offset_right = 293.0
-offset_bottom = 161.0
-color = Color(0.69868207, 0.43942723, 0.32323346, 1)
-metadata/_edit_use_anchors_ = true
-
-[node name="Camera2D" type="Camera2D" parent="." unique_id=126124627]
-zoom = Vector2(2, 2)
 
 [node name="EnemySpawner" parent="." unique_id=1017127940 node_paths=PackedStringArray("target") instance=ExtResource("3_6tpii")]
 position = Vector2(1, -173)
@@ -79,3 +69,27 @@ scroll_active = false
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect2" type="TextureRect" parent="." unique_id=1692649960]
+z_index = -1
+offset_left = -287.0
+offset_top = -167.0
+offset_right = 293.0
+offset_bottom = 161.0
+texture = ExtResource("5_6tpii")
+stretch_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect2" unique_id=1975777770]
+z_index = 1
+z_as_relative = false
+texture_filter = 1
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("6_i0fb1")
+stretch_mode = 2
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1709972819]
+position = Vector2(1, -6)
+zoom = Vector2(2, 2)

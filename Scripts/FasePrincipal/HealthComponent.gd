@@ -11,7 +11,7 @@ func updateLP(modifier: int) -> void:
 	else :
 		lifePoints += modifier
 		
-	if(lifePoints == 0):
+	if(lifePoints <= 0):
 		died.emit()
 	
 	

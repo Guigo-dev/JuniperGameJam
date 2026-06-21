@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 [gd_scene format=3 uid="uid://f85ustgppl32"]
+=======
+[gd_scene format=3 uid="uid://b8u7fi3j6tfk"]
+>>>>>>> 5dfeb4404db17a44651d60fdd42eab82a9e26757
 
 [ext_resource type="Script" uid="uid://b5o8prwp6rpnm" path="res://Scripts/FasePrincipal/enemy.gd" id="1_6ee2s"]
 [ext_resource type="Script" uid="uid://dj8j1pu2ilxua" path="res://Scripts/FasePrincipal/HealthComponent.gd" id="2_6ee2s"]
