@@ -14,7 +14,7 @@ arma = NodePath("Arma")
 
 [node name="Arma" parent="." unique_id=44014132 instance=ExtResource("1_x5p2i")]
 
-[node name="ColorRect" type="TextureRect" parent="." unique_id=641143662]
+[node name="Background" type="TextureRect" parent="." unique_id=641143662]
 z_index = -1
 offset_left = -287.0
 offset_top = -167.0
@@ -24,7 +24,7 @@ texture = ExtResource("3_04ipe")
 stretch_mode = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="TextureRect" type="TextureRect" parent="ColorRect" unique_id=2070643289]
+[node name="Foreground" type="TextureRect" parent="Background" unique_id=2070643289]
 z_index = 1
 z_as_relative = false
 texture_filter = 1
