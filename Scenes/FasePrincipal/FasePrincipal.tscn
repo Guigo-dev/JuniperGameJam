@@ -204,11 +204,11 @@ libraries/ = SubResource("AnimationLibrary_jsvmo")
 autoplay = &"movimentacao_spawner3"
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Path2D2/PathFollow2D" unique_id=1090759545]
-position = Vector2(2.6923828, 9)
+position = Vector2(0.9999944, -0.0033712387)
 remote_path = NodePath("../../EnemySpawner2")
 
 [node name="EnemySpawner2" parent="Path2D2" unique_id=1017127940 node_paths=PackedStringArray("target") instance=ExtResource("2_1lh45")]
-position = Vector2(313.66208, 177.00902)
+position = Vector2(312, 168)
 rotation = 0.0033669907
 enemyScene = ExtResource("3_82kia")
 cooldown = 3.0
