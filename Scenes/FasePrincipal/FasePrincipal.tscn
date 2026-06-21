@@ -5,8 +5,9 @@
 [ext_resource type="PackedScene" uid="uid://cuge5u3bblqwa" path="res://Scenes/FasePrincipal/enemy_spawner.tscn" id="2_1lh45"]
 [ext_resource type="PackedScene" uid="uid://13ixk6h33t1i" path="res://Scenes/FasePrincipal/Balao.tscn" id="3_82kia"]
 
-[node name="FasePrincipal" type="Node2D" unique_id=1502453635]
+[node name="FasePrincipal" type="Node2D" unique_id=1502453635 node_paths=PackedStringArray("arma")]
 script = ExtResource("1_7kxa5")
+arma = NodePath("Arma")
 
 [node name="Arma" parent="." unique_id=44014132 instance=ExtResource("1_x5p2i")]
 

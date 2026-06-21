@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://13ixk6h33t1i"]
 
-[ext_resource type="Texture2D" uid="uid://x8lw8hv0eqi6" path="res://Sprites/Balao.png" id="1_iea4b"]
 [ext_resource type="Script" uid="uid://b5o8prwp6rpnm" path="res://Scripts/FasePrincipal/balao.gd" id="1_k74jg"]
+[ext_resource type="Texture2D" uid="uid://x8lw8hv0eqi6" path="res://Sprites/PNG/Balao.png" id="2_jjsni"]
 [ext_resource type="Script" uid="uid://dj8j1pu2ilxua" path="res://Scripts/FasePrincipal/HealthComponent.gd" id="2_tld7c"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_iea4b"]
@@ -13,7 +13,7 @@ speed = 20.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1824682577]
 texture_filter = 1
-texture = ExtResource("1_iea4b")
+texture = ExtResource("2_jjsni")
 
 [node name="ColissionShape2D" type="CollisionShape2D" parent="." unique_id=1645832035]
 position = Vector2(1, -4)

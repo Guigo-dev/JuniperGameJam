@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://scitov56cg4l"]
 
 [ext_resource type="Script" uid="uid://bhq3bpt4dpubk" path="res://Scripts/FasePrincipal/bala.gd" id="1_3tbbd"]
-[ext_resource type="Texture2D" uid="uid://b34bj4k4hhjrk" path="res://Sprites/Bala.png" id="1_et1n4"]
+[ext_resource type="Texture2D" uid="uid://dx2imnyy8dj0i" path="res://Sprites/PNG/bala_default.png" id="2_hrsg4"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3tbbd"]
 radius = 6.0
@@ -12,8 +12,7 @@ script = ExtResource("1_3tbbd")
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1364958688]
 texture_filter = 1
 texture_repeat = 1
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_et1n4")
+texture = ExtResource("2_hrsg4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1515817716]
 shape = SubResource("CircleShape2D_3tbbd")

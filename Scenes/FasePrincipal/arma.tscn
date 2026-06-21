@@ -1,13 +1,13 @@
 [gd_scene format=3 uid="uid://r3ugmixsldxe"]
 
 [ext_resource type="Script" uid="uid://dortgqdt8w8cr" path="res://Scripts/FasePrincipal/arma.gd" id="1_nwb0c"]
-[ext_resource type="Texture2D" uid="uid://xwfmax7wg3rc" path="res://Sprites/Arma.png" id="2_t2b7e"]
+[ext_resource type="Texture2D" uid="uid://di5spql8w6b8k" path="res://Sprites/PNG/arma_default_R.png" id="2_nwb0c"]
 [ext_resource type="Script" uid="uid://dj8j1pu2ilxua" path="res://Scripts/FasePrincipal/HealthComponent.gd" id="3_n5qd3"]
 [ext_resource type="Script" uid="uid://boemys4v5i1gw" path="res://Scripts/FasePrincipal/bullet_spawner.gd" id="4_xutcm"]
 [ext_resource type="PackedScene" uid="uid://scitov56cg4l" path="res://Scenes/FasePrincipal/Bala.tscn" id="5_1wt7n"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ckcjq"]
-size = Vector2(26, 27)
+size = Vector2(25, 15)
 
 [node name="Arma" type="Area2D" unique_id=44014132]
 script = ExtResource("1_nwb0c")
@@ -15,10 +15,10 @@ metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=464802998]
 texture_filter = 1
-texture = ExtResource("2_t2b7e")
+texture = ExtResource("2_nwb0c")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=818591544]
-position = Vector2(0, 1.5)
+position = Vector2(-0.5, 0.5)
 shape = SubResource("RectangleShape2D_ckcjq")
 
 [node name="HealthComponent" type="Node" parent="." unique_id=226578181]
@@ -30,12 +30,12 @@ metadata/_custom_type_script = "uid://dj8j1pu2ilxua"
 
 [node name="BulletSpawner" type="Node2D" parent="." unique_id=87924760]
 unique_name_in_owner = true
-position = Vector2(14, -7)
+position = Vector2(15, -6)
 script = ExtResource("4_xutcm")
 bala = ExtResource("5_1wt7n")
 metadata/_custom_type_script = "uid://boemys4v5i1gw"
 
-[node name="Timer" type="Timer" parent="." unique_id=1789207473]
+[node name="BulletCooldown" type="Timer" parent="." unique_id=1789207473]
 wait_time = 0.5
 one_shot = true
 autostart = true

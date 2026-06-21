@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://x8lw8hv0eqi6"
-path="res://.godot/imported/Balao.png-b89d155d2595c7c7ffc042f8ba8fd990.ctex"
+uid="uid://cs2fpypbwfmds"
+path="res://.godot/imported/bala_fogo.png-ad190c49a7519568bfc36b39543fede0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Balao.png"
-dest_files=["res://.godot/imported/Balao.png-b89d155d2595c7c7ffc042f8ba8fd990.ctex"]
+source_file="res://Sprites/PNG/bala_fogo.png"
+dest_files=["res://.godot/imported/bala_fogo.png-ad190c49a7519568bfc36b39543fede0.ctex"]
 
 [params]
 

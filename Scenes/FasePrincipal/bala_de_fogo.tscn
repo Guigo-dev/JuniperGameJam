@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://d2qcmxi41x3ny"]
+
+[ext_resource type="Texture2D" uid="uid://cs2fpypbwfmds" path="res://Sprites/PNG/bala_fogo.png" id="1_hkkwc"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ks1cl"]
+radius = 6.0
+
+[node name="BalaDeFogo" type="Area2D" unique_id=810302981]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1854406360]
+texture_filter = 1
+texture_repeat = 1
+texture = ExtResource("1_hkkwc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=536930111]
+shape = SubResource("CircleShape2D_ks1cl")

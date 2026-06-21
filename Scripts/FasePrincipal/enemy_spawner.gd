@@ -9,6 +9,7 @@ signal enemy_died
 
 func _ready() -> void:
 	timer.wait_time = cooldown
+	GameManager.gun_changed.connect(on_gun_changed)
 
 
 func _on_timer_timeout() -> void:
@@ -20,3 +21,6 @@ func _on_timer_timeout() -> void:
 	
 func on_enemy_died():
 	enemy_died.emit()
+	
+func on_gun_changed(newGun):
+	target = newGun
