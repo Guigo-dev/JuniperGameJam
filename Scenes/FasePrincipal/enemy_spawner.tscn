@@ -1,10 +1,6 @@
-[gd_scene format=3 uid="uid://dpwfceljk15k3"]
+[gd_scene format=3 uid="uid://cuge5u3bblqwa"]
 
-<<<<<<<< Updated upstream:Scenes/FasePrincipal/enemy_spawner.tscn
 [ext_resource type="Script" uid="uid://edv8dmnloobs" path="res://Scripts/FasePrincipal/enemy_spawner.gd" id="1_4l55s"]
-========
-[ext_resource type="Script" path="res://Scripts/enemy_spawner.gd" id="1_4l55s"]
->>>>>>>> Stashed changes:Scenes/enemy_spawner.tscn
 
 [node name="EnemySpawner" type="Node2D" unique_id=1017127940]
 script = ExtResource("1_4l55s")

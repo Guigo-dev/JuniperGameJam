@@ -1,80 +1,9 @@
-<<<<<<< Updated upstream
-[gd_scene format=3 uid="uid://viia6wsxuq41"]
-
-<<<<<<<< Updated upstream:Scenes/FasePrincipal/FasePrincipal.tscn
-[ext_resource type="Script" uid="uid://bf0ow8cb6r4ar" path="res://Scripts/FasePrincipal/fase_principal.gd" id="1_7kxa5"]
-[ext_resource type="PackedScene" uid="uid://r3ugmixsldxe" path="res://Scenes/FasePrincipal/arma.tscn" id="1_x5p2i"]
-[ext_resource type="PackedScene" uid="uid://cuge5u3bblqwa" path="res://Scenes/FasePrincipal/enemy_spawner.tscn" id="2_1lh45"]
-[ext_resource type="PackedScene" uid="uid://13ixk6h33t1i" path="res://Scenes/FasePrincipal/Balao.tscn" id="3_82kia"]
-========
-[ext_resource type="Script" path="res://Scripts/fase_principal.gd" id="1_7kxa5"]
-[ext_resource type="PackedScene" path="res://Scenes/arma.tscn" id="1_x5p2i"]
-[ext_resource type="PackedScene" path="res://Scenes/enemy_spawner.tscn" id="2_1lh45"]
-[ext_resource type="PackedScene" path="res://Scenes/Balao.tscn" id="3_82kia"]
-=======
 [gd_scene format=3 uid="uid://bve8417uknmvi"]
 
-<<<<<<< HEAD:Scenes/FasePrincipal.tscn
-[ext_resource type="Script" uid="uid://bf0ow8cb6r4ar" path="res://Scripts/fase_principal.gd" id="1_7kxa5"]
-[ext_resource type="PackedScene" uid="uid://r3ugmixsldxe" path="res://Scenes/arma.tscn" id="1_x5p2i"]
-[ext_resource type="PackedScene" uid="uid://cuge5u3bblqwa" path="res://Scenes/enemy_spawner.tscn" id="2_1lh45"]
-[ext_resource type="PackedScene" uid="uid://13ixk6h33t1i" path="res://Scenes/Balao.tscn" id="3_82kia"]
->>>>>>> Stashed changes
-[ext_resource type="Script" uid="uid://d0k350w3xnu0e" path="res://Scripts/enemy_path.gd" id="5_kti5d"]
-
-[sub_resource type="Curve2D" id="Curve2D_7kxa5"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, -1, -1, 0, 0, 0, 0, 2, 171, 0, 0, 0, 0, 662, 180, 0, 0, 0, 0, 657, -198, 0, 0, 0, 0, 1, -196, 0, 0, 0, 0, -3, -5)
-}
-point_count = 6
-
-[sub_resource type="Animation" id="Animation_7kxa5"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:progress_ratio")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-
-[sub_resource type="Animation" id="Animation_kti5d"]
-resource_name = "caminhoSpawner"
-length = 5.0
-loop_mode = 2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:progress_ratio")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 5),
-"transitions": PackedFloat32Array(1.2745614, 1),
-"update": 0,
-"values": [0.0, 0.955]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_ubovw"]
-_data = {
-&"RESET": SubResource("Animation_7kxa5"),
-&"caminhoSpawner": SubResource("Animation_kti5d")
-}
-<<<<<<< Updated upstream
->>>>>>>> Stashed changes:Scenes/FasePrincipal.tscn
-=======
-=======
 [ext_resource type="Script" uid="uid://bf0ow8cb6r4ar" path="res://Scripts/FasePrincipal/fase_principal.gd" id="1_7kxa5"]
 [ext_resource type="PackedScene" uid="uid://r3ugmixsldxe" path="res://Scenes/FasePrincipal/arma.tscn" id="1_x5p2i"]
 [ext_resource type="PackedScene" uid="uid://cuge5u3bblqwa" path="res://Scenes/FasePrincipal/enemy_spawner.tscn" id="2_1lh45"]
 [ext_resource type="PackedScene" uid="uid://13ixk6h33t1i" path="res://Scenes/FasePrincipal/Balao.tscn" id="3_82kia"]
->>>>>>> e52bae4b83e2242027a7b0587650f63d3d513361:Scenes/FasePrincipal/FasePrincipal.tscn
->>>>>>> Stashed changes
 
 [node name="FasePrincipal" type="Node2D" unique_id=1502453635]
 script = ExtResource("1_7kxa5")
@@ -91,6 +20,24 @@ color = Color(0.69868207, 0.43942723, 0.32323346, 1)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1385811518]
 zoom = Vector2(2, 2)
+
+[node name="EnemySpawner" parent="." unique_id=134133923 node_paths=PackedStringArray("target") instance=ExtResource("2_1lh45")]
+position = Vector2(1, -173)
+enemyScene = ExtResource("3_82kia")
+cooldown = 2.0
+target = NodePath("../Arma")
+
+[node name="EnemySpawner2" parent="." unique_id=1017127940 node_paths=PackedStringArray("target") instance=ExtResource("2_1lh45")]
+position = Vector2(300, -2)
+enemyScene = ExtResource("3_82kia")
+cooldown = 3.0
+target = NodePath("../Arma")
+
+[node name="EnemySpawner3" parent="." unique_id=119011415 node_paths=PackedStringArray("target") instance=ExtResource("2_1lh45")]
+position = Vector2(1, 166)
+enemyScene = ExtResource("3_82kia")
+cooldown = 2.5
+target = NodePath("../Arma")
 
 [node name="Pontos" type="ColorRect" parent="." unique_id=787227788]
 modulate = Color(1, 1, 1, 0.6431373)
@@ -128,63 +75,6 @@ scroll_active = false
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Path2D" type="Path2D" parent="." unique_id=894231835]
-position = Vector2(-312, 0)
-curve = SubResource("Curve2D_7kxa5")
-script = ExtResource("5_kti5d")
-
-[node name="PathFollow2D" type="PathFollow2D" parent="Path2D" unique_id=550648801]
-position = Vector2(-1, -1)
-rotation = 1.5533563
-
-[node name="RemoteTransform" type="RemoteTransform2D" parent="Path2D/PathFollow2D" unique_id=712627192]
-<<<<<<< Updated upstream
-position = Vector2(4.946924, 3.0867496)
-=======
-position = Vector2(-27.881105, 2.0520325)
->>>>>>> Stashed changes
-rotation = -3.1385438
-remote_path = NodePath("../../EnemySpawner")
-
-[node name="RemoteTransform2" type="RemoteTransform2D" parent="Path2D/PathFollow2D" unique_id=438408179]
-position = Vector2(-189.50769, -364.82217)
-rotation = -3.1385438
-remote_path = NodePath("../../EnemySpawner2")
-
-[node name="RemoteTransform3" type="RemoteTransform2D" parent="Path2D/PathFollow2D" unique_id=1074264093]
-position = Vector2(184.80948, -445.7601)
-rotation = 0.006097621
-remote_path = NodePath("../../EnemySpawner3")
-
-[node name="AnimationSpawner" type="AnimationPlayer" parent="Path2D" unique_id=1513687733]
-root_node = NodePath("../PathFollow2D")
-libraries/ = SubResource("AnimationLibrary_ubovw")
-
-[node name="EnemySpawner" parent="Path2D" unique_id=134133923 node_paths=PackedStringArray("target") instance=ExtResource("2_1lh45")]
-<<<<<<< Updated upstream
-position = Vector2(-4, 4.0000024)
-=======
-position = Vector2(-3.5379333, -28.84108)
->>>>>>> Stashed changes
-rotation = -1.5851876
-enemyScene = ExtResource("3_82kia")
-cooldown = 2.0
-target = NodePath("../../Arma")
-
-[node name="EnemySpawner3" parent="Path2D" unique_id=119011415 node_paths=PackedStringArray("target") instance=ExtResource("2_1lh45")]
-position = Vector2(447.91525, 176.00769)
-rotation = 1.559454
-enemyScene = ExtResource("3_82kia")
-cooldown = 2.5
-target = NodePath("../../Arma")
-
-[node name="EnemySpawner2" parent="Path2D" unique_id=1017127940 node_paths=PackedStringArray("target") instance=ExtResource("2_1lh45")]
-position = Vector2(360.46185, -196.84106)
-rotation = -1.5851876
-enemyScene = ExtResource("3_82kia")
-cooldown = 3.0
-target = NodePath("../../Arma")
-
-[connection signal="enemy_died" from="Path2D/EnemySpawner" to="." method="_on_enemy_spawner_enemy_died"]
-[connection signal="enemy_died" from="Path2D/EnemySpawner3" to="." method="_on_enemy_spawner_3_enemy_died"]
-[connection signal="enemy_died" from="Path2D/EnemySpawner2" to="." method="_on_enemy_spawner_2_enemy_died"]
+[connection signal="enemy_died" from="EnemySpawner" to="." method="_on_enemy_spawner_enemy_died"]
+[connection signal="enemy_died" from="EnemySpawner2" to="." method="_on_enemy_spawner_2_enemy_died"]
+[connection signal="enemy_died" from="EnemySpawner3" to="." method="_on_enemy_spawner_3_enemy_died"]
