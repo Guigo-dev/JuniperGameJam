@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://13ixk6h33t1i"]
 
-[ext_resource type="Script" uid="uid://b5o8prwp6rpnm" path="res://Scripts/FasePrincipal/enemy.gd" id="1_j60bn"]
+[ext_resource type="Script" uid="uid://b5o8prwp6rpnm" path="res://Scripts/FasePrincipal/balao.gd" id="1_j60bn"]
 [ext_resource type="Texture2D" uid="uid://4vkm3n5a8m8u" path="res://Sprites/PNG/inimigo_1_down.png" id="2_ioabh"]
 [ext_resource type="Script" uid="uid://dj8j1pu2ilxua" path="res://Scripts/FasePrincipal/HealthComponent.gd" id="3_bo2r3"]
 
@@ -40,11 +40,10 @@ animations = [{
 "speed": 10.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_j60bn"]
-radius = 8.0
-height = 24.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_iea4b"]
+radius = 8.062258
 
-[node name="EnemyDefault" type="Area2D" unique_id=33346324]
+[node name="Balao" type="Area2D" unique_id=33346324]
 script = ExtResource("1_j60bn")
 speed = 20.0
 
@@ -52,11 +51,11 @@ speed = 20.0
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_n7ou2")
 autoplay = "default"
-frame_progress = 0.55863476
+frame_progress = 0.478554
 
 [node name="ColissionShape2D" type="CollisionShape2D" parent="." unique_id=1645832035]
-position = Vector2(0, 1)
-shape = SubResource("CapsuleShape2D_j60bn")
+position = Vector2(1, -4)
+shape = SubResource("CircleShape2D_iea4b")
 
 [node name="HealthComponent" type="Node" parent="." unique_id=1680600467]
 unique_name_in_owner = true
