@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c1p2nt62ftaxs"]
 
-[ext_resource type="Script" uid="uid://b87yq1arpiqgu" path="res://Scenes/FasePrincipal/poco_de_fogo.gd" id="1_7eqcp"]
+[ext_resource type="Script" uid="uid://b87yq1arpiqgu" path="res://Scripts/FasePrincipal/poco_de_fogo.gd" id="1_7eqcp"]
 [ext_resource type="Texture2D" uid="uid://bsyapf20j4h44" path="res://Sprites/PNG/Sprite-sheet-campfire.png" id="1_sea3n"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7eqcp"]

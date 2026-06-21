@@ -1,0 +1,74 @@
+<<<<<<< HEAD
+[gd_scene format=3 uid="uid://f85ustgppl32"]
+=======
+[gd_scene format=3 uid="uid://b8u7fi3j6tfk"]
+>>>>>>> 5dfeb4404db17a44651d60fdd42eab82a9e26757
+
+[ext_resource type="Script" uid="uid://b5o8prwp6rpnm" path="res://Scripts/FasePrincipal/enemy.gd" id="1_6ee2s"]
+[ext_resource type="Script" uid="uid://dj8j1pu2ilxua" path="res://Scripts/FasePrincipal/HealthComponent.gd" id="2_6ee2s"]
+[ext_resource type="Texture2D" uid="uid://corcwg26s27d3" path="res://Sprites/PNG/inimigo_2_down.png" id="2_fthsd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cttbm"]
+atlas = ExtResource("2_fthsd")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5a5v2"]
+atlas = ExtResource("2_fthsd")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kb7j1"]
+atlas = ExtResource("2_fthsd")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t5oiy"]
+atlas = ExtResource("2_fthsd")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fthsd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cttbm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5a5v2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kb7j1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t5oiy")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6ee2s"]
+radius = 11.0
+height = 24.0
+
+[node name="EnemyGordo" type="Area2D" unique_id=1920437975]
+script = ExtResource("1_6ee2s")
+speed = 15.0
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=451317134]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_fthsd")
+autoplay = "default"
+frame = 2
+frame_progress = 0.7024176
+
+[node name="ColissionShape2D2" type="CollisionShape2D" parent="." unique_id=216982034]
+position = Vector2(0, 3)
+shape = SubResource("CapsuleShape2D_6ee2s")
+
+[node name="HealthComponent" type="Node" parent="." unique_id=708272456]
+unique_name_in_owner = true
+script = ExtResource("2_6ee2s")
+MAX_LIFE = 2
+lifePoints = 2
+metadata/_custom_type_script = "uid://dj8j1pu2ilxua"
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="died" from="HealthComponent" to="." method="_on_health_component_died"]
