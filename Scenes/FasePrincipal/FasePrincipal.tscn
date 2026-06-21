@@ -7,6 +7,98 @@
 [ext_resource type="PackedScene" uid="uid://13ixk6h33t1i" path="res://Scenes/FasePrincipal/EnemyDefault.tscn" id="3_82kia"]
 [ext_resource type="Texture2D" uid="uid://rogtftkam8yd" path="res://Sprites/PNG/village.png" id="4_sn6df"]
 
+[sub_resource type="Curve2D" id="Curve2D_sn6df"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 169, 0, 0, 0, 0, 608, 169, 0, 0, 0, 0, 608, -175, 0, 0, 0, 0, 0, -175, 0, 0, 0, 0, 0, 1)
+}
+point_count = 6
+
+[sub_resource type="Animation" id="Animation_t43sm"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_qp7sx"]
+resource_name = "movimentacao_spawner"
+length = 5.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_1hlo7"]
+resource_name = "movimentacao_spawner2"
+length = 5.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_xjset"]
+resource_name = "movimentacao_spawner3"
+length = 5.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jsvmo"]
+_data = {
+&"RESET": SubResource("Animation_t43sm"),
+&"movimentacao_spawner": SubResource("Animation_qp7sx"),
+&"movimentacao_spawner2": SubResource("Animation_1hlo7"),
+&"movimentacao_spawner3": SubResource("Animation_xjset")
+}
+
+[sub_resource type="Curve2D" id="Curve2D_o2jkb"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 311, 168, 0, 0, 0, 0, 608, 169, 0, 0, 0, 0, 608, -175, 0, 0, 0, 0, 0, -175, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, -1, 168, 0, 0, 0, 0, 311, 168)
+}
+point_count = 7
+
+[sub_resource type="Curve2D" id="Curve2D_uotby"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 351, -179, 0, 0, 0, 0, -1, -179, 0, 0, 0, 0, -1, 165, 0, 0, 0, 0, 608, 169, 0, 0, 0, 0, 607, -179, 0, 0, 0, 0, 351, -179)
+}
+point_count = 6
+
 [node name="FasePrincipal" type="Node2D" unique_id=1502453635 node_paths=PackedStringArray("arma")]
 script = ExtResource("1_7kxa5")
 arma = NodePath("Arma")
@@ -36,24 +128,6 @@ stretch_mode = 2
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1385811518]
 position = Vector2(1, -6)
 zoom = Vector2(2, 2)
-
-[node name="EnemySpawner" parent="." unique_id=134133923 node_paths=PackedStringArray("target") instance=ExtResource("2_1lh45")]
-position = Vector2(1, -173)
-enemyScene = ExtResource("3_82kia")
-cooldown = 2.0
-target = NodePath("../Arma")
-
-[node name="EnemySpawner2" parent="." unique_id=1017127940 node_paths=PackedStringArray("target") instance=ExtResource("2_1lh45")]
-position = Vector2(300, -2)
-enemyScene = ExtResource("3_82kia")
-cooldown = 3.0
-target = NodePath("../Arma")
-
-[node name="EnemySpawner3" parent="." unique_id=119011415 node_paths=PackedStringArray("target") instance=ExtResource("2_1lh45")]
-position = Vector2(1, 166)
-enemyScene = ExtResource("3_82kia")
-cooldown = 2.5
-target = NodePath("../Arma")
 
 [node name="Pontos" type="ColorRect" parent="." unique_id=787227788]
 modulate = Color(1, 1, 1, 0.6431373)
@@ -94,6 +168,74 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[connection signal="enemy_died" from="EnemySpawner" to="." method="_on_enemy_spawner_enemy_died"]
-[connection signal="enemy_died" from="EnemySpawner2" to="." method="_on_enemy_spawner_2_enemy_died"]
-[connection signal="enemy_died" from="EnemySpawner3" to="." method="_on_enemy_spawner_3_enemy_died"]
+[node name="Path2D" type="Path2D" parent="." unique_id=1378421555]
+position = Vector2(-304, 0)
+curve = SubResource("Curve2D_sn6df")
+
+[node name="EnemySpawner" parent="Path2D" unique_id=134133923 node_paths=PackedStringArray("target") instance=ExtResource("2_1lh45")]
+position = Vector2(-1, 0.99999994)
+rotation = 1.5707964
+enemyScene = ExtResource("3_82kia")
+cooldown = 2.0
+target = NodePath("../../Arma")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D" unique_id=5128823]
+position = Vector2(0, 1)
+rotation = 1.5707964
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Path2D/PathFollow2D" unique_id=2105735375]
+libraries/ = SubResource("AnimationLibrary_jsvmo")
+autoplay = &"movimentacao_spawner"
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Path2D/PathFollow2D" unique_id=1703986706]
+position = Vector2(0, 1.000001)
+remote_path = NodePath("../../EnemySpawner")
+
+[node name="Path2D2" type="Path2D" parent="." unique_id=596004101]
+position = Vector2(-304, 0)
+curve = SubResource("Curve2D_o2jkb")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D2" unique_id=1943770661]
+position = Vector2(311, 168)
+rotation = 0.0033669907
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Path2D2/PathFollow2D" unique_id=818828190]
+libraries/ = SubResource("AnimationLibrary_jsvmo")
+autoplay = &"movimentacao_spawner3"
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Path2D2/PathFollow2D" unique_id=1090759545]
+position = Vector2(2.6923828, 9)
+remote_path = NodePath("../../EnemySpawner2")
+
+[node name="EnemySpawner2" parent="Path2D2" unique_id=1017127940 node_paths=PackedStringArray("target") instance=ExtResource("2_1lh45")]
+position = Vector2(313.66208, 177.00902)
+rotation = 0.0033669907
+enemyScene = ExtResource("3_82kia")
+cooldown = 3.0
+target = NodePath("../../Arma")
+
+[node name="Path2D3" type="Path2D" parent="." unique_id=1639300254]
+position = Vector2(-304, 0)
+curve = SubResource("Curve2D_uotby")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D3" unique_id=828801030]
+position = Vector2(351, -179)
+rotation = 3.1415927
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Path2D3/PathFollow2D" unique_id=480699026]
+libraries/ = SubResource("AnimationLibrary_jsvmo")
+autoplay = &"movimentacao_spawner2"
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Path2D3/PathFollow2D" unique_id=570303482]
+remote_path = NodePath("../../EnemySpawner3")
+
+[node name="EnemySpawner3" parent="Path2D3" unique_id=119011415 node_paths=PackedStringArray("target") instance=ExtResource("2_1lh45")]
+position = Vector2(351, -179)
+rotation = -3.1415925
+enemyScene = ExtResource("3_82kia")
+cooldown = 2.5
+target = NodePath("../../Arma")
+
+[connection signal="enemy_died" from="Path2D/EnemySpawner" to="." method="_on_enemy_spawner_enemy_died"]
+[connection signal="enemy_died" from="Path2D2/EnemySpawner2" to="." method="_on_enemy_spawner_2_enemy_died"]
+[connection signal="enemy_died" from="Path2D3/EnemySpawner3" to="." method="_on_enemy_spawner_3_enemy_died"]
