@@ -3,7 +3,9 @@
 [ext_resource type="Script" uid="uid://bf0ow8cb6r4ar" path="res://Scripts/FasePrincipal/fase_principal.gd" id="1_7kxa5"]
 [ext_resource type="PackedScene" uid="uid://r3ugmixsldxe" path="res://Scenes/FasePrincipal/arma.tscn" id="1_x5p2i"]
 [ext_resource type="PackedScene" uid="uid://cuge5u3bblqwa" path="res://Scenes/FasePrincipal/enemy_spawner.tscn" id="2_1lh45"]
-[ext_resource type="PackedScene" uid="uid://13ixk6h33t1i" path="res://Scenes/FasePrincipal/Balao.tscn" id="3_82kia"]
+[ext_resource type="Texture2D" uid="uid://bhf18linav7ue" path="res://Sprites/PNG/fundo_fase.png" id="3_04ipe"]
+[ext_resource type="PackedScene" uid="uid://13ixk6h33t1i" path="res://Scenes/FasePrincipal/EnemyDefault.tscn" id="3_82kia"]
+[ext_resource type="Texture2D" uid="uid://rogtftkam8yd" path="res://Sprites/PNG/village.png" id="4_sn6df"]
 
 [node name="FasePrincipal" type="Node2D" unique_id=1502453635 node_paths=PackedStringArray("arma")]
 script = ExtResource("1_7kxa5")
@@ -11,15 +13,28 @@ arma = NodePath("Arma")
 
 [node name="Arma" parent="." unique_id=44014132 instance=ExtResource("1_x5p2i")]
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1483222113]
+[node name="ColorRect" type="TextureRect" parent="." unique_id=641143662]
 z_index = -1
 offset_left = -287.0
 offset_top = -167.0
 offset_right = 293.0
 offset_bottom = 161.0
-color = Color(0.69868207, 0.43942723, 0.32323346, 1)
+texture = ExtResource("3_04ipe")
+stretch_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect" unique_id=2070643289]
+z_index = 1
+z_as_relative = false
+texture_filter = 1
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("4_sn6df")
+stretch_mode = 2
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1385811518]
+position = Vector2(1, -6)
 zoom = Vector2(2, 2)
 
 [node name="EnemySpawner" parent="." unique_id=134133923 node_paths=PackedStringArray("target") instance=ExtResource("2_1lh45")]
@@ -48,6 +63,7 @@ offset_top = -159.0
 offset_right = -182.0
 offset_bottom = -118.0
 color = Color(0.8745098, 0.44313726, 0.14901961, 1)
+metadata/_edit_use_anchors_ = true
 
 [node name="TextFrase" type="RichTextLabel" parent="Pontos" unique_id=487760098]
 texture_filter = 1
@@ -61,6 +77,7 @@ text = "DINHEIROS
 scroll_active = false
 horizontal_alignment = 1
 vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="TextPontos" type="RichTextLabel" parent="Pontos" unique_id=187227670]
 texture_filter = 1
@@ -75,6 +92,7 @@ text = "0"
 scroll_active = false
 horizontal_alignment = 1
 vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [connection signal="enemy_died" from="EnemySpawner" to="." method="_on_enemy_spawner_enemy_died"]
 [connection signal="enemy_died" from="EnemySpawner2" to="." method="_on_enemy_spawner_2_enemy_died"]

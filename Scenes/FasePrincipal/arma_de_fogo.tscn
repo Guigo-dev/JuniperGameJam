@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://chlfhvwo5bpts"]
 
-[ext_resource type="Script" uid="uid://bycpvhnw1t48j" path="res://Scenes/FasePrincipal/arma_de_fogo.gd" id="1_aymjp"]
+[ext_resource type="Script" uid="uid://bycpvhnw1t48j" path="res://Scripts/FasePrincipal/arma_de_fogo.gd" id="1_aymjp"]
 [ext_resource type="Texture2D" uid="uid://liuaqg1ij0hr" path="res://Sprites/PNG/arma_fogo.png" id="1_isqu5"]
 [ext_resource type="Script" uid="uid://boemys4v5i1gw" path="res://Scripts/FasePrincipal/bullet_spawner.gd" id="2_p8s0x"]
 [ext_resource type="Script" uid="uid://dj8j1pu2ilxua" path="res://Scripts/FasePrincipal/HealthComponent.gd" id="3_aymjp"]
@@ -11,6 +11,7 @@ size = Vector2(24, 15)
 
 [node name="ArmaDeFogo" type="Area2D" unique_id=955160628]
 script = ExtResource("1_aymjp")
+bulletCooldown = 0.5
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=8201228]
 texture = ExtResource("1_isqu5")
@@ -19,13 +20,6 @@ texture = ExtResource("1_isqu5")
 position = Vector2(1, 0.5)
 shape = SubResource("RectangleShape2D_bnmer")
 
-[node name="BulletSpawner" type="Node2D" parent="." unique_id=1964989653]
-unique_name_in_owner = true
-position = Vector2(14, -5)
-script = ExtResource("2_p8s0x")
-bala = ExtResource("3_p8s0x")
-metadata/_custom_type_script = "uid://boemys4v5i1gw"
-
 [node name="HealthComponent" type="Node" parent="." unique_id=1300084918]
 unique_name_in_owner = true
 script = ExtResource("3_aymjp")
@@ -33,7 +27,17 @@ MAX_LIFE = 3
 lifePoints = 3
 metadata/_custom_type_script = "uid://dj8j1pu2ilxua"
 
+[node name="BulletSpawner" type="Node2D" parent="." unique_id=1964989653]
+unique_name_in_owner = true
+position = Vector2(14, -5)
+script = ExtResource("2_p8s0x")
+bala = ExtResource("3_p8s0x")
+metadata/_custom_type_script = "uid://boemys4v5i1gw"
+
 [node name="BulletCooldown" type="Timer" parent="." unique_id=1428372066]
 wait_time = 0.5
 one_shot = true
 autostart = true
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="died" from="HealthComponent" to="." method="_on_health_component_died"]

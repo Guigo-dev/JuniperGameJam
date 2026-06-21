@@ -2,7 +2,7 @@ class_name BulletSpawner extends Node2D
 
 
 @export var bala: PackedScene
-@onready var arma: Node2D = $".."
+@onready var arma: Node2D = get_parent()
 
 func spawnBullet() -> void:
 	var bullet = bala.instantiate()
