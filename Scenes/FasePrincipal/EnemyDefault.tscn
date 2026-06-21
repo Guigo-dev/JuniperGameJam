@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://13ixk6h33t1i"]
 
-[ext_resource type="Script" uid="uid://b5o8prwp6rpnm" path="res://Scripts/FasePrincipal/balao.gd" id="1_j60bn"]
+[ext_resource type="Script" uid="uid://b5o8prwp6rpnm" path="res://Scripts/FasePrincipal/enemy.gd" id="1_j60bn"]
 [ext_resource type="Texture2D" uid="uid://4vkm3n5a8m8u" path="res://Sprites/PNG/inimigo_1_down.png" id="2_ioabh"]
 [ext_resource type="Script" uid="uid://dj8j1pu2ilxua" path="res://Scripts/FasePrincipal/HealthComponent.gd" id="3_bo2r3"]
 
