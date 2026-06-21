@@ -1,6 +1,10 @@
-[gd_scene format=3 uid="uid://82w3jsskh1ns"]
+[gd_scene format=3 uid="uid://brq1vud63ej1n"]
 
+<<<<<<<< Updated upstream:Scenes/FasePrincipal/HealthComponent.tscn
 [ext_resource type="Script" uid="uid://dj8j1pu2ilxua" path="res://Scripts/FasePrincipal/HealthComponent.gd" id="1_herxf"]
+========
+[ext_resource type="Script" path="res://Scripts/HealthComponent.gd" id="1_herxf"]
+>>>>>>>> Stashed changes:Scenes/HealthComponent.tscn
 
 [node name="HealthComponent" type="Node" unique_id=1411343263]
 script = ExtResource("1_herxf")

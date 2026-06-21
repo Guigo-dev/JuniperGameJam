@@ -1,6 +1,10 @@
-[gd_scene format=3 uid="uid://scitov56cg4l"]
+[gd_scene format=3 uid="uid://c0gfu68stw1e"]
 
+<<<<<<<< Updated upstream:Scenes/FasePrincipal/Bala.tscn
 [ext_resource type="Script" uid="uid://bhq3bpt4dpubk" path="res://Scripts/FasePrincipal/bala.gd" id="1_3tbbd"]
+========
+[ext_resource type="Script" path="res://Scripts/bala.gd" id="1_3tbbd"]
+>>>>>>>> Stashed changes:Scenes/Bala.tscn
 [ext_resource type="Texture2D" uid="uid://b34bj4k4hhjrk" path="res://Sprites/Bala.png" id="1_et1n4"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3tbbd"]

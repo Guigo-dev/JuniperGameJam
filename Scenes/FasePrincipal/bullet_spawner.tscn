@@ -1,7 +1,12 @@
-[gd_scene format=3 uid="uid://bou3lv488i73w"]
+[gd_scene format=3 uid="uid://b4sfcnh8chsoj"]
 
+<<<<<<<< Updated upstream:Scenes/FasePrincipal/bullet_spawner.tscn
 [ext_resource type="Script" uid="uid://boemys4v5i1gw" path="res://Scripts/FasePrincipal/bullet_spawner.gd" id="1_4fhvc"]
 [ext_resource type="PackedScene" uid="uid://scitov56cg4l" path="res://Scenes/FasePrincipal/Bala.tscn" id="2_1jpf4"]
+========
+[ext_resource type="Script" path="res://Scripts/bullet_spawner.gd" id="1_4fhvc"]
+[ext_resource type="PackedScene" uid="uid://c0gfu68stw1e" path="res://Scenes/Bala.tscn" id="2_1jpf4"]
+>>>>>>>> Stashed changes:Scenes/bullet_spawner.tscn
 
 [node name="BulletSpawner" type="Node2D" unique_id=102571180]
 script = ExtResource("1_4fhvc")

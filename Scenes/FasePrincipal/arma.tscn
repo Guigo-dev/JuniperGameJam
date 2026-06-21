@@ -1,10 +1,18 @@
-[gd_scene format=3 uid="uid://r3ugmixsldxe"]
+[gd_scene format=3 uid="uid://dg6ymxl66gyte"]
 
+<<<<<<<< Updated upstream:Scenes/FasePrincipal/arma.tscn
 [ext_resource type="Script" uid="uid://dortgqdt8w8cr" path="res://Scripts/FasePrincipal/arma.gd" id="1_nwb0c"]
 [ext_resource type="Texture2D" uid="uid://xwfmax7wg3rc" path="res://Sprites/Arma.png" id="2_t2b7e"]
 [ext_resource type="Script" uid="uid://dj8j1pu2ilxua" path="res://Scripts/FasePrincipal/HealthComponent.gd" id="3_n5qd3"]
 [ext_resource type="Script" uid="uid://boemys4v5i1gw" path="res://Scripts/FasePrincipal/bullet_spawner.gd" id="4_xutcm"]
 [ext_resource type="PackedScene" uid="uid://scitov56cg4l" path="res://Scenes/FasePrincipal/Bala.tscn" id="5_1wt7n"]
+========
+[ext_resource type="Texture2D" uid="uid://xwfmax7wg3rc" path="res://Sprites/Arma.png" id="1_7bvn3"]
+[ext_resource type="Script" path="res://Scripts/arma.gd" id="1_bjc62"]
+[ext_resource type="Script" path="res://Scripts/HealthComponent.gd" id="2_ckcjq"]
+[ext_resource type="Script" path="res://Scripts/bullet_spawner.gd" id="4_c0822"]
+[ext_resource type="PackedScene" path="res://Scenes/Bala.tscn" id="5_3dn1k"]
+>>>>>>>> Stashed changes:Scenes/arma.tscn
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ckcjq"]
 size = Vector2(26, 27)

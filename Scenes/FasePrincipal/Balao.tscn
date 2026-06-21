@@ -1,8 +1,13 @@
-[gd_scene format=3 uid="uid://13ixk6h33t1i"]
+[gd_scene format=3 uid="uid://27tpmn5hyr78"]
 
 [ext_resource type="Texture2D" uid="uid://x8lw8hv0eqi6" path="res://Sprites/Balao.png" id="1_iea4b"]
+<<<<<<<< Updated upstream:Scenes/FasePrincipal/Balao.tscn
 [ext_resource type="Script" uid="uid://b5o8prwp6rpnm" path="res://Scripts/FasePrincipal/balao.gd" id="1_k74jg"]
 [ext_resource type="Script" uid="uid://dj8j1pu2ilxua" path="res://Scripts/FasePrincipal/HealthComponent.gd" id="2_tld7c"]
+========
+[ext_resource type="Script" path="res://Scripts/balao.gd" id="1_k74jg"]
+[ext_resource type="Script" path="res://Scripts/HealthComponent.gd" id="2_tld7c"]
+>>>>>>>> Stashed changes:Scenes/Balao.tscn
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_iea4b"]
 radius = 8.062258
