@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://bhf18linav7ue" path="res://Sprites/PNG/fundo_fase.png" id="3_04ipe"]
 [ext_resource type="PackedScene" uid="uid://13ixk6h33t1i" path="res://Scenes/FasePrincipal/EnemyDefault.tscn" id="3_82kia"]
 [ext_resource type="Texture2D" uid="uid://rogtftkam8yd" path="res://Sprites/PNG/village.png" id="4_sn6df"]
+[ext_resource type="PackedScene" uid="uid://wf23uwlm7b0r" path="res://Scenes/FasePrincipal/enemy_gordo.tscn" id="6_qp7sx"]
+[ext_resource type="PackedScene" uid="uid://m6fl22fp30ky" path="res://Scenes/FasePrincipal/enemy_magro.tscn" id="7_1hlo7"]
 
 [sub_resource type="Curve2D" id="Curve2D_sn6df"]
 _data = {
@@ -105,7 +107,7 @@ arma = NodePath("Arma")
 
 [node name="Arma" parent="." unique_id=44014132 instance=ExtResource("1_x5p2i")]
 
-[node name="ColorRect" type="TextureRect" parent="." unique_id=641143662]
+[node name="BackGround" type="TextureRect" parent="." unique_id=641143662]
 z_index = -1
 offset_left = -287.0
 offset_top = -167.0
@@ -115,7 +117,7 @@ texture = ExtResource("3_04ipe")
 stretch_mode = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="TextureRect" type="TextureRect" parent="ColorRect" unique_id=2070643289]
+[node name="Foreground" type="TextureRect" parent="BackGround" unique_id=2070643289]
 z_index = 1
 z_as_relative = false
 texture_filter = 1
@@ -131,6 +133,7 @@ zoom = Vector2(2, 2)
 
 [node name="Pontos" type="ColorRect" parent="." unique_id=787227788]
 modulate = Color(1, 1, 1, 0.6431373)
+z_index = 10
 texture_filter = 1
 offset_left = -282.0
 offset_top = -159.0
@@ -175,7 +178,7 @@ curve = SubResource("Curve2D_sn6df")
 [node name="EnemySpawner" parent="Path2D" unique_id=134133923 node_paths=PackedStringArray("target") instance=ExtResource("2_1lh45")]
 position = Vector2(-1, 0.99999994)
 rotation = 1.5707964
-enemyScene = ExtResource("3_82kia")
+enemyScene = ExtResource("6_qp7sx")
 cooldown = 2.0
 target = NodePath("../../Arma")
 
@@ -210,7 +213,7 @@ remote_path = NodePath("../../EnemySpawner2")
 [node name="EnemySpawner2" parent="Path2D2" unique_id=1017127940 node_paths=PackedStringArray("target") instance=ExtResource("2_1lh45")]
 position = Vector2(312, 168)
 rotation = 0.0033669907
-enemyScene = ExtResource("3_82kia")
+enemyScene = ExtResource("7_1hlo7")
 cooldown = 3.0
 target = NodePath("../../Arma")
 
@@ -220,7 +223,7 @@ curve = SubResource("Curve2D_uotby")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D3" unique_id=828801030]
 position = Vector2(351, -179)
-rotation = 3.1415927
+rotation = 3.1415925
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Path2D3/PathFollow2D" unique_id=480699026]
 libraries/ = SubResource("AnimationLibrary_jsvmo")
@@ -231,7 +234,7 @@ remote_path = NodePath("../../EnemySpawner3")
 
 [node name="EnemySpawner3" parent="Path2D3" unique_id=119011415 node_paths=PackedStringArray("target") instance=ExtResource("2_1lh45")]
 position = Vector2(351, -179)
-rotation = -3.1415925
+rotation = 3.1415925
 enemyScene = ExtResource("3_82kia")
 cooldown = 2.5
 target = NodePath("../../Arma")

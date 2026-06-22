@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://wf23uwlm7b0r"]
+
+[ext_resource type="Script" uid="uid://b5o8prwp6rpnm" path="res://Scripts/FasePrincipal/enemy.gd" id="1_2bhte"]
+[ext_resource type="Script" uid="uid://dj8j1pu2ilxua" path="res://Scripts/FasePrincipal/HealthComponent.gd" id="2_2bhte"]
+[ext_resource type="Texture2D" uid="uid://corcwg26s27d3" path="res://Sprites/PNG/inimigo_2_down.png" id="2_30wkq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0u6kh"]
+atlas = ExtResource("2_30wkq")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bjeu8"]
+atlas = ExtResource("2_30wkq")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e3suv"]
+atlas = ExtResource("2_30wkq")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yxt74"]
+atlas = ExtResource("2_30wkq")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_30wkq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0u6kh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bjeu8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e3suv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yxt74")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0u6kh"]
+radius = 11.0
+height = 24.0
+
+[node name="enemyGordo" type="Area2D" unique_id=1636475579]
+script = ExtResource("1_2bhte")
+speed = 15.0
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=1666134557]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_30wkq")
+autoplay = "default"
+
+[node name="ColissionShape2D" type="CollisionShape2D" parent="." unique_id=1196915142]
+position = Vector2(0, 4)
+shape = SubResource("CapsuleShape2D_0u6kh")
+
+[node name="HealthComponent" type="Node" parent="." unique_id=1850206044]
+unique_name_in_owner = true
+script = ExtResource("2_2bhte")
+MAX_LIFE = 2
+lifePoints = 2
+metadata/_custom_type_script = "uid://dj8j1pu2ilxua"
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="died" from="HealthComponent" to="." method="_on_health_component_died"]

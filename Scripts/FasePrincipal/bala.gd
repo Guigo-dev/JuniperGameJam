@@ -1,7 +1,7 @@
 extends Area2D
 
 var direction
-@export var speed = 30
+@export var speed = 70
 @export var penetration = 1
 @export var dano := 1
 var target: Node2D
