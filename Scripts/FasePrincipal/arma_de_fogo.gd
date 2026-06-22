@@ -6,23 +6,14 @@ extends Area2D
 
 @export var bulletCooldown: float
 @export var speedMultiplier := 1.0
-
-@export_range(0.0,100.0) var spring: float
-@export_range(0.0,100.0) var damp: float
-
-var juicyVelocity = 0
-var force
-var juicyDisplacement = 0
-
 var speed
 var direction = 1
-
 
 func _ready() -> void:
 	add_to_group("arma")
 
 func _physics_process(delta: float) -> void:
-	speed = 75 * speedMultiplier #velocidade base de rotacao
+	speed = 75 * speedMultiplier #velocidade base
 	if(Input.is_action_pressed("Direita")):
 		direction = 1
 		speed = 65 * speedMultiplier
@@ -34,8 +25,6 @@ func _physics_process(delta: float) -> void:
 	if(Input.is_action_just_pressed("atirar") && bulletCooldownTimer.is_stopped()):
 		bulletSpawner.spawnBullet()
 		bulletCooldownTimer.start(bulletCooldown)
-		juicyVelocity = 30
-	shake(delta)
 
 func _on_health_component_died() -> void:
 	get_tree().paused = true
@@ -52,13 +41,3 @@ func updateMaxHealth(amount: int):
 
 func updateSpeedMultiplier(amount: float):
 	speedMultiplier = amount
-	
-func shake(delta:float) -> void:
-	force = -spring * juicyDisplacement - damp*juicyVelocity
-	juicyVelocity += force * delta
-	juicyDisplacement += juicyVelocity * delta
-	scale = Vector2(
-		1.0 + juicyDisplacement,
-		1.0 - juicyDisplacement
-	)
-	

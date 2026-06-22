@@ -2,12 +2,16 @@ class_name BulletSpawner extends Node2D
 
 
 @export var bala: PackedScene
-@onready var arma: Node2D = $".."
+@onready var arma: Node2D = get_parent()
+@onready var cpu_particles_2d = $CPUParticles2D
+
 
 func spawnBullet() -> void:
 	var bullet = bala.instantiate()
 	bullet.target = arma
 	bullet.position = global_position
+	bullet.global_rotation = arma.global_rotation-0.35 #esse -0.35 foi pra endireitar o angulo, sla pq esse valor
 	get_parent().get_parent().add_child(bullet)
+	cpu_particles_2d.emitting = true
 	
 	

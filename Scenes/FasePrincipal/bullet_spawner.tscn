@@ -6,3 +6,19 @@
 [node name="BulletSpawner" type="Node2D" unique_id=102571180]
 script = ExtResource("1_4fhvc")
 bala = ExtResource("2_1jpf4")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=858060646]
+emitting = false
+amount = 10
+lifetime = 0.3
+one_shot = true
+explosiveness = 1.0
+lifetime_randomness = 0.23
+direction = Vector2(10, 0.28)
+spread = 15.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 20.0
+initial_velocity_max = 70.0
+damping_min = 53.576
+damping_max = 90.197
+color = Color(0.6269067, 0.4942754, 0.17048678, 1)

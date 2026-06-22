@@ -1,0 +1,81 @@
+[gd_scene format=3 uid="uid://d0byha24h1at7"]
+
+[ext_resource type="Script" uid="uid://bf0ow8cb6r4ar" path="res://Scripts/FasePrincipal/fase_principal.gd" id="1_u0kin"]
+[ext_resource type="PackedScene" uid="uid://chlfhvwo5bpts" path="res://Scenes/FasePrincipal/arma_de_fogo.tscn" id="2_d1jif"]
+[ext_resource type="PackedScene" uid="uid://cuge5u3bblqwa" path="res://Scenes/FasePrincipal/enemy_spawner.tscn" id="3_6tpii"]
+[ext_resource type="PackedScene" uid="uid://13ixk6h33t1i" path="res://Scenes/FasePrincipal/EnemyDefault.tscn" id="4_i0fb1"]
+
+[node name="TesteArmas" type="Node2D" unique_id=1449589759 node_paths=PackedStringArray("arma")]
+script = ExtResource("1_u0kin")
+arma = NodePath("ArmaDeFogo")
+
+[node name="ArmaDeFogo" parent="." unique_id=955160628 instance=ExtResource("2_d1jif")]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1428716523]
+z_index = -1
+offset_left = -287.0
+offset_top = -167.0
+offset_right = 293.0
+offset_bottom = 161.0
+color = Color(0.69868207, 0.43942723, 0.32323346, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=126124627]
+zoom = Vector2(2, 2)
+
+[node name="EnemySpawner" parent="." unique_id=1017127940 node_paths=PackedStringArray("target") instance=ExtResource("3_6tpii")]
+position = Vector2(1, -173)
+enemyScene = ExtResource("4_i0fb1")
+cooldown = 1.0
+target = NodePath("../ArmaDeFogo")
+
+[node name="EnemySpawner2" parent="." unique_id=1936716314 node_paths=PackedStringArray("target") instance=ExtResource("3_6tpii")]
+position = Vector2(300, -2)
+enemyScene = ExtResource("4_i0fb1")
+cooldown = 3.0
+target = NodePath("../ArmaDeFogo")
+
+[node name="EnemySpawner3" parent="." unique_id=72241213 node_paths=PackedStringArray("target") instance=ExtResource("3_6tpii")]
+position = Vector2(1, 166)
+enemyScene = ExtResource("4_i0fb1")
+cooldown = 2.5
+target = NodePath("../ArmaDeFogo")
+
+[node name="Pontos" type="ColorRect" parent="." unique_id=634746784]
+modulate = Color(1, 1, 1, 0.6431373)
+texture_filter = 1
+offset_left = -282.0
+offset_top = -159.0
+offset_right = -182.0
+offset_bottom = -118.0
+color = Color(0.8745098, 0.44313726, 0.14901961, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="TextFrase" type="RichTextLabel" parent="Pontos" unique_id=1040764260]
+texture_filter = 1
+layout_mode = 0
+offset_right = 102.0
+offset_bottom = 21.0
+theme_override_colors/default_color = Color(0.56078434, 0.3372549, 0.23137255, 1)
+theme_override_font_sizes/normal_font_size = 16
+text = "DINHEIROS
+"
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="TextPontos" type="RichTextLabel" parent="Pontos" unique_id=551228702]
+texture_filter = 1
+layout_mode = 0
+offset_left = 6.0
+offset_top = 18.0
+offset_right = 100.0
+offset_bottom = 40.0
+theme_override_colors/default_color = Color(0.56078434, 0.3372549, 0.23137255, 1)
+theme_override_font_sizes/normal_font_size = 20
+text = "0"
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true

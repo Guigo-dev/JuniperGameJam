@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://d2qcmxi41x3ny"]
+
+[ext_resource type="Texture2D" uid="uid://cs2fpypbwfmds" path="res://Sprites/PNG/bala_fogo.png" id="1_hkkwc"]
+[ext_resource type="Script" uid="uid://bp8yt8c1oioi" path="res://Scripts/FasePrincipal/bala_de_fogo.gd" id="1_ks1cl"]
+[ext_resource type="PackedScene" uid="uid://c1p2nt62ftaxs" path="res://Scenes/FasePrincipal/poco_de_fogo.tscn" id="2_4l7br"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ks1cl"]
+radius = 6.0
+
+[node name="BalaDeFogo" type="Area2D" unique_id=810302981]
+script = ExtResource("1_ks1cl")
+speed = 30
+penetration = 1
+dano = 1
+pocoFogo = ExtResource("2_4l7br")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1854406360]
+texture_filter = 1
+texture_repeat = 1
+texture = ExtResource("1_hkkwc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=536930111]
+shape = SubResource("CircleShape2D_ks1cl")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

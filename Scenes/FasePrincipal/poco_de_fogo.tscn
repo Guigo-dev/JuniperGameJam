@@ -1,0 +1,116 @@
+[gd_scene format=3 uid="uid://c1p2nt62ftaxs"]
+
+[ext_resource type="Script" uid="uid://b87yq1arpiqgu" path="res://Scripts/FasePrincipal/poco_de_fogo.gd" id="1_7eqcp"]
+[ext_resource type="Texture2D" uid="uid://bsyapf20j4h44" path="res://Sprites/PNG/Sprite-sheet-campfire.png" id="1_sea3n"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7eqcp"]
+atlas = ExtResource("1_sea3n")
+region = Rect2(0, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u870v"]
+atlas = ExtResource("1_sea3n")
+region = Rect2(640, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a2efu"]
+atlas = ExtResource("1_sea3n")
+region = Rect2(1280, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a8a8v"]
+atlas = ExtResource("1_sea3n")
+region = Rect2(1920, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_viepw"]
+atlas = ExtResource("1_sea3n")
+region = Rect2(2560, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_puw8n"]
+atlas = ExtResource("1_sea3n")
+region = Rect2(3200, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qc1gt"]
+atlas = ExtResource("1_sea3n")
+region = Rect2(3840, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4vdwq"]
+atlas = ExtResource("1_sea3n")
+region = Rect2(4480, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ist80"]
+atlas = ExtResource("1_sea3n")
+region = Rect2(5120, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_al2ht"]
+atlas = ExtResource("1_sea3n")
+region = Rect2(5760, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_56p35"]
+atlas = ExtResource("1_sea3n")
+region = Rect2(6400, 0, 640, 640)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_evnad"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7eqcp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u870v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a2efu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a8a8v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_viepw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_puw8n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qc1gt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4vdwq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ist80")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_al2ht")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_56p35")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_a6bw5"]
+radius = 21.0
+
+[node name="PocoDeFogo" type="Area2D" unique_id=1605096770]
+script = ExtResource("1_7eqcp")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=789139758]
+texture_filter = 1
+scale = Vector2(0.123437494, 0.11406251)
+sprite_frames = SubResource("SpriteFrames_evnad")
+animation = &"idle"
+autoplay = "idle"
+frame = 5
+frame_progress = 0.76099014
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=928709304]
+position = Vector2(1, 4)
+shape = SubResource("CircleShape2D_a6bw5")
+
+[node name="Duracao" type="Timer" parent="." unique_id=2025867615]
+wait_time = 3.0
+autostart = true
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]
+[connection signal="timeout" from="Duracao" to="." method="_on_duracao_timeout"]

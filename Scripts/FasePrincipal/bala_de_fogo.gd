@@ -1,9 +1,10 @@
 extends Area2D
 
 var direction
-@export var speed = 70
-@export var penetration = 1
-@export var dano := 1
+@export var speed :int
+@export var penetration :int
+@export var dano : int
+@export var pocoFogo: PackedScene
 var target: Node2D
 
 
@@ -15,6 +16,9 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	global_position += direction * speed * delta * -1
 	if(penetration == 0):
+		var poco = pocoFogo.instantiate()
+		poco.global_position = global_position
+		get_parent().get_parent().add_child(poco)
 		free()
 	
 func _on_area_entered(area: Area2D) -> void:
