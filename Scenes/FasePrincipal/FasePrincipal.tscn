@@ -6,8 +6,35 @@
 [ext_resource type="Texture2D" uid="uid://bhf18linav7ue" path="res://Sprites/PNG/fundo_fase.png" id="3_04ipe"]
 [ext_resource type="PackedScene" uid="uid://13ixk6h33t1i" path="res://Scenes/FasePrincipal/EnemyDefault.tscn" id="3_82kia"]
 [ext_resource type="Texture2D" uid="uid://rogtftkam8yd" path="res://Sprites/PNG/village.png" id="4_sn6df"]
+[ext_resource type="Texture2D" uid="uid://c2buru432eq5g" path="res://Sprites/PNG/soulcounter.png" id="5_1hlo7"]
 [ext_resource type="PackedScene" uid="uid://wf23uwlm7b0r" path="res://Scenes/FasePrincipal/enemy_gordo.tscn" id="6_qp7sx"]
 [ext_resource type="PackedScene" uid="uid://m6fl22fp30ky" path="res://Scenes/FasePrincipal/enemy_magro.tscn" id="7_1hlo7"]
+[ext_resource type="Texture2D" uid="uid://b5tq0j6uwwq4c" path="res://Sprites/PNG/lifecounter.png" id="10_xjset"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jsvmo"]
+atlas = ExtResource("5_1hlo7")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xjset"]
+atlas = ExtResource("5_1hlo7")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_o2jkb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jsvmo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xjset")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jsvmo")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="Curve2D" id="Curve2D_sn6df"]
 _data = {
@@ -101,9 +128,202 @@ _data = {
 }
 point_count = 6
 
-[node name="FasePrincipal" type="Node2D" unique_id=1502453635 node_paths=PackedStringArray("arma")]
+[sub_resource type="AtlasTexture" id="AtlasTexture_o2jkb"]
+atlas = ExtResource("10_xjset")
+region = Rect2(512, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uotby"]
+atlas = ExtResource("10_xjset")
+region = Rect2(384, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lahha"]
+atlas = ExtResource("10_xjset")
+region = Rect2(416, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nmifv"]
+atlas = ExtResource("10_xjset")
+region = Rect2(448, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u4hfx"]
+atlas = ExtResource("10_xjset")
+region = Rect2(480, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3bvoq"]
+atlas = ExtResource("10_xjset")
+region = Rect2(288, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_14hcg"]
+atlas = ExtResource("10_xjset")
+region = Rect2(320, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s446e"]
+atlas = ExtResource("10_xjset")
+region = Rect2(352, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p7m6u"]
+atlas = ExtResource("10_xjset")
+region = Rect2(384, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sqwau"]
+atlas = ExtResource("10_xjset")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fol42"]
+atlas = ExtResource("10_xjset")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xe2kd"]
+atlas = ExtResource("10_xjset")
+region = Rect2(256, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y67md"]
+atlas = ExtResource("10_xjset")
+region = Rect2(288, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6dx8m"]
+atlas = ExtResource("10_xjset")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lp2k8"]
+atlas = ExtResource("10_xjset")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ypq72"]
+atlas = ExtResource("10_xjset")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vfujf"]
+atlas = ExtResource("10_xjset")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_otbn3"]
+atlas = ExtResource("10_xjset")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s0efg"]
+atlas = ExtResource("10_xjset")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sk0xw"]
+atlas = ExtResource("10_xjset")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_06hhq"]
+atlas = ExtResource("10_xjset")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_irivd"]
+atlas = ExtResource("10_xjset")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_prgf5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o2jkb")
+}],
+"loop": false,
+"name": &"0 life",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uotby")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lahha")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nmifv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u4hfx")
+}],
+"loop": false,
+"name": &"1 life",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3bvoq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_14hcg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s446e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p7m6u")
+}],
+"loop": false,
+"name": &"2 life",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sqwau")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fol42")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xe2kd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y67md")
+}],
+"loop": false,
+"name": &"3 life",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6dx8m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lp2k8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ypq72")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vfujf")
+}],
+"loop": false,
+"name": &"4 life",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_otbn3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s0efg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sk0xw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_06hhq")
+}],
+"loop": false,
+"name": &"5 life",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_irivd")
+}],
+"loop": false,
+"name": &"6 life",
+"speed": 5.0
+}]
+
+[node name="FasePrincipal" type="Node2D" unique_id=1502453635 node_paths=PackedStringArray("arma", "lifeCounterIcon")]
 script = ExtResource("1_7kxa5")
 arma = NodePath("Arma")
+lifeCounterIcon = NodePath("LifeCounterIcon")
 
 [node name="Arma" parent="." unique_id=44014132 instance=ExtResource("1_x5p2i")]
 
@@ -141,22 +361,12 @@ offset_bottom = -118.0
 color = Color(0.8745098, 0.44313726, 0.14901961, 1)
 metadata/_edit_use_anchors_ = true
 
-[node name="TextFrase" type="RichTextLabel" parent="Pontos" unique_id=487760098]
-layout_mode = 0
-offset_right = 102.0
-offset_bottom = 21.0
-theme_override_colors/default_color = Color(0.56078434, 0.3372549, 0.23137255, 1)
-theme_override_font_sizes/normal_font_size = 16
-text = "DINHEIROS
-"
-scroll_active = false
-horizontal_alignment = 1
-vertical_alignment = 1
-metadata/_edit_use_anchors_ = true
-
 [node name="TextPontos" type="RichTextLabel" parent="Pontos" unique_id=187227670]
 texture_filter = 1
-layout_mode = 0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.38
+anchor_top = -0.4390244
 offset_left = 6.0
 offset_top = 18.0
 offset_right = 100.0
@@ -168,6 +378,12 @@ scroll_active = false
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
+
+[node name="SoulCounterIcon" type="AnimatedSprite2D" parent="Pontos" unique_id=15288452]
+position = Vector2(26, 18)
+scale = Vector2(1.5, 1.5)
+sprite_frames = SubResource("SpriteFrames_o2jkb")
+frame_progress = 1.0
 
 [node name="Path2D" type="Path2D" parent="." unique_id=1378421555]
 position = Vector2(-304, 0)
@@ -236,6 +452,13 @@ rotation = 3.1415925
 enemyScene = ExtResource("3_82kia")
 cooldown = 2.5
 target = NodePath("../../Arma")
+
+[node name="LifeCounterIcon" type="AnimatedSprite2D" parent="." unique_id=1461465721]
+z_index = 3
+position = Vector2(247, -138)
+scale = Vector2(1.5, 1.5)
+sprite_frames = SubResource("SpriteFrames_prgf5")
+animation = &"6 life"
 
 [connection signal="enemy_died" from="Path2D/EnemySpawner" to="." method="_on_enemy_spawner_enemy_died"]
 [connection signal="enemy_died" from="Path2D2/EnemySpawner2" to="." method="_on_enemy_spawner_2_enemy_died"]
