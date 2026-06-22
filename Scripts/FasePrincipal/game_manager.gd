@@ -3,6 +3,9 @@ extends Node
 signal gun_changed(new_gun)
 
 @export var main_menu: PackedScene
+@export var souls : int = 0
+@export var current_gun : String = "default"
+var 
 
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_WHEN_PAUSED

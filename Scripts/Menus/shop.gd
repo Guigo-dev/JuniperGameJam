@@ -3,14 +3,14 @@ extends Control
 @export var tween_intensity: float
 @export var tween_duration: float
 
-@onready var poder1 : TextureButton = $HBoxContainer/Poder1
-@onready var poder2 : TextureButton = $HBoxContainer/Poder2
-@onready var poder3 : TextureButton = $HBoxContainer/Poder3
+@onready var power1 : TextureButton = $HBoxContainer/Power1
+@onready var power2 : TextureButton = $HBoxContainer/Power2
+@onready var power3 : TextureButton = $HBoxContainer/Power3
 
 func _process(delta: float) -> void:
-	btn_hovered(poder1)
-	btn_hovered(poder2)
-	btn_hovered(poder3)
+	btn_hovered(power1)
+	btn_hovered(power2)
+	btn_hovered(power3)
 
 func start_tween(object: Object, property: String, final_val: Variant, duration: float):
 	var tween = create_tween()
