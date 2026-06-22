@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b3jojimujk667"
-path="res://.godot/imported/Alvo2.png-dd8e51c4b55ba6c3d183f6f97f378fd5.ctex"
+uid="uid://brgcudm2qdvyc"
+path="res://.godot/imported/AlvoPlaceHolderHover.png-0f14b546edcedfbf386ea0d58721244a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Alvo2.png"
-dest_files=["res://.godot/imported/Alvo2.png-dd8e51c4b55ba6c3d183f6f97f378fd5.ctex"]
+source_file="res://Sprites/AlvoPlaceHolderHover.png"
+dest_files=["res://.godot/imported/AlvoPlaceHolderHover.png-0f14b546edcedfbf386ea0d58721244a.ctex"]
 
 [params]
 

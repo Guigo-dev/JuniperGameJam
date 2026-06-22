@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://brgcudm2qdvyc"
-path="res://.godot/imported/Alvo2Hover.png-292834c968ed3ed756e2d8fa131665bb.ctex"
+uid="uid://btbg3x7utx3n3"
+path="res://.godot/imported/inimigo_1_up.png-4fe1d139c83923ed416d697fc9a7b82a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Alvo2Hover.png"
-dest_files=["res://.godot/imported/Alvo2Hover.png-292834c968ed3ed756e2d8fa131665bb.ctex"]
+source_file="res://Sprites/PNG/inimigo_1_up.png"
+dest_files=["res://.godot/imported/inimigo_1_up.png-4fe1d139c83923ed416d697fc9a7b82a.ctex"]
 
 [params]
 
