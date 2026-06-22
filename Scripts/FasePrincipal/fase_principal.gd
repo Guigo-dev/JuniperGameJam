@@ -8,8 +8,6 @@ var pontos := 0
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pontosText.text = (var_to_str(pontos))
-	if(Input.is_action_pressed("reset")):
-		get_tree().reload_current_scene()
 
 func updateGun(newGun:PackedScene) -> void:
 	var novaArma = newGun.instantiate()

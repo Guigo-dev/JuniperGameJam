@@ -2,6 +2,12 @@ extends Node
 
 signal gun_changed(new_gun)
 
-# Called when the node enters the scene tree for the first time.
+@export var main_menu: PackedScene
+
 func _ready() -> void:
-	pass # Replace with function body.
+	process_mode = Node.PROCESS_MODE_WHEN_PAUSED
+	
+func _process(delta: float) -> void:
+	if(Input.is_action_pressed("reset")):
+		get_tree().change_scene_to_packed(main_menu)
+		
