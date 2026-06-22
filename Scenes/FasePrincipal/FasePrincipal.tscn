@@ -131,8 +131,12 @@ stretch_mode = 2
 position = Vector2(1, -6)
 zoom = Vector2(2, 2)
 
+<<<<<<< HEAD
 [node name="Souls" type="ColorRect" parent="." unique_id=787227788]
 modulate = Color(1, 1, 1, 0.6431373)
+=======
+[node name="Pontos" type="ColorRect" parent="." unique_id=787227788]
+>>>>>>> 8e3993969321cdf2274fc689c651a58c2c86d627
 z_index = 10
 texture_filter = 1
 offset_left = -282.0
@@ -142,8 +146,12 @@ offset_bottom = -118.0
 color = Color(0.8745098, 0.44313726, 0.14901961, 1)
 metadata/_edit_use_anchors_ = true
 
+<<<<<<< HEAD
 [node name="TextFrase" type="RichTextLabel" parent="Souls" unique_id=487760098]
 texture_filter = 1
+=======
+[node name="TextFrase" type="RichTextLabel" parent="Pontos" unique_id=487760098]
+>>>>>>> 8e3993969321cdf2274fc689c651a58c2c86d627
 layout_mode = 0
 offset_right = 102.0
 offset_bottom = 21.0

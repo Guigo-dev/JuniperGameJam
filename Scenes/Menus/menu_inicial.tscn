@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cs2es3gney0ut" path="res://Scripts/Menus/menu_inicial.gd" id="1_8555o"]
 [ext_resource type="PackedScene" uid="uid://bve8417uknmvi" path="res://Scenes/FasePrincipal/FasePrincipal.tscn" id="2_y6kec"]
+[ext_resource type="Texture2D" uid="uid://cx4l4wocsb4fc" path="res://Sprites/PNG/menuinicial.png" id="3_72p41"]
 
 [node name="MenuInicial" type="Control" unique_id=1641631300 node_paths=PackedStringArray("iniciarButton")]
 layout_mode = 3
@@ -14,14 +15,14 @@ script = ExtResource("1_8555o")
 iniciarButton = NodePath("IniciarButton")
 cenaPrincipal = ExtResource("2_y6kec")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=65827926]
+[node name="TextureRect" type="TextureRect" parent="." unique_id=344592134]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_right = 2.0
 offset_bottom = 5.0
-color = Color(0.9647059, 0.6666667, 0.10980392, 1)
+texture = ExtResource("3_72p41")
 
 [node name="IniciarButton" type="Button" parent="." unique_id=1098876849]
 layout_mode = 1
@@ -37,21 +38,5 @@ offset_bottom = 0.3119812
 theme_override_colors/font_color = Color(0.5803922, 0.105882354, 0.047058824, 1)
 theme_override_font_sizes/font_size = 30
 text = "Iniciar"
-
-[node name="Label" type="Label" parent="." unique_id=216987823]
-layout_mode = 1
-anchors_preset = -1
-anchor_top = 0.031000001
-anchor_right = 1.0020001
-anchor_bottom = 1.0
-offset_left = 436.0
-offset_top = 65.912
-offset_right = -453.30408
-offset_bottom = -507.0
-theme_override_colors/font_color = Color(0.7372549, 0.22352941, 0.03137255, 1)
-theme_override_font_sizes/font_size = 35
-text = "Título foda aqui"
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [connection signal="pressed" from="IniciarButton" to="." method="_on_iniciar_button_pressed"]
