@@ -47,6 +47,7 @@ height = 24.0
 [node name="enemy_magro" type="Area2D" unique_id=614188411]
 script = ExtResource("1_4ie8e")
 speed = 25.0
+knockbackforce = 10
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=602865696]
 texture_filter = 1
