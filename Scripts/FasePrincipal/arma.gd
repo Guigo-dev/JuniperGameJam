@@ -20,6 +20,7 @@ var direction = 1
 
 func _ready() -> void:
 	add_to_group("arma")
+	get_parent().update_lifeCounterIcon(healthComponent.lifePoints,0)
 
 func _physics_process(delta: float) -> void:
 	speed = 75 * speedMultiplier #velocidade base de rotacao
@@ -44,9 +45,11 @@ func _on_area_entered(area: Area2D) -> void:
 	if(area.is_in_group("enemy")):
 		print("acertou")
 		healthComponent.updateLP(-1)
+		get_parent().update_lifeCounterIcon(healthComponent.lifePoints,0)
 	if(area.is_in_group("lifeGainer")):
 		healthComponent.updateLP(1)
 		
+	
 func updateMaxHealth(amount: int):
 	healthComponent.MAX_LIFE += amount
 
