@@ -6,5 +6,3 @@
 [node name="GameManager" type="Node" unique_id=1781553003]
 script = ExtResource("1_mmwn7")
 main_menu = ExtResource("2_5m6ex")
-souls = null
-current_gun = null

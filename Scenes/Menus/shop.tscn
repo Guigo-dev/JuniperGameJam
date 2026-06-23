@@ -49,7 +49,7 @@ texture_normal = ExtResource("1_jfcl1")
 texture_hover = ExtResource("2_s0p6e")
 script = ExtResource("2_kex1f")
 
-[node name="SoulValueText" type="Label" parent="HBoxContainer/Power1" unique_id=1149111670]
+[node name="Cost" type="Label" parent="HBoxContainer/Power1" unique_id=1149111670]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -70,7 +70,30 @@ offset_top = 113.0
 offset_right = 264.0
 offset_bottom = 153.0
 
-[node name="Power2" type="TextureButton" parent="HBoxContainer" unique_id=1796341235]
+[node name="Description" type="Label" parent="HBoxContainer/Power1" unique_id=112414471]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -23.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Name" type="Label" parent="HBoxContainer/Power1" unique_id=1910118775]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+
+[node name="Power2" type="TextureButton" parent="HBoxContainer" unique_id=1003884521]
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
@@ -78,13 +101,101 @@ texture_normal = ExtResource("1_jfcl1")
 texture_hover = ExtResource("2_s0p6e")
 script = ExtResource("2_kex1f")
 
-[node name="Power3" type="TextureButton" parent="HBoxContainer" unique_id=1107903399]
+[node name="Cost" type="Label" parent="HBoxContainer/Power2" unique_id=1980097200]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -0.5
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 30
+text = "100"
+
+[node name="SoulIcon" type="TextureRect" parent="HBoxContainer/Power2" unique_id=1896609115]
+layout_mode = 0
+offset_left = 224.0
+offset_top = 113.0
+offset_right = 264.0
+offset_bottom = 153.0
+
+[node name="Description" type="Label" parent="HBoxContainer/Power2" unique_id=249975441]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -23.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Name" type="Label" parent="HBoxContainer/Power2" unique_id=960210259]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+
+[node name="Power3" type="TextureButton" parent="HBoxContainer" unique_id=8557335]
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
 texture_normal = ExtResource("1_jfcl1")
 texture_hover = ExtResource("2_s0p6e")
 script = ExtResource("2_kex1f")
+
+[node name="Cost" type="Label" parent="HBoxContainer/Power3" unique_id=2032979287]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -0.5
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 30
+text = "100"
+
+[node name="SoulIcon" type="TextureRect" parent="HBoxContainer/Power3" unique_id=1917389525]
+layout_mode = 0
+offset_left = 224.0
+offset_top = 113.0
+offset_right = 264.0
+offset_bottom = 153.0
+
+[node name="Description" type="Label" parent="HBoxContainer/Power3" unique_id=752984888]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -23.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Name" type="Label" parent="HBoxContainer/Power3" unique_id=508312039]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
 
 [node name="Label" type="Label" parent="." unique_id=91402503]
 layout_mode = 1
@@ -100,7 +211,10 @@ text = "LOJA"
 
 [connection signal="mouse_entered" from="HBoxContainer/Power1" to="HBoxContainer/Power1" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="HBoxContainer/Power1" to="HBoxContainer/Power1" method="_on_mouse_exited"]
+[connection signal="pressed" from="HBoxContainer/Power1" to="." method="_on_power_1_pressed"]
 [connection signal="mouse_entered" from="HBoxContainer/Power2" to="HBoxContainer/Power2" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="HBoxContainer/Power2" to="HBoxContainer/Power2" method="_on_mouse_exited"]
+[connection signal="pressed" from="HBoxContainer/Power2" to="." method="_on_power_1_pressed"]
 [connection signal="mouse_entered" from="HBoxContainer/Power3" to="HBoxContainer/Power3" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="HBoxContainer/Power3" to="HBoxContainer/Power3" method="_on_mouse_exited"]
+[connection signal="pressed" from="HBoxContainer/Power3" to="." method="_on_power_1_pressed"]
