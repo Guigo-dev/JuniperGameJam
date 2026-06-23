@@ -21,6 +21,7 @@ var direction = 1
 func _ready() -> void:
 	add_to_group("arma")
 	get_parent().update_lifeCounterIcon(healthComponent.lifePoints,0)
+	GameManager.gun_stat_changed.connect(_on_gun_stat_changed)
 
 func _physics_process(delta: float) -> void:
 	speed = 75 * speedMultiplier #velocidade base de rotacao
@@ -65,3 +66,10 @@ func shake(delta:float) -> void:
 		1.0 - juicyDisplacement
 	)
 	
+func _on_gun_stat_changed(stat_type: int):
+	if(stat_type == GameManager.GunStat.life):
+		updateMaxHealth(1)
+	elif(stat_type == GameManager.GunStat.speed):
+		speedMultiplier += 0.25
+	elif(stat_type == GameManager.GunStat.fire_rate):
+		bulletCooldown -= 0.25

@@ -367,6 +367,7 @@ layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.38
 anchor_top = -0.4390244
+anchor_right = 0.38
 offset_left = 6.0
 offset_top = 18.0
 offset_right = 100.0

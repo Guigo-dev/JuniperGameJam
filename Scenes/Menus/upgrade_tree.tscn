@@ -1,0 +1,175 @@
+[gd_scene format=3 uid="uid://duap1pmgap7ou"]
+
+[ext_resource type="Script" uid="uid://cyif0cbmsjpnp" path="res://Scripts/Menus/upgrade_tree.gd" id="1_hr1rn"]
+
+[node name="UpgradeTree" type="Control" unique_id=460672048]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_hr1rn")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1677805296]
+layout_mode = 0
+offset_right = 1156.0
+offset_bottom = 646.0
+color = Color(0.44008896, 0.12433683, 0.049131326, 1)
+
+[node name="GunButton" type="Button" parent="." unique_id=669199984]
+layout_mode = 0
+offset_left = 412.0
+offset_top = 284.0
+offset_right = 487.0
+offset_bottom = 344.0
+text = "Gun"
+
+[node name="LifeStatButton" type="Button" parent="GunButton" unique_id=1839255304]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -2.2800002
+anchor_top = -2.2
+anchor_right = -1.187
+anchor_bottom = -1.2670001
+offset_left = 1.5258789e-05
+offset_right = 18.025002
+offset_bottom = 0.020004272
+text = "Life"
+
+[node name="Level" type="Label" parent="GunButton/LifeStatButton" unique_id=1174880316]
+layout_mode = 0
+offset_top = 56.0
+offset_right = 100.0
+offset_bottom = 79.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Level : 1"
+
+[node name="VelStatButton" type="Button" parent="GunButton" unique_id=1668354637]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -2.2800002
+anchor_top = -2.2
+anchor_right = -1.187
+anchor_bottom = -1.2670001
+offset_left = 1.5258789e-05
+offset_top = 132.0
+offset_right = 18.025002
+offset_bottom = 132.02
+text = "Sppining Velocity"
+autowrap_mode = 2
+
+[node name="Level" type="Label" parent="GunButton/VelStatButton" unique_id=1798162776]
+layout_mode = 0
+offset_top = 56.0
+offset_right = 100.0
+offset_bottom = 79.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Level : 1"
+
+[node name="FireRateButton" type="Button" parent="GunButton" unique_id=436424195]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -2.2800002
+anchor_top = -2.2
+anchor_right = -1.187
+anchor_bottom = -1.2670001
+offset_left = 1.5258789e-05
+offset_top = 247.0
+offset_right = 18.025002
+offset_bottom = 247.02
+text = "Fire Rate"
+
+[node name="Level" type="Label" parent="GunButton/FireRateButton" unique_id=411560259]
+layout_mode = 0
+offset_top = 56.0
+offset_right = 100.0
+offset_bottom = 79.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Level : 1"
+
+[node name="BulletButton" type="Button" parent="." unique_id=241848814]
+layout_mode = 0
+offset_left = 673.0
+offset_top = 284.0
+offset_right = 745.0
+offset_bottom = 344.0
+text = "Bullet"
+
+[node name="PenStatButton" type="Button" parent="BulletButton" unique_id=510887778]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -2.2800002
+anchor_top = -2.2
+anchor_right = -1.187
+anchor_bottom = -1.2670001
+offset_left = 314.16003
+offset_right = 314.185
+offset_bottom = 0.020004272
+text = "Penetration"
+
+[node name="Level" type="Label" parent="BulletButton/PenStatButton" unique_id=127694988]
+layout_mode = 0
+offset_top = 56.0
+offset_right = 100.0
+offset_bottom = 79.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Level : 1"
+
+[node name="BulletVelStatButton" type="Button" parent="BulletButton" unique_id=1100815480]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -2.2800002
+anchor_top = -2.2
+anchor_right = -1.187
+anchor_bottom = -1.2670001
+offset_left = 314.16003
+offset_top = 132.0
+offset_right = 335.46402
+offset_bottom = 132.02
+text = "Velocity"
+autowrap_mode = 2
+
+[node name="Level" type="Label" parent="BulletButton/BulletVelStatButton" unique_id=9375896]
+layout_mode = 0
+offset_top = 56.0
+offset_right = 100.0
+offset_bottom = 79.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Level : 1"
+
+[node name="DamageButton" type="Button" parent="BulletButton" unique_id=1422610575]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -2.2800002
+anchor_top = -2.2
+anchor_right = -1.187
+anchor_bottom = -1.2670001
+offset_left = 314.16003
+offset_top = 247.0
+offset_right = 335.46402
+offset_bottom = 247.02
+text = "Damage"
+
+[node name="Level" type="Label" parent="BulletButton/DamageButton" unique_id=113134609]
+layout_mode = 0
+offset_top = 56.0
+offset_right = 100.0
+offset_bottom = 79.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Level : 1"
+
+[node name="Button" type="Button" parent="." unique_id=1408834189]
+layout_mode = 0
+offset_left = 28.0
+offset_top = 26.0
+offset_right = 122.0
+offset_bottom = 91.0
+text = "Back"
+
+[connection signal="pressed" from="GunButton/LifeStatButton" to="." method="_on_life_stat_button_pressed"]
+[connection signal="pressed" from="GunButton/VelStatButton" to="." method="_on_vel_stat_button_pressed"]
+[connection signal="pressed" from="GunButton/FireRateButton" to="." method="_on_fire_rate_button_pressed"]
+[connection signal="pressed" from="BulletButton/PenStatButton" to="." method="_on_pen_stat_button_pressed"]
+[connection signal="pressed" from="BulletButton/BulletVelStatButton" to="." method="_on_bullet_vel_stat_button_pressed"]
+[connection signal="pressed" from="BulletButton/DamageButton" to="." method="_on_damage_button_pressed"]
