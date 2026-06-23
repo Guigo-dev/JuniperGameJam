@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c2buru432eq5g"
-path="res://.godot/imported/soulcounter.png-cc9106c405212b22e06716fb4fae766e.ctex"
+uid="uid://brgcudm2qdvyc"
+path="res://.godot/imported/AlvoPlaceHolderHover.png-0f14b546edcedfbf386ea0d58721244a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/PNG/soulcounter.png"
-dest_files=["res://.godot/imported/soulcounter.png-cc9106c405212b22e06716fb4fae766e.ctex"]
+source_file="res://Sprites/AlvoPlaceHolderHover.png"
+dest_files=["res://.godot/imported/AlvoPlaceHolderHover.png-0f14b546edcedfbf386ea0d58721244a.ctex"]
 
 [params]
 
