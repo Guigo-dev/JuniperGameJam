@@ -1,0 +1,106 @@
+[gd_scene format=3 uid="uid://bar0018wu477x"]
+
+[ext_resource type="Texture2D" uid="uid://b3jojimujk667" path="res://Sprites/AlvoPlaceHolder.png" id="1_jfcl1"]
+[ext_resource type="Script" uid="uid://cyn63c4njyjh1" path="res://Scripts/Menus/shop.gd" id="1_s0p6e"]
+[ext_resource type="Script" uid="uid://dy8jqlbn8tm4o" path="res://Scripts/Menus/botao_comprar.gd" id="2_kex1f"]
+[ext_resource type="Texture2D" uid="uid://brgcudm2qdvyc" path="res://Sprites/AlvoPlaceHolderHover.png" id="2_s0p6e"]
+
+[node name="Shop" type="Control" unique_id=147490848]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_s0p6e")
+tween_intensity = 1.2
+tween_duration = 0.3
+
+[node name="Background" type="TextureRect" parent="." unique_id=713984918]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1975028556]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -426.0
+offset_top = -100.0
+offset_right = 426.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control" type="Control" parent="HBoxContainer" unique_id=1486314034]
+layout_mode = 2
+
+[node name="Power1" type="TextureButton" parent="HBoxContainer" unique_id=969416897]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+texture_normal = ExtResource("1_jfcl1")
+texture_hover = ExtResource("2_s0p6e")
+script = ExtResource("2_kex1f")
+
+[node name="SoulValueText" type="Label" parent="HBoxContainer/Power1" unique_id=1149111670]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -0.5
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 30
+text = "100"
+
+[node name="SoulIcon" type="TextureRect" parent="HBoxContainer/Power1" unique_id=366647842]
+layout_mode = 0
+offset_left = 224.0
+offset_top = 113.0
+offset_right = 264.0
+offset_bottom = 153.0
+
+[node name="Power2" type="TextureButton" parent="HBoxContainer" unique_id=1796341235]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+texture_normal = ExtResource("1_jfcl1")
+texture_hover = ExtResource("2_s0p6e")
+script = ExtResource("2_kex1f")
+
+[node name="Power3" type="TextureButton" parent="HBoxContainer" unique_id=1107903399]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+texture_normal = ExtResource("1_jfcl1")
+texture_hover = ExtResource("2_s0p6e")
+script = ExtResource("2_kex1f")
+
+[node name="Label" type="Label" parent="." unique_id=91402503]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 50
+text = "LOJA"
+
+[connection signal="mouse_entered" from="HBoxContainer/Power1" to="HBoxContainer/Power1" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="HBoxContainer/Power1" to="HBoxContainer/Power1" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="HBoxContainer/Power2" to="HBoxContainer/Power2" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="HBoxContainer/Power2" to="HBoxContainer/Power2" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="HBoxContainer/Power3" to="HBoxContainer/Power3" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="HBoxContainer/Power3" to="HBoxContainer/Power3" method="_on_mouse_exited"]

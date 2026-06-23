@@ -31,7 +31,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_jsvmo")
 }],
-"loop": false,
+"loop": 0,
 "name": &"default",
 "speed": 5.0
 }]
@@ -222,7 +222,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_o2jkb")
 }],
-"loop": false,
+"loop": 0,
 "name": &"0 life",
 "speed": 5.0
 }, {
@@ -239,7 +239,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_u4hfx")
 }],
-"loop": false,
+"loop": 0,
 "name": &"1 life",
 "speed": 5.0
 }, {
@@ -256,7 +256,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_p7m6u")
 }],
-"loop": false,
+"loop": 0,
 "name": &"2 life",
 "speed": 5.0
 }, {
@@ -273,7 +273,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_y67md")
 }],
-"loop": false,
+"loop": 0,
 "name": &"3 life",
 "speed": 5.0
 }, {
@@ -290,7 +290,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_vfujf")
 }],
-"loop": false,
+"loop": 0,
 "name": &"4 life",
 "speed": 5.0
 }, {
@@ -307,7 +307,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_06hhq")
 }],
-"loop": false,
+"loop": 0,
 "name": &"5 life",
 "speed": 5.0
 }, {
@@ -315,7 +315,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_irivd")
 }],
-"loop": false,
+"loop": 0,
 "name": &"6 life",
 "speed": 5.0
 }]
@@ -351,7 +351,7 @@ stretch_mode = 2
 position = Vector2(1, -6)
 zoom = Vector2(2, 2)
 
-[node name="Pontos" type="ColorRect" parent="." unique_id=787227788]
+[node name="Souls" type="ColorRect" parent="." unique_id=787227788]
 z_index = 10
 texture_filter = 1
 offset_left = -282.0
@@ -361,7 +361,7 @@ offset_bottom = -118.0
 color = Color(0.8745098, 0.44313726, 0.14901961, 1)
 metadata/_edit_use_anchors_ = true
 
-[node name="TextPontos" type="RichTextLabel" parent="Pontos" unique_id=187227670]
+[node name="SoulsText" type="RichTextLabel" parent="Souls" unique_id=187227670]
 texture_filter = 1
 layout_mode = 1
 anchors_preset = -1
@@ -380,7 +380,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="SoulCounterIcon" type="AnimatedSprite2D" parent="Pontos" unique_id=15288452]
+[node name="SoulCounterIcon" type="AnimatedSprite2D" parent="Souls" unique_id=15288452]
 position = Vector2(26, 18)
 scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_o2jkb")
@@ -438,7 +438,7 @@ curve = SubResource("Curve2D_uotby")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D3" unique_id=828801030]
 position = Vector2(351, -179)
-rotation = 3.1415925
+rotation = 3.1415927
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Path2D3/PathFollow2D" unique_id=480699026]
 libraries/ = SubResource("AnimationLibrary_jsvmo")
@@ -449,7 +449,7 @@ remote_path = NodePath("../../EnemySpawner3")
 
 [node name="EnemySpawner3" parent="Path2D3" unique_id=119011415 node_paths=PackedStringArray("target") instance=ExtResource("2_1lh45")]
 position = Vector2(351, -179)
-rotation = 3.1415925
+rotation = -3.1415925
 enemyScene = ExtResource("3_82kia")
 cooldown = 2.5
 target = NodePath("../../Arma")

@@ -8,7 +8,12 @@ signal bullet_stat_changed(stat: int)
 enum GunStat {life,speed,fire_rate} 
 enum BulletStat {penetration, velocity, damage}
 @export var main_menu: PackedScene
+
 var XP: int;
+
+@export var souls : int = 0
+@export var current_gun : String = "default"
+
 
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_WHEN_PAUSED
