@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bhq3bpt4dpubk" path="res://Scripts/FasePrincipal/bala.gd" id="1_3tbbd"]
 [ext_resource type="Texture2D" uid="uid://dx2imnyy8dj0i" path="res://Sprites/PNG/bala_default.png" id="2_hrsg4"]
-[ext_resource type="Script" uid="uid://cgava8paqhbng" path="res://Scenes/FasePrincipal/line_2d.gd" id="3_qeopr"]
+[ext_resource type="Script" uid="uid://cgava8paqhbng" path="res://Scripts/FasePrincipal/line_2d.gd" id="3_qeopr"]
 
 [sub_resource type="Curve" id="Curve_qeopr"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
@@ -16,6 +16,7 @@ colors = PackedColorArray(1, 1, 1, 0, 0.75686276, 0.14901961, 0, 1)
 radius = 6.0
 
 [node name="Bala" type="Area2D" unique_id=1222037949]
+process_mode = 3
 script = ExtResource("1_3tbbd")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1364958688]

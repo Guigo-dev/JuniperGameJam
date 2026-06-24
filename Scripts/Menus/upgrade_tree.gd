@@ -1,16 +1,5 @@
 extends Control
 
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
 #emitindo sinais de upgrade de arma
 func _on_life_stat_button_pressed() -> void:
 	if(GameManager.XP>0):
@@ -43,3 +32,8 @@ func _on_damage_button_pressed() -> void:
 	if(GameManager.XP>0):
 		GameManager.XP -=1
 		GameManager.bullet_stat_changed.emit(GameManager.BulletStat.damage)
+
+
+func _on_back_button_pressed() -> void:
+	GameManager._on_upgrades_finished()
+	

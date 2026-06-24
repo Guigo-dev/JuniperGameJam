@@ -4,6 +4,8 @@ class_name HealthComponent extends Node
 @export var lifePoints: int
 signal died
 
+func _ready() -> void:
+	lifePoints = MAX_LIFE
 
 func updateLP(modifier: int) -> void:
 	if(lifePoints + modifier > MAX_LIFE):

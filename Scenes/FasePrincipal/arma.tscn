@@ -10,7 +10,9 @@
 size = Vector2(25, 15)
 
 [node name="Arma" type="Area2D" unique_id=44014132]
+process_mode = 3
 script = ExtResource("1_nwb0c")
+bulletCooldown = 0.75
 spring = 59.81
 damp = 46.364
 metadata/_edit_group_ = true

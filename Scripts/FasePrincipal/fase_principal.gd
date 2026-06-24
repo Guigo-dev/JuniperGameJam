@@ -6,11 +6,11 @@ extends Node2D
 @export var lifeCounterIcon: AnimatedSprite2D
 
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 @warning_ignore("unused_parameter")
 func _process(delta: float) -> void:
 	soulsText.text = (var_to_str(GameManager.souls))
+	
 
 func updateGun(newGun:PackedScene) -> void:
 	var novaArma = newGun.instantiate()
