@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://b5o8prwp6rpnm" path="res://Scripts/FasePrincipal/enemy.gd" id="1_2bhte"]
 [ext_resource type="Script" uid="uid://dj8j1pu2ilxua" path="res://Scripts/FasePrincipal/HealthComponent.gd" id="2_2bhte"]
 [ext_resource type="Texture2D" uid="uid://corcwg26s27d3" path="res://Sprites/PNG/inimigo_2_down.png" id="2_30wkq"]
+[ext_resource type="AudioStream" uid="uid://6u7rrokl2ydr" path="res://Sounds/enemyDamage.wav" id="4_30wkq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0u6kh"]
 atlas = ExtResource("2_30wkq")
@@ -64,6 +65,9 @@ script = ExtResource("2_2bhte")
 MAX_LIFE = 2
 lifePoints = 2
 metadata/_custom_type_script = "uid://dj8j1pu2ilxua"
+
+[node name="hitSound" type="AudioStreamPlayer2D" parent="." unique_id=329411026]
+stream = ExtResource("4_30wkq")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="died" from="HealthComponent" to="." method="_on_health_component_died"]

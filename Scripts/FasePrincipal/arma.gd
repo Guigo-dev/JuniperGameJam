@@ -3,6 +3,7 @@ extends Area2D
 @onready var healthComponent := %HealthComponent
 @onready var bulletSpawner := %BulletSpawner
 @onready var bulletCooldownTimer := $BulletCooldown
+@onready var damageSound = $DamageSound
 
 @export var bulletCooldown: float
 @export var speedMultiplier := 1.0
@@ -45,6 +46,7 @@ func _on_health_component_died() -> void:
 func _on_area_entered(area: Area2D) -> void:
 	if(area.is_in_group("enemy")):
 		print("acertou")
+		damageSound.play()
 		healthComponent.updateLP(-1)
 		get_parent().update_lifeCounterIcon(healthComponent.lifePoints,0)
 	if(area.is_in_group("lifeGainer")):
