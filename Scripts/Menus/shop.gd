@@ -77,6 +77,7 @@ func buyItem(currentShopSlot: int):
 
 func hasEnoughSouls(currentShopSlot):
 	return GameManager.souls >= shopPowers[currentShopSlot]["Cost"]
+	
 func showInsufficientSouls():
 	$InsufficientSouls.show()
 	await get_tree().create_timer(1.5).timeout
