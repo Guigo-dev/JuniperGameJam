@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://b5tq0j6uwwq4c" path="res://Sprites/PNG/lifecounter.png" id="10_xjset"]
 [ext_resource type="Texture2D" uid="uid://by6btomxrcfl2" path="res://Sprites/PNG/bt_tutorial_arrowkeys.png" id="11_o2jkb"]
 [ext_resource type="Texture2D" uid="uid://pupprjjyi64h" path="res://Sprites/PNG/bt_tutorial_space.png" id="12_uotby"]
+[ext_resource type="Script" uid="uid://cmoiybfwwqc5e" path="res://Scenes/FasePrincipal/wave_manager.gd" id="13_uotby"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jsvmo"]
 atlas = ExtResource("5_1hlo7")
@@ -396,7 +397,6 @@ curve = SubResource("Curve2D_sn6df")
 position = Vector2(-1, 0.99999994)
 rotation = 1.5707964
 enemyScene = ExtResource("6_qp7sx")
-cooldown = 2.0
 target = NodePath("../../Arma")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D" unique_id=5128823]
@@ -431,7 +431,6 @@ remote_path = NodePath("../../EnemySpawner2")
 position = Vector2(312, 168)
 rotation = 0.0033669907
 enemyScene = ExtResource("7_1hlo7")
-cooldown = 3.0
 target = NodePath("../../Arma")
 
 [node name="Path2D3" type="Path2D" parent="." unique_id=1639300254]
@@ -440,7 +439,7 @@ curve = SubResource("Curve2D_uotby")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D3" unique_id=828801030]
 position = Vector2(351, -179)
-rotation = 3.1415925
+rotation = 3.1415927
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Path2D3/PathFollow2D" unique_id=480699026]
 libraries/ = SubResource("AnimationLibrary_jsvmo")
@@ -451,9 +450,8 @@ remote_path = NodePath("../../EnemySpawner3")
 
 [node name="EnemySpawner3" parent="Path2D3" unique_id=119011415 node_paths=PackedStringArray("target") instance=ExtResource("2_1lh45")]
 position = Vector2(351, -179)
-rotation = 3.1415925
+rotation = -3.1415925
 enemyScene = ExtResource("3_82kia")
-cooldown = 2.5
 target = NodePath("../../Arma")
 
 [node name="LifeCounterIcon" type="AnimatedSprite2D" parent="." unique_id=1461465721]
@@ -500,6 +498,9 @@ offset_right = 682.7778
 offset_bottom = 351.0
 texture = ExtResource("12_uotby")
 expand_mode = 1
+
+[node name="WaveManager" type="Node" parent="." unique_id=302771553]
+script = ExtResource("13_uotby")
 
 [connection signal="enemy_died" from="Path2D/EnemySpawner" to="." method="_on_enemy_spawner_enemy_died"]
 [connection signal="enemy_died" from="Path2D2/EnemySpawner2" to="." method="_on_enemy_spawner_2_enemy_died"]
