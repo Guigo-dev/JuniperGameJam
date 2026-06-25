@@ -3,6 +3,7 @@ extends Area2D
 @onready var healthComponent := %HealthComponent
 @onready var bulletSpawner := %BulletSpawner
 @onready var bulletCooldownTimer := $BulletCooldown
+@onready var damageSound = $DamageSound
 
 @export var bulletCooldown: float
 @export var speedMultiplier := 1.0
@@ -35,6 +36,7 @@ func _on_area_entered(area: Area2D) -> void:
 		healthComponent.updateLP(-1)
 	if(area.is_in_group("lifeGainer")):
 		healthComponent.updateLP(1)
+
 		
 func updateMaxHealth(amount: int):
 	healthComponent.MAX_LIFE += amount

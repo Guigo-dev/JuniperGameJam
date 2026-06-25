@@ -2,7 +2,10 @@ extends Area2D
 
 @export var tick_time := 0.5
 var enemies := {} # inimigo -> tempo acumulado
+@onready var bonfire_sound := $bonfireSound
 
+func _ready() -> void:
+	bonfire_sound.play()
 
 func _physics_process(delta):
 	for enemy in enemies.keys():

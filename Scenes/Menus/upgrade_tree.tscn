@@ -1,0 +1,226 @@
+[gd_scene format=3 uid="uid://duap1pmgap7ou"]
+
+[ext_resource type="Script" uid="uid://cyif0cbmsjpnp" path="res://Scripts/Menus/upgrade_tree.gd" id="1_hr1rn"]
+[ext_resource type="Texture2D" uid="uid://bgaucrr346i0x" path="res://Sprites/PNG/afterlife.png" id="2_lbt37"]
+[ext_resource type="Texture2D" uid="uid://wkocjhgtbqq1" path="res://Sprites/PNG/bt_tryagain.png" id="3_lbt37"]
+[ext_resource type="Texture2D" uid="uid://duwm586fiwkwj" path="res://Sprites/PNG/bt_tryagain_onclick.png" id="4_iyos3"]
+[ext_resource type="Texture2D" uid="uid://b0nyt02fk4y8y" path="res://Sprites/PNG/bt_tryagain_hover.png" id="5_itart"]
+[ext_resource type="Texture2D" uid="uid://3v3b7kgkssht" path="res://Sprites/PNG/bt_upgrade.png" id="6_55yk3"]
+[ext_resource type="Texture2D" uid="uid://b6u73f5iqtlxy" path="res://Sprites/PNG/bt_upgrade_hover.png" id="7_jkhtc"]
+[ext_resource type="Texture2D" uid="uid://fu8iou4uto0g" path="res://Sprites/PNG/bt_upgrade_onclick.png" id="8_uja6x"]
+[ext_resource type="Texture2D" uid="uid://crjas3wlyok0y" path="res://Sprites/PNG/bt_upgrade_locked.png" id="9_nchab"]
+
+[node name="UpgradeTree" type="Control" unique_id=460672048]
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -576.0
+offset_bottom = -324.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_hr1rn")
+
+[node name="ColorRect" type="TextureRect" parent="." unique_id=573889768]
+texture_filter = 1
+layout_mode = 0
+offset_right = 576.0
+offset_bottom = 324.0
+texture = ExtResource("2_lbt37")
+
+[node name="TryAgainButton" type="TextureButton" parent="." unique_id=344147540]
+texture_filter = 1
+layout_mode = 0
+offset_left = 216.0
+offset_top = 272.00003
+offset_right = 415.0
+offset_bottom = 319.00003
+scale = Vector2(0.7, 0.7)
+texture_normal = ExtResource("3_lbt37")
+texture_pressed = ExtResource("4_iyos3")
+texture_hover = ExtResource("5_itart")
+
+[node name="GunButton" type="Control" parent="." unique_id=1046024662]
+texture_filter = 1
+anchors_preset = 0
+offset_left = 232.0
+offset_top = 137.0
+offset_right = 288.0
+offset_bottom = 178.0
+
+[node name="LifeStatButton" type="TextureButton" parent="GunButton" unique_id=1019556416]
+layout_mode = 0
+offset_left = -201.0
+offset_top = 74.0
+offset_right = -125.0
+offset_bottom = 109.0
+texture_normal = ExtResource("6_55yk3")
+texture_pressed = ExtResource("7_jkhtc")
+texture_hover = ExtResource("8_uja6x")
+texture_disabled = ExtResource("9_nchab")
+
+[node name="Level" type="Label" parent="GunButton/LifeStatButton" unique_id=544321228]
+texture_filter = 1
+layout_mode = 0
+offset_left = 7.0
+offset_top = -41.0
+offset_right = 70.0
+offset_bottom = -18.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Level : 1"
+
+[node name="VelStatButton" type="TextureButton" parent="GunButton" unique_id=26079016]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -2.2800002
+anchor_top = -2.2
+anchor_right = -1.187
+anchor_bottom = -1.2670001
+offset_left = 9.680008
+offset_top = 164.2
+offset_right = 24.472
+offset_bottom = 160.94699
+texture_normal = ExtResource("6_55yk3")
+texture_pressed = ExtResource("7_jkhtc")
+texture_hover = ExtResource("8_uja6x")
+texture_disabled = ExtResource("9_nchab")
+stretch_mode = 0
+
+[node name="Level" type="Label" parent="GunButton/VelStatButton" unique_id=1798162776]
+texture_filter = 1
+layout_mode = 0
+offset_left = 6.0
+offset_top = -41.0
+offset_right = 69.0
+offset_bottom = -18.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Level : 1"
+
+[node name="FireRateButton" type="TextureButton" parent="GunButton" unique_id=1126278908]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -2.2800002
+anchor_top = -2.2
+anchor_right = -1.187
+anchor_bottom = -1.2670001
+offset_left = 91.68001
+offset_top = 165.20001
+offset_right = 106.472
+offset_bottom = 161.947
+texture_normal = ExtResource("6_55yk3")
+texture_pressed = ExtResource("7_jkhtc")
+texture_hover = ExtResource("8_uja6x")
+texture_disabled = ExtResource("9_nchab")
+
+[node name="Level" type="Label" parent="GunButton/FireRateButton" unique_id=411560259]
+texture_filter = 1
+layout_mode = 0
+offset_left = 5.0
+offset_top = -43.0
+offset_right = 68.0
+offset_bottom = -20.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Level : 1"
+
+[node name="BulletButton" type="Control" parent="." unique_id=163085831]
+texture_filter = 1
+anchors_preset = 0
+offset_left = 338.0
+offset_top = 137.0
+offset_right = 442.0
+offset_bottom = 197.0
+
+[node name="PenStatButton" type="TextureButton" parent="BulletButton" unique_id=1944008844]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -2.2800002
+anchor_top = -2.2
+anchor_right = -1.187
+anchor_bottom = -1.2670001
+offset_left = 208.12004
+offset_top = 206.0
+offset_right = 170.44803
+offset_bottom = 185.02
+texture_normal = ExtResource("6_55yk3")
+texture_pressed = ExtResource("7_jkhtc")
+texture_hover = ExtResource("8_uja6x")
+texture_disabled = ExtResource("9_nchab")
+stretch_mode = 0
+
+[node name="Level" type="Label" parent="BulletButton/PenStatButton" unique_id=127694988]
+texture_filter = 1
+layout_mode = 0
+offset_left = 5.9999866
+offset_top = -43.000008
+offset_right = 68.999985
+offset_bottom = -20.000008
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Level : 0"
+
+[node name="BulletVelStatButton" type="TextureButton" parent="BulletButton" unique_id=1973962290]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -2.2800002
+anchor_top = -2.2
+anchor_right = -1.187
+anchor_bottom = -1.2670001
+offset_left = 290.12003
+offset_top = 206.0
+offset_right = 252.448
+offset_bottom = 185.02
+texture_normal = ExtResource("6_55yk3")
+texture_pressed = ExtResource("7_jkhtc")
+texture_hover = ExtResource("8_uja6x")
+texture_disabled = ExtResource("9_nchab")
+stretch_mode = 0
+
+[node name="Level" type="Label" parent="BulletButton/BulletVelStatButton" unique_id=9375896]
+texture_filter = 1
+layout_mode = 0
+offset_left = 7.000004
+offset_top = -43.0
+offset_right = 70.0
+offset_bottom = -20.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Level : 0"
+
+[node name="DamageButton" type="TextureButton" parent="BulletButton" unique_id=1045180756]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -2.2800002
+anchor_top = -2.2
+anchor_right = -1.187
+anchor_bottom = -1.2670001
+offset_left = 371.12003
+offset_top = 206.0
+offset_right = 333.448
+offset_bottom = 185.02
+texture_normal = ExtResource("6_55yk3")
+texture_pressed = ExtResource("7_jkhtc")
+texture_hover = ExtResource("8_uja6x")
+texture_disabled = ExtResource("9_nchab")
+stretch_mode = 0
+
+[node name="Level" type="Label" parent="BulletButton/DamageButton" unique_id=113134609]
+texture_filter = 1
+layout_mode = 0
+offset_left = 7.0000076
+offset_top = -43.0
+offset_right = 70.000015
+offset_bottom = -20.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Level : 0"
+
+[connection signal="pressed" from="TryAgainButton" to="." method="_on_try_again_button_pressed"]
+[connection signal="pressed" from="GunButton/LifeStatButton" to="." method="_on_life_stat_button_pressed"]
+[connection signal="pressed" from="GunButton/VelStatButton" to="." method="_on_vel_stat_button_pressed"]
+[connection signal="pressed" from="GunButton/FireRateButton" to="." method="_on_fire_rate_button_pressed"]
+[connection signal="pressed" from="BulletButton/PenStatButton" to="." method="_on_pen_stat_button_pressed"]
+[connection signal="pressed" from="BulletButton/BulletVelStatButton" to="." method="_on_bullet_vel_stat_button_pressed"]
+[connection signal="pressed" from="BulletButton/DamageButton" to="." method="_on_damage_button_pressed"]

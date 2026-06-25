@@ -5,12 +5,16 @@
 [ext_resource type="Script" uid="uid://dj8j1pu2ilxua" path="res://Scripts/FasePrincipal/HealthComponent.gd" id="3_n5qd3"]
 [ext_resource type="Script" uid="uid://boemys4v5i1gw" path="res://Scripts/FasePrincipal/bullet_spawner.gd" id="4_xutcm"]
 [ext_resource type="PackedScene" uid="uid://scitov56cg4l" path="res://Scenes/FasePrincipal/Bala.tscn" id="5_1wt7n"]
+[ext_resource type="AudioStream" uid="uid://ry7p1e2mnacd" path="res://Sounds/gunShot.wav" id="6_t2b7e"]
+[ext_resource type="AudioStream" uid="uid://brhh7u6nx1ew2" path="res://Sounds/playerDamage.wav" id="7_n5qd3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ckcjq"]
 size = Vector2(25, 15)
 
 [node name="Arma" type="Area2D" unique_id=44014132]
+process_mode = 3
 script = ExtResource("1_nwb0c")
+bulletCooldown = 0.75
 spring = 59.81
 damp = 46.364
 metadata/_edit_group_ = true
@@ -58,6 +62,14 @@ damping_min = 53.576
 damping_max = 90.197
 scale_amount_max = 3.0
 color = Color(0.6269067, 0.4942754, 0.17048678, 1)
+
+[node name="gunShotSound" type="AudioStreamPlayer2D" parent="BulletSpawner" unique_id=1514325362]
+position = Vector2(-15, 6)
+stream = ExtResource("6_t2b7e")
+
+[node name="DamageSound" type="AudioStreamPlayer2D" parent="." unique_id=1008944507]
+stream = ExtResource("7_n5qd3")
+volume_db = -0.68
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="died" from="HealthComponent" to="." method="_on_health_component_died"]

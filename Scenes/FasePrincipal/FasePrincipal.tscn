@@ -10,6 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://wf23uwlm7b0r" path="res://Scenes/FasePrincipal/enemy_gordo.tscn" id="6_qp7sx"]
 [ext_resource type="PackedScene" uid="uid://m6fl22fp30ky" path="res://Scenes/FasePrincipal/enemy_magro.tscn" id="7_1hlo7"]
 [ext_resource type="Texture2D" uid="uid://b5tq0j6uwwq4c" path="res://Sprites/PNG/lifecounter.png" id="10_xjset"]
+[ext_resource type="Texture2D" uid="uid://by6btomxrcfl2" path="res://Sprites/PNG/bt_tutorial_arrowkeys.png" id="11_o2jkb"]
+[ext_resource type="Texture2D" uid="uid://pupprjjyi64h" path="res://Sprites/PNG/bt_tutorial_space.png" id="12_uotby"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jsvmo"]
 atlas = ExtResource("5_1hlo7")
@@ -31,7 +33,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_jsvmo")
 }],
-"loop": 0,
+"loop": false,
 "name": &"default",
 "speed": 5.0
 }]
@@ -222,7 +224,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_o2jkb")
 }],
-"loop": 0,
+"loop": false,
 "name": &"0 life",
 "speed": 5.0
 }, {
@@ -239,7 +241,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_u4hfx")
 }],
-"loop": 0,
+"loop": false,
 "name": &"1 life",
 "speed": 5.0
 }, {
@@ -256,7 +258,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_p7m6u")
 }],
-"loop": 0,
+"loop": false,
 "name": &"2 life",
 "speed": 5.0
 }, {
@@ -273,7 +275,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_y67md")
 }],
-"loop": 0,
+"loop": false,
 "name": &"3 life",
 "speed": 5.0
 }, {
@@ -290,7 +292,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_vfujf")
 }],
-"loop": 0,
+"loop": false,
 "name": &"4 life",
 "speed": 5.0
 }, {
@@ -307,7 +309,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_06hhq")
 }],
-"loop": 0,
+"loop": false,
 "name": &"5 life",
 "speed": 5.0
 }, {
@@ -315,7 +317,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_irivd")
 }],
-"loop": 0,
+"loop": false,
 "name": &"6 life",
 "speed": 5.0
 }]
@@ -348,11 +350,11 @@ texture = ExtResource("4_sn6df")
 stretch_mode = 2
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1385811518]
-position = Vector2(1, -6)
+position = Vector2(1, -4.92)
 zoom = Vector2(2, 2)
 
 [node name="Souls" type="ColorRect" parent="." unique_id=787227788]
-z_index = 10
+z_index = 3
 texture_filter = 1
 offset_left = -282.0
 offset_top = -159.0
@@ -438,7 +440,7 @@ curve = SubResource("Curve2D_uotby")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D3" unique_id=828801030]
 position = Vector2(351, -179)
-rotation = 3.1415927
+rotation = 3.1415925
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Path2D3/PathFollow2D" unique_id=480699026]
 libraries/ = SubResource("AnimationLibrary_jsvmo")
@@ -449,7 +451,7 @@ remote_path = NodePath("../../EnemySpawner3")
 
 [node name="EnemySpawner3" parent="Path2D3" unique_id=119011415 node_paths=PackedStringArray("target") instance=ExtResource("2_1lh45")]
 position = Vector2(351, -179)
-rotation = -3.1415925
+rotation = 3.1415925
 enemyScene = ExtResource("3_82kia")
 cooldown = 2.5
 target = NodePath("../../Arma")
@@ -459,7 +461,45 @@ z_index = 3
 position = Vector2(247, -138)
 scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_prgf5")
-animation = &"6 life"
+animation = &"0 life"
+
+[node name="UI" type="Control" parent="." unique_id=331231115]
+process_mode = 2
+z_index = 10
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -287.0
+offset_top = -167.0
+offset_right = 289.0
+offset_bottom = 157.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Tutorial" type="Control" parent="UI" unique_id=115898249]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TutorialSpinIcon" type="TextureRect" parent="UI/Tutorial" unique_id=1136298112]
+layout_mode = 0
+offset_left = -26.0
+offset_top = 161.0
+offset_right = 311.77777
+offset_bottom = 351.0
+texture = ExtResource("11_o2jkb")
+expand_mode = 1
+
+[node name="TutorialSpinIcon2" type="TextureRect" parent="UI/Tutorial" unique_id=175624768]
+layout_mode = 0
+offset_left = 345.0
+offset_top = 161.0
+offset_right = 682.7778
+offset_bottom = 351.0
+texture = ExtResource("12_uotby")
+expand_mode = 1
 
 [connection signal="enemy_died" from="Path2D/EnemySpawner" to="." method="_on_enemy_spawner_enemy_died"]
 [connection signal="enemy_died" from="Path2D2/EnemySpawner2" to="." method="_on_enemy_spawner_2_enemy_died"]

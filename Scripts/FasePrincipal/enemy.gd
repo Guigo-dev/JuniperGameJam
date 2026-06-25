@@ -5,12 +5,12 @@ extends Area2D
 @export var target: Node2D
 @export var knockbackforce: int
 @onready var sprite = $Sprite2D
-
+@onready var hit_sound = $hitSound
 
 func _ready() -> void:
 	add_to_group("enemy")
 	GameManager.gun_changed.connect(on_gun_changed)
-
+	print(get_path())
 	
 func _process(delta):
 	if target == null:
@@ -21,7 +21,8 @@ func _process(delta):
 
 func _on_area_entered(area: Area2D) -> void:
 	if(area.is_in_group("bala")):
-		healthComponent.updateLP(-1)
+		hit_sound.play() 
+		healthComponent.updateLP(-area.damage)
 		flash_damage()
 		var direction = (global_position - area.position).normalized()
 		var tween = create_tween()
