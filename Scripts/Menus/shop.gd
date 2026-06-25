@@ -47,7 +47,7 @@ func buyItem(currentShopSlot: int):
 	if GameManager.souls >= shopPowers[currentShopSlot]["Cost"]:
 		GameManager.souls = GameManager.souls - shopPowers[currentShopSlot]["Cost"]
 		print(GameManager.souls)
-		if GameManager.inventory[0].is_empty():
+		if GameManager.inventory[0].is_empty() and shopPowers[currentShopSlot]["Type"] !="Health":
 			GameManager.inventory[0] = shopPowers[currentShopSlot]
 			return
 		if shopPowers[currentShopSlot]["Type"] == "Gun":

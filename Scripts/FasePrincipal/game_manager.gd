@@ -126,10 +126,11 @@ func _process(delta: float) -> void:
 func resetPool():
 	remainingPowersKeys=powers.keys()
 	remainingPowersKeys.shuffle()
-	for i in inventory:
-		for j in remainingPowersKeys:
-			if int(inventory[i]["id"]) == remainingPowersKeys[j]:
-				remainingPowersKeys.remove_at(j)
+	if !inventory[0].is_empty():
+		for i in inventory:
+			for j in remainingPowersKeys:
+				if int(inventory[i]["id"]) == remainingPowersKeys[j]:
+					remainingPowersKeys.remove_at(j)
 	
 
 func _on_player_died():
