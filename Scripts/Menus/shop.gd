@@ -3,24 +3,28 @@ extends Control
 @export var tween_intensity: float
 @export var tween_duration: float
 
+@onready var power0 : TextureButton = $HBoxContainer/Power0
 @onready var power1 : TextureButton = $HBoxContainer/Power1
 @onready var power2 : TextureButton = $HBoxContainer/Power2
-@onready var power3 : TextureButton = $HBoxContainer/Power3
 
 var powerKey = 0
 var shopSlots = 3
+var shopPowers = {}
 
 func _ready() -> void:
-	for i in range(1,shopSlots+1):	
+	$InsufficientSouls.visible = false
+	for i in range(0,shopSlots):	
 		var currentPower = GameManager.powers[getNextPower()]
+		shopPowers[i]=currentPower	
 		get_node("HBoxContainer/Power%s/Name" %i).text = currentPower["Name"]
 		get_node("HBoxContainer/Power%s/Description"%i).text = currentPower["Des"]
 		get_node("HBoxContainer/Power%s/Cost"%i).text = str(currentPower["Cost"])
+		
 
 func _process(delta: float) -> void:
+	btn_hovered(power0)
 	btn_hovered(power1)
 	btn_hovered(power2)
-	btn_hovered(power3)
 
 func start_tween(object: Object, property: String, final_val: Variant, duration: float):
 	var tween = create_tween()
@@ -37,16 +41,60 @@ func getNextPower():
 	if GameManager.remainingPowersKeys.is_empty():
 		GameManager.resetPool()
 	powerKey = GameManager.remainingPowersKeys.pop_back()
-	return powerKey	
+	return powerKey
+	
+func buyItem(currentShopSlot: int):
+	if GameManager.souls >= shopPowers[currentShopSlot]["Cost"]:
+		GameManager.souls = GameManager.souls - shopPowers[currentShopSlot]["Cost"]
+		print(GameManager.souls)
+		if GameManager.inventory[0].is_empty():
+			GameManager.inventory[0] = shopPowers[currentShopSlot]
+			
+		elif shopPowers[currentShopSlot]["Type"] == "Gun":
+			for i in GameManager.inventory:
+				if GameManager.inventory[i]["Type"] == "Gun":
+					GameManager.inventory[i] = shopPowers[currentShopSlot]
+					print(GameManager.inventory)
+		elif shopPowers[currentShopSlot]["Type"] =="Trajectory":
+			print(shopPowers[currentShopSlot])
+			for i in GameManager.inventory:
+				if GameManager.inventory[i]["Type"] == "Trajectory":
+					GameManager.inventory[i] = shopPowers[currentShopSlot]
+					print(GameManager.inventory)
+				else:
+					GameManager.inventory[GameManager.inventory.size()]=shopPowers[currentShopSlot]
+					print(GameManager.inventory)
+		elif shopPowers[currentShopSlot]["Type"] =="Health":
+			if GameManager.healthComponent:
+				GameManager.healthComponent.updateLP(1)
+			else:
+				push_warning("HealthComponent do player null")
+			
+		else:
+			GameManager.inventory[GameManager.inventory.size()]=shopPowers[currentShopSlot]
 
-func _on_power_1_pressed() -> void:
-	if GameManager.souls >= int(get_node("HBoxContainer/Power1/Cost").text):
-		GameManager.souls = GameManager.souls - int(get_node("HBoxContainer/Power1/Cost").text)
+func _on_power_0_pressed() -> void:
+	if GameManager.souls < shopPowers[0]["Cost"]:
+		$InsufficientSouls.show()
+		await get_tree().create_timer(1.5).timeout
+		$InsufficientSouls.hide()
+	else:
+		buyItem(0)
 		
 
+func _on_power_1_pressed() -> void:
+		if GameManager.souls < shopPowers[1]["Cost"]:
+			$InsufficientSouls.show()
+			await get_tree().create_timer(1.5).timeout
+			$InsufficientSouls.hide()
+		else:
+			buyItem(1)
+
+
 func _on_power_2_pressed() -> void:
-	pass # Replace with function body.
-
-
-func _on_power_3_pressed() -> void:
-	pass # Replace with function body.
+	if GameManager.souls < shopPowers[2]["Cost"]:
+		$InsufficientSouls.show()
+		await get_tree().create_timer(1.5).timeout
+		$InsufficientSouls.hide()
+	else:
+		buyItem(2)

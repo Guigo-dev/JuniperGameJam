@@ -30,11 +30,13 @@ var current_upgrade_tree
 
 var XP:= 100;
 var resets = 0;
+var healthComponent : Node
 
-@export var souls : int = 0
+@export var souls : int = 1000
 @export var current_gun : String = "default"
 var waveCounter: int = 0
 var remainingPowersKeys=[]
+
 
 
 
@@ -46,57 +48,68 @@ func _process(delta: float) -> void:
 		get_tree().change_scene_to_packed(main_menu)
 		
 
+@export var inventory = {0:{}}
 #Dicionário dos poderes
 @export var powers =	{
 	0:{
 		"Name": "Ricochet",
 		"Des": "Ricochet bullets",
-		"Cost": 10
+		"Cost": 10,
+		"Type": "Modifier"
 	},
 	1:{
 		"Name": "Triple Shot",
 		"Des": "Triple the fun",
-		"Cost": 20
+		"Cost": 20,
+		"Type": "Modifier"
 	},
 	2:{
 		"Name": "Laser Aim",
 		"Des": "More precision",
-		"Cost": 30
+		"Cost": 30,
+		"Type": "Modifier"
 	},
 	3:{
 		"Name": "Auto-aim",
 		"Des": "Literal Aimbot",
-		"Cost": 40
+		"Cost": 40,
+		"Type": "Trajectory"
 	},
 	4:{
 		"Name": "Spiral Bullet",
 		"Des": "Bullets can curve??",
-		"Cost": 50
+		"Cost": 50,
+		"Type": "Trajectory"
 	},
 	5:{
 		"Name": "Heal",
 		"Des": "More HP",
-		"Cost": 60
+		"Cost": 60,
+		"Type": "Health"
 	},
 	6:{
 		"Name": "High Noon",
 		"Des": "Everything dies",
-		"Cost": 70
+		"Cost": 70,
+		"Type": "Power"
 	},
 	7:{
 		"Name": "Gold Gun",
 		"Des": "MONEY",
-		"Cost": 80
+		"Cost": 80,
+		"Type": "Gun"
 	},
 	8:{
 		"Name": "Fire Gun",
 		"Des": "Fireball",
-		"Cost": 90
+		"Cost": 90,
+		"Type": "Gun"
 	},
 	9:{
 		"Name": "Ice Gun",
 		"Des": "Achooo!",
-		"Cost": 100
+		"Cost": 100,
+		"Type": "Gun"
 	},
 }
 #Reseta a pool de poderes
@@ -104,7 +117,6 @@ func resetPool():
 	remainingPowersKeys=powers.keys()
 	remainingPowersKeys.shuffle()
 	
-var inventario = {}
 
 func _on_player_died():
 	get_tree().paused = true
