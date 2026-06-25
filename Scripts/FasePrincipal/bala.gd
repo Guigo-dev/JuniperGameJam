@@ -18,8 +18,9 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	global_position += direction * speed * delta * -1
-	if(penetration == 0):
-		free()
+	if(penetration == 0 || global_position.x > 300 || global_position.x < -300
+						|| global_position.y < -180 || global_position.y > 165 ):
+		queue_free()
 	
 func _on_area_entered(area: Area2D) -> void:
 	if(area.is_in_group("enemy")):
