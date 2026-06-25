@@ -21,8 +21,11 @@ var direction = 1
 
 func _ready() -> void:
 	add_to_group("arma")
-	get_parent().update_lifeCounterIcon(healthComponent.lifePoints,0)
 	GameManager.gun_stat_changed.connect(_on_gun_stat_changed)
+	speedMultiplier = GameManager.gunStats["speed"]
+	updateMaxHealth(GameManager.gunStats["life"])
+	bulletCooldown = GameManager.gunStats["fire_rate"]
+	get_parent().update_lifeCounterIcon(healthComponent.lifePoints,0)
 
 func _physics_process(delta: float) -> void:
 	speed = 75 * speedMultiplier #velocidade base de rotacao
@@ -41,7 +44,7 @@ func _physics_process(delta: float) -> void:
 	shake(delta)
 
 func _on_health_component_died() -> void:
-	get_tree().paused = true
+	GameManager._on_player_died()
 
 func _on_area_entered(area: Area2D) -> void:
 	if(area.is_in_group("enemy")):
@@ -51,10 +54,12 @@ func _on_area_entered(area: Area2D) -> void:
 		get_parent().update_lifeCounterIcon(healthComponent.lifePoints,0)
 	if(area.is_in_group("lifeGainer")):
 		healthComponent.updateLP(1)
+		get_parent().update_lifeCounterIcon(healthComponent.lifePoints,0)
 		
 	
 func updateMaxHealth(amount: int):
-	healthComponent.MAX_LIFE += amount
+	healthComponent.MAX_LIFE = amount
+	healthComponent.updateLP(amount)
 
 func updateSpeedMultiplier(amount: float):
 	speedMultiplier = amount
@@ -70,8 +75,8 @@ func shake(delta:float) -> void:
 	
 func _on_gun_stat_changed(stat_type: int):
 	if(stat_type == GameManager.GunStat.life):
-		updateMaxHealth(1)
+		GameManager.gunStats["life"] += 1
 	elif(stat_type == GameManager.GunStat.speed):
-		speedMultiplier += 0.25
+		GameManager.gunStats["speed"] += 0.25
 	elif(stat_type == GameManager.GunStat.fire_rate):
-		bulletCooldown -= 0.25
+		GameManager.gunStats["fire_rate"] -= 0.25

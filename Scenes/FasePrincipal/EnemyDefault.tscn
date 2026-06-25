@@ -54,7 +54,6 @@ knockbackforce = 10
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_n7ou2")
 autoplay = "default"
-frame_progress = 0.478554
 
 [node name="ColissionShape2D" type="CollisionShape2D" parent="." unique_id=1645832035]
 position = Vector2(0, 4)
