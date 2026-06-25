@@ -26,6 +26,7 @@ func _ready() -> void:
 	updateMaxHealth(GameManager.gunStats["life"])
 	bulletCooldown = GameManager.gunStats["fire_rate"]
 	get_parent().update_lifeCounterIcon(healthComponent.lifePoints,0)
+	GameManager.healthComponent = healthComponent
 
 func _physics_process(delta: float) -> void:
 	speed = 85  #velocidade base de rotacao
