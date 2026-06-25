@@ -6,14 +6,21 @@ signal bullet_stat_changed(stat: int)
 
 var gunStats := {
 	"life": 3,
-	"speed": 1,
-	"fire_rate": 0.75
+	"speed": 1.0,
+	"fire_rate": 0.75,
+	"lifeUpgradeQtd": 0,
+	"speedUpgradeQtd": 0,
+	"fire_rateUpgradeQtd": 0
 }
 var bulletStat := {
 	"penetration": 1,
 	"velocity": 70,
-	"damage": 1
+	"damage": 1,
+	"penetrationUpgradeQtd": 0,
+	"velocityUpgradeQtd": 0,
+	"damageUpgradeQtd": 0
 }
+
 
 enum GunStat {life,speed,fire_rate} 
 enum BulletStat {penetration, velocity, damage}
@@ -21,7 +28,7 @@ enum BulletStat {penetration, velocity, damage}
 @export var upgrade_tree_scene : PackedScene
 var current_upgrade_tree
 
-var XP:= 3;
+var XP:= 100;
 
 @export var souls : int = 0
 @export var current_gun : String = "default"

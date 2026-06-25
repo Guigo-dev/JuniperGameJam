@@ -106,18 +106,29 @@ offset_bottom = 63.26846
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Level : 1"
 
-[node name="BulletButton" type="Button" parent="GunButton" unique_id=241848814]
+[node name="BackButton" type="Button" parent="." unique_id=1408834189]
 texture_filter = 1
 layout_mode = 0
-offset_left = 106.0
-offset_right = 178.0
-offset_bottom = 60.0
+offset_left = 16.0
+offset_top = 12.0
+offset_right = 61.0
+offset_bottom = 50.0
+theme_override_fonts/font = ExtResource("2_c62tb")
+text = "Back"
+
+[node name="BulletButton" type="Button" parent="." unique_id=241848814]
+texture_filter = 1
+layout_mode = 0
+offset_left = 338.0
+offset_top = 137.0
+offset_right = 442.0
+offset_bottom = 197.0
 scale = Vector2(0.66826904, 0.7360641)
 theme_override_fonts/font = ExtResource("2_c62tb")
 theme_override_font_sizes/font_size = 16
 text = "Bullet"
 
-[node name="PenStatButton" type="Button" parent="GunButton/BulletButton" unique_id=510887778]
+[node name="PenStatButton" type="Button" parent="BulletButton" unique_id=510887778]
 texture_filter = 1
 layout_mode = 1
 anchors_preset = -1
@@ -133,16 +144,16 @@ theme_override_fonts/font = ExtResource("2_c62tb")
 theme_override_font_sizes/font_size = 12
 text = "Penetration"
 
-[node name="Level" type="Label" parent="GunButton/BulletButton/PenStatButton" unique_id=127694988]
+[node name="Level" type="Label" parent="BulletButton/PenStatButton" unique_id=127694988]
 texture_filter = 1
 layout_mode = 0
 offset_top = 56.0
 offset_right = 100.0
 offset_bottom = 79.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Level : 1"
+text = "Level : 0"
 
-[node name="BulletVelStatButton" type="Button" parent="GunButton/BulletButton" unique_id=1100815480]
+[node name="BulletVelStatButton" type="Button" parent="BulletButton" unique_id=1100815480]
 texture_filter = 1
 layout_mode = 1
 anchors_preset = -1
@@ -159,16 +170,16 @@ theme_override_font_sizes/font_size = 12
 text = "Velocity"
 autowrap_mode = 2
 
-[node name="Level" type="Label" parent="GunButton/BulletButton/BulletVelStatButton" unique_id=9375896]
+[node name="Level" type="Label" parent="BulletButton/BulletVelStatButton" unique_id=9375896]
 texture_filter = 1
 layout_mode = 0
 offset_top = 56.0
 offset_right = 100.0
 offset_bottom = 79.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Level : 1"
+text = "Level : 0"
 
-[node name="DamageButton" type="Button" parent="GunButton/BulletButton" unique_id=1422610575]
+[node name="DamageButton" type="Button" parent="BulletButton" unique_id=1422610575]
 texture_filter = 1
 layout_mode = 1
 anchors_preset = -1
@@ -184,29 +195,19 @@ theme_override_fonts/font = ExtResource("2_c62tb")
 theme_override_font_sizes/font_size = 12
 text = "Damage"
 
-[node name="Level" type="Label" parent="GunButton/BulletButton/DamageButton" unique_id=113134609]
+[node name="Level" type="Label" parent="BulletButton/DamageButton" unique_id=113134609]
 texture_filter = 1
 layout_mode = 0
 offset_top = 56.0
 offset_right = 100.0
 offset_bottom = 79.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Level : 1"
-
-[node name="BackButton" type="Button" parent="." unique_id=1408834189]
-texture_filter = 1
-layout_mode = 0
-offset_left = 16.0
-offset_top = 12.0
-offset_right = 61.0
-offset_bottom = 50.0
-theme_override_fonts/font = ExtResource("2_c62tb")
-text = "Back"
+text = "Level : 0"
 
 [connection signal="pressed" from="GunButton/LifeStatButton" to="." method="_on_life_stat_button_pressed"]
 [connection signal="pressed" from="GunButton/VelStatButton" to="." method="_on_vel_stat_button_pressed"]
 [connection signal="pressed" from="GunButton/FireRateButton" to="." method="_on_fire_rate_button_pressed"]
-[connection signal="pressed" from="GunButton/BulletButton/PenStatButton" to="." method="_on_pen_stat_button_pressed"]
-[connection signal="pressed" from="GunButton/BulletButton/BulletVelStatButton" to="." method="_on_bullet_vel_stat_button_pressed"]
-[connection signal="pressed" from="GunButton/BulletButton/DamageButton" to="." method="_on_damage_button_pressed"]
 [connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="BulletButton/PenStatButton" to="." method="_on_pen_stat_button_pressed"]
+[connection signal="pressed" from="BulletButton/BulletVelStatButton" to="." method="_on_bullet_vel_stat_button_pressed"]
+[connection signal="pressed" from="BulletButton/DamageButton" to="." method="_on_damage_button_pressed"]

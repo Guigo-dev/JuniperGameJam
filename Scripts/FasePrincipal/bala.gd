@@ -3,7 +3,7 @@ extends Area2D
 var direction
 @export var speed = 70
 @export var penetration = 1
-@export var dano := 1
+@export var damage := 1
 var target: Node2D
 
 
@@ -13,7 +13,7 @@ func _ready() -> void:
 	GameManager.bullet_stat_changed.connect(_on_bullet_stat_changed)
 	speed = GameManager.bulletStat["velocity"]
 	penetration = GameManager.bulletStat["penetration"]
-	dano = GameManager.bulletStat["damage"]
+	damage = GameManager.bulletStat["damage"]
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -29,6 +29,6 @@ func _on_bullet_stat_changed(stat_type: int):
 	if(stat_type == GameManager.BulletStat.penetration):
 		GameManager.bulletStat["penetration"] += 1
 	elif(stat_type == GameManager.BulletStat.velocity):
-		GameManager.bulletStat["velocity"] += 10
+		GameManager.bulletStat["velocity"] += 5
 	elif(stat_type == GameManager.BulletStat.damage):
 		GameManager.bulletStat["damage"] += 1

@@ -47,7 +47,6 @@ func _on_health_component_died() -> void:
 
 func _on_area_entered(area: Area2D) -> void:
 	if(area.is_in_group("enemy")):
-		print("acertou")
 		healthComponent.updateLP(-1)
 		get_parent().update_lifeCounterIcon(healthComponent.lifePoints,0)
 	if(area.is_in_group("lifeGainer")):
