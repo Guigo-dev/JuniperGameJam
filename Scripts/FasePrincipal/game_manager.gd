@@ -35,7 +35,7 @@ var healthComponent : Node
 @export var souls : int = 1000
 @export var current_gun : String = "default"
 var waveCounter: int = 0
-var remainingPowersKeys=[]
+@export var remainingPowersKeys=[]
 
 
 

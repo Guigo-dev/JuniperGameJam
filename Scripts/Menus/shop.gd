@@ -49,52 +49,60 @@ func buyItem(currentShopSlot: int):
 		print(GameManager.souls)
 		if GameManager.inventory[0].is_empty():
 			GameManager.inventory[0] = shopPowers[currentShopSlot]
-			
-		elif shopPowers[currentShopSlot]["Type"] == "Gun":
+			return
+		if shopPowers[currentShopSlot]["Type"] == "Gun":
 			for i in GameManager.inventory:
 				if GameManager.inventory[i]["Type"] == "Gun":
 					GameManager.inventory[i] = shopPowers[currentShopSlot]
-					print(GameManager.inventory)
-		elif shopPowers[currentShopSlot]["Type"] =="Trajectory":
-			print(shopPowers[currentShopSlot])
+					return
+			GameManager.inventory[GameManager.inventory.size()]=shopPowers[currentShopSlot]
+			return
+		if shopPowers[currentShopSlot]["Type"] =="Trajectory":
 			for i in GameManager.inventory:
 				if GameManager.inventory[i]["Type"] == "Trajectory":
 					GameManager.inventory[i] = shopPowers[currentShopSlot]
-					print(GameManager.inventory)
-				else:
-					GameManager.inventory[GameManager.inventory.size()]=shopPowers[currentShopSlot]
-					print(GameManager.inventory)
-		elif shopPowers[currentShopSlot]["Type"] =="Health":
+					return
+			GameManager.inventory[GameManager.inventory.size()]=shopPowers[currentShopSlot]
+			return
+		if shopPowers[currentShopSlot]["Type"] =="Health":
 			if GameManager.healthComponent:
 				GameManager.healthComponent.updateLP(1)
+				return
 			else:
 				push_warning("HealthComponent do player null")
-			
+				return
 		else:
 			GameManager.inventory[GameManager.inventory.size()]=shopPowers[currentShopSlot]
+			return
+
+func hasEnoughSouls(currentShopSlot):
+	return GameManager.souls >= shopPowers[currentShopSlot]["Cost"]
+func showInsufficientSouls():
+	$InsufficientSouls.show()
+	await get_tree().create_timer(1.5).timeout
+	$InsufficientSouls.hide()
 
 func _on_power_0_pressed() -> void:
-	if GameManager.souls < shopPowers[0]["Cost"]:
-		$InsufficientSouls.show()
-		await get_tree().create_timer(1.5).timeout
-		$InsufficientSouls.hide()
-	else:
-		buyItem(0)
+	if !hasEnoughSouls(0):
+		showInsufficientSouls()
+		return
+	buyItem(0)
+	$HBoxContainer/Power0.disabled = true
+	print(GameManager.inventory)
 		
 
 func _on_power_1_pressed() -> void:
-		if GameManager.souls < shopPowers[1]["Cost"]:
-			$InsufficientSouls.show()
-			await get_tree().create_timer(1.5).timeout
-			$InsufficientSouls.hide()
-		else:
-			buyItem(1)
-
+	if !hasEnoughSouls(1):
+		showInsufficientSouls()
+		return
+	buyItem(1)
+	$HBoxContainer/Power1.disabled = true
+	print(GameManager.inventory)
 
 func _on_power_2_pressed() -> void:
-	if GameManager.souls < shopPowers[2]["Cost"]:
-		$InsufficientSouls.show()
-		await get_tree().create_timer(1.5).timeout
-		$InsufficientSouls.hide()
-	else:
-		buyItem(2)
+	if !hasEnoughSouls(2):
+		showInsufficientSouls()
+		return
+	buyItem(2)
+	$HBoxContainer/Power2.disabled = true
+	print(GameManager.inventory)
