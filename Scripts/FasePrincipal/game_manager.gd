@@ -36,11 +36,12 @@ var resets = 0;
 
 
 func _ready() -> void:
-	process_mode = Node.PROCESS_MODE_WHEN_PAUSED
+	process_mode = Node.PROCESS_MODE_ALWAYS
 	
 func _process(delta: float) -> void:
-	if(Input.is_action_pressed("reset")):
-		get_tree().change_scene_to_packed(main_menu)
+	if(Input.is_action_just_pressed("Pause")):
+		get_tree().paused = !get_tree().paused
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 		
 func _on_player_died():
 	get_tree().paused = true

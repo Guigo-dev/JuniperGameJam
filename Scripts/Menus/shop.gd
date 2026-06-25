@@ -7,6 +7,8 @@ extends Control
 @onready var power2 : TextureButton = $HBoxContainer/Power2
 @onready var power3 : TextureButton = $HBoxContainer/Power3
 
+func _ready() -> void:
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 func _process(delta: float) -> void:
 	btn_hovered(power1)
 	btn_hovered(power2)
