@@ -40,7 +40,9 @@ func getNextPower():
 	return powerKey	
 
 func _on_power_1_pressed() -> void:
-	pass # Replace with function body.
+	if GameManager.souls >= int(get_node("HBoxContainer/Power1/Cost").text):
+		GameManager.souls = GameManager.souls - int(get_node("HBoxContainer/Power1/Cost").text)
+		
 
 func _on_power_2_pressed() -> void:
 	pass # Replace with function body.

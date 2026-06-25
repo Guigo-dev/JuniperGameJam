@@ -17,7 +17,7 @@ func _process(delta: float) -> void:
 	if(Input.is_action_pressed("reset")):
 		get_tree().change_scene_to_packed(main_menu)
 		
-
+#Dicionário dos poderes
 @export var powers =	{
 	0:{
 		"Name": "Ricochet",
@@ -70,6 +70,9 @@ func _process(delta: float) -> void:
 		"Cost": 100
 	},
 }
+#Reseta a pool de poderes
 func resetPool():
 	remainingPowersKeys=powers.keys()
 	remainingPowersKeys.shuffle()
+	
+var inventario = {}
