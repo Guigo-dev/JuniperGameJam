@@ -10,6 +10,7 @@
 size = Vector2(24, 15)
 
 [node name="ArmaDeFogo" type="Area2D" unique_id=955160628]
+visible = false
 script = ExtResource("1_aymjp")
 bulletCooldown = 0.5
 
