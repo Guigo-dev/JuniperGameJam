@@ -6,6 +6,14 @@ extends Node2D
 @export var lifeCounterIcon: AnimatedSprite2D
 
 
+func _ready() -> void:
+	if(GameManager.resets == 0):
+		$UI/Tutorial.visible = true
+		await get_tree().create_timer(3).timeout
+		var tween = create_tween()
+		tween.tween_property($UI/Tutorial, "modulate:a", 0.0, 1.0)
+		await tween.finished
+		$UI/Tutorial.visible = false
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 @warning_ignore("unused_parameter")
 func _process(delta: float) -> void:

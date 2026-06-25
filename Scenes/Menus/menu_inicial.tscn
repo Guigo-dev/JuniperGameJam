@@ -3,6 +3,12 @@
 [ext_resource type="Script" uid="uid://cs2es3gney0ut" path="res://Scripts/Menus/menu_inicial.gd" id="1_8555o"]
 [ext_resource type="PackedScene" uid="uid://bve8417uknmvi" path="res://Scenes/FasePrincipal/FasePrincipal.tscn" id="2_y6kec"]
 [ext_resource type="Texture2D" uid="uid://cx4l4wocsb4fc" path="res://Sprites/PNG/menuinicial.png" id="3_72p41"]
+[ext_resource type="Texture2D" uid="uid://dsw1g6rq2tajp" path="res://Sprites/PNG/bt_play.png" id="4_3bo06"]
+[ext_resource type="Texture2D" uid="uid://bdd5b8fprcp1o" path="res://Sprites/PNG/bt_play_onclick.png" id="5_l3bu0"]
+[ext_resource type="Texture2D" uid="uid://b7rf2klq8mear" path="res://Sprites/PNG/bt_play_hover.png" id="6_eibcr"]
+[ext_resource type="Texture2D" uid="uid://bjj65py057a70" path="res://Sprites/PNG/bt_credits.png" id="7_godxv"]
+[ext_resource type="Texture2D" uid="uid://bngx1ibtj0vp3" path="res://Sprites/PNG/bt_credits_onclick.png" id="8_js4h4"]
+[ext_resource type="Texture2D" uid="uid://b3fyhwxma1e0p" path="res://Sprites/PNG/bt_credits_hover.png" id="9_inq5d"]
 
 [node name="MenuInicial" type="Control" unique_id=1641631300 node_paths=PackedStringArray("iniciarButton")]
 layout_mode = 3
@@ -12,7 +18,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_8555o")
-iniciarButton = NodePath("IniciarButton")
+iniciarButton = NodePath("")
 cenaPrincipal = ExtResource("2_y6kec")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=344592134]
@@ -24,19 +30,33 @@ offset_right = 2.0
 offset_bottom = 5.0
 texture = ExtResource("3_72p41")
 
-[node name="IniciarButton" type="Button" parent="." unique_id=1098876849]
+[node name="IniciarButton" type="TextureButton" parent="." unique_id=277128739]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.40100002
 anchor_top = 0.441
 anchor_right = 0.582
 anchor_bottom = 0.606
-offset_left = -4.9520264
-offset_top = 0.23199463
-offset_right = -0.46398926
-offset_bottom = 0.3119812
-theme_override_colors/font_color = Color(0.5803922, 0.105882354, 0.047058824, 1)
-theme_override_font_sizes/font_size = 30
-text = "Iniciar"
+offset_left = -61.952026
+offset_top = 42.231995
+offset_right = -93.46399
+offset_bottom = -25.688019
+scale = Vector2(2, 2)
+texture_normal = ExtResource("4_3bo06")
+texture_pressed = ExtResource("5_l3bu0")
+texture_hover = ExtResource("6_eibcr")
+ignore_texture_size = true
+stretch_mode = 3
+
+[node name="CreditsButton" type="TextureButton" parent="." unique_id=2059722351]
+layout_mode = 0
+offset_left = 376.0
+offset_top = 456.0
+offset_right = 575.0
+offset_bottom = 503.0
+scale = Vector2(2, 2)
+texture_normal = ExtResource("7_godxv")
+texture_pressed = ExtResource("8_js4h4")
+texture_hover = ExtResource("9_inq5d")
 
 [connection signal="pressed" from="IniciarButton" to="." method="_on_iniciar_button_pressed"]

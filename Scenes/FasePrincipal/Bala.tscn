@@ -33,7 +33,6 @@ gradient = SubResource("Gradient_qeopr")
 script = ExtResource("3_qeopr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1515817716]
-visible = false
 shape = SubResource("CircleShape2D_3tbbd")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
