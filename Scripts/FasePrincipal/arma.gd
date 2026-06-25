@@ -28,13 +28,13 @@ func _ready() -> void:
 	get_parent().update_lifeCounterIcon(healthComponent.lifePoints,0)
 
 func _physics_process(delta: float) -> void:
-	speed = 75 * speedMultiplier #velocidade base de rotacao
+	speed = 85  #velocidade base de rotacao
 	if(Input.is_action_pressed("Direita")):
 		direction = 1
-		speed = 65 * speedMultiplier
+		speed *= speedMultiplier
 	elif(Input.is_action_pressed("Esquerda")):
 		direction = -1
-		speed = 65 * speedMultiplier
+		speed *= speedMultiplier
 	rotate((PI/speed)*direction)
 	
 	if(Input.is_action_just_pressed("atirar") && bulletCooldownTimer.is_stopped()):
@@ -77,6 +77,6 @@ func _on_gun_stat_changed(stat_type: int):
 	if(stat_type == GameManager.GunStat.life):
 		GameManager.gunStats["life"] += 1
 	elif(stat_type == GameManager.GunStat.speed):
-		GameManager.gunStats["speed"] += 0.25
+		GameManager.gunStats["speed"] -= 0.15
 	elif(stat_type == GameManager.GunStat.fire_rate):
 		GameManager.gunStats["fire_rate"] -= 0.25

@@ -22,7 +22,6 @@ func _process(delta):
 func _on_area_entered(area: Area2D) -> void:
 	if(area.is_in_group("bala")):
 		hit_sound.play() 
-		healthComponent.updateLP(-1)
 		healthComponent.updateLP(-area.damage)
 		flash_damage()
 		var direction = (global_position - area.position).normalized()

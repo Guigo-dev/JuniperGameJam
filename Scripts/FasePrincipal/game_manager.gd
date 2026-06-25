@@ -6,7 +6,7 @@ signal bullet_stat_changed(stat: int)
 
 var gunStats := {
 	"life": 3,
-	"speed": 1.0,
+	"speed": 0.85,
 	"fire_rate": 0.75,
 	"lifeUpgradeQtd": 0,
 	"speedUpgradeQtd": 0,
@@ -29,6 +29,7 @@ enum BulletStat {penetration, velocity, damage}
 var current_upgrade_tree
 
 var XP:= 100;
+var resets = 0;
 
 @export var souls : int = 0
 @export var current_gun : String = "default"
@@ -51,6 +52,7 @@ func _on_upgrades_finished():
 	restart_game()
 	
 func restart_game():
+	resets += 1
 	get_tree().paused = false
 	souls = 0
 	get_tree().reload_current_scene()

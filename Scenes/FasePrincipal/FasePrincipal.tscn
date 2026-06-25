@@ -10,6 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://wf23uwlm7b0r" path="res://Scenes/FasePrincipal/enemy_gordo.tscn" id="6_qp7sx"]
 [ext_resource type="PackedScene" uid="uid://m6fl22fp30ky" path="res://Scenes/FasePrincipal/enemy_magro.tscn" id="7_1hlo7"]
 [ext_resource type="Texture2D" uid="uid://b5tq0j6uwwq4c" path="res://Sprites/PNG/lifecounter.png" id="10_xjset"]
+[ext_resource type="Texture2D" uid="uid://by6btomxrcfl2" path="res://Sprites/PNG/bt_tutorial_arrowkeys.png" id="11_o2jkb"]
+[ext_resource type="Texture2D" uid="uid://pupprjjyi64h" path="res://Sprites/PNG/bt_tutorial_space.png" id="12_uotby"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jsvmo"]
 atlas = ExtResource("5_1hlo7")
@@ -367,6 +369,7 @@ layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.38
 anchor_top = -0.4390244
+anchor_right = 0.38
 offset_left = 6.0
 offset_top = 18.0
 offset_right = 100.0
@@ -473,6 +476,30 @@ offset_right = 289.0
 offset_bottom = 157.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Tutorial" type="Control" parent="UI" unique_id=115898249]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TutorialSpinIcon" type="TextureRect" parent="UI/Tutorial" unique_id=1136298112]
+layout_mode = 0
+offset_left = -26.0
+offset_top = 161.0
+offset_right = 311.77777
+offset_bottom = 351.0
+texture = ExtResource("11_o2jkb")
+expand_mode = 1
+
+[node name="TutorialSpinIcon2" type="TextureRect" parent="UI/Tutorial" unique_id=175624768]
+layout_mode = 0
+offset_left = 345.0
+offset_top = 161.0
+offset_right = 682.7778
+offset_bottom = 351.0
+texture = ExtResource("12_uotby")
+expand_mode = 1
 
 [connection signal="enemy_died" from="Path2D/EnemySpawner" to="." method="_on_enemy_spawner_enemy_died"]
 [connection signal="enemy_died" from="Path2D2/EnemySpawner2" to="." method="_on_enemy_spawner_2_enemy_died"]
