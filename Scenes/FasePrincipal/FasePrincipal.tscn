@@ -7,12 +7,17 @@
 [ext_resource type="PackedScene" uid="uid://13ixk6h33t1i" path="res://Scenes/FasePrincipal/EnemyDefault.tscn" id="3_82kia"]
 [ext_resource type="Texture2D" uid="uid://rogtftkam8yd" path="res://Sprites/PNG/village.png" id="4_sn6df"]
 [ext_resource type="Texture2D" uid="uid://c2buru432eq5g" path="res://Sprites/PNG/soulcounter.png" id="5_1hlo7"]
+[ext_resource type="Texture2D" uid="uid://bw4no0yktis35" path="res://Sprites/PNG/placa_soulcounter.png" id="5_14hcg"]
 [ext_resource type="PackedScene" uid="uid://wf23uwlm7b0r" path="res://Scenes/FasePrincipal/enemy_gordo.tscn" id="6_qp7sx"]
+[ext_resource type="FontFile" uid="uid://d2ns3wsd4gt2e" path="res://Sprites/PressStart2P.ttf" id="6_s446e"]
 [ext_resource type="PackedScene" uid="uid://m6fl22fp30ky" path="res://Scenes/FasePrincipal/enemy_magro.tscn" id="7_1hlo7"]
 [ext_resource type="Texture2D" uid="uid://b5tq0j6uwwq4c" path="res://Sprites/PNG/lifecounter.png" id="10_xjset"]
 [ext_resource type="Texture2D" uid="uid://by6btomxrcfl2" path="res://Sprites/PNG/bt_tutorial_arrowkeys.png" id="11_o2jkb"]
+[ext_resource type="Texture2D" uid="uid://dav8dlukjs14d" path="res://Sprites/PNG/placa_lifecounter.png" id="12_p7m6u"]
 [ext_resource type="Texture2D" uid="uid://pupprjjyi64h" path="res://Sprites/PNG/bt_tutorial_space.png" id="12_uotby"]
 [ext_resource type="Script" uid="uid://cmoiybfwwqc5e" path="res://Scripts/FasePrincipal/wave_manager.gd" id="13_uotby"]
+[ext_resource type="PackedScene" uid="uid://scitov56cg4l" path="res://Scenes/FasePrincipal/Bala.tscn" id="14_lahha"]
+[ext_resource type="AudioStream" uid="uid://dut2708n5muat" path="res://soundtrack/sonican-cinematic-spaghetti-loop-western-adventure-394920.mp3" id="15_nmifv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jsvmo"]
 atlas = ExtResource("5_1hlo7")
@@ -354,29 +359,31 @@ stretch_mode = 2
 position = Vector2(1, -4.92)
 zoom = Vector2(2, 2)
 
-[node name="Souls" type="ColorRect" parent="." unique_id=787227788]
+[node name="Souls" type="TextureRect" parent="." unique_id=625624203]
 z_index = 3
 texture_filter = 1
 offset_left = -282.0
 offset_top = -159.0
 offset_right = -182.0
 offset_bottom = -118.0
-color = Color(0.8745098, 0.44313726, 0.14901961, 1)
+texture = ExtResource("5_14hcg")
 metadata/_edit_use_anchors_ = true
 
 [node name="SoulsText" type="RichTextLabel" parent="Souls" unique_id=187227670]
 texture_filter = 1
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.38
-anchor_top = -0.4390244
-anchor_right = 0.38
+anchor_left = -0.05
+anchor_top = -0.23404266
+anchor_right = -0.05
+anchor_bottom = 0.021276515
 offset_left = 6.0
 offset_top = 18.0
 offset_right = 100.0
 offset_bottom = 40.0
 theme_override_colors/default_color = Color(0.56078434, 0.3372549, 0.23137255, 1)
-theme_override_font_sizes/normal_font_size = 20
+theme_override_fonts/normal_font = ExtResource("6_s446e")
+theme_override_font_sizes/normal_font_size = 15
 text = "0"
 scroll_active = false
 horizontal_alignment = 1
@@ -384,8 +391,8 @@ vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="SoulCounterIcon" type="AnimatedSprite2D" parent="Souls" unique_id=15288452]
-position = Vector2(26, 18)
-scale = Vector2(1.5, 1.5)
+position = Vector2(29, 22)
+scale = Vector2(1.2185433, 1.2185433)
 sprite_frames = SubResource("SpriteFrames_o2jkb")
 frame_progress = 1.0
 
@@ -454,15 +461,24 @@ rotation = -3.1415925
 enemyScene = ExtResource("3_82kia")
 target = NodePath("../../Arma")
 
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1217152338]
+z_index = 2
+offset_left = 214.0
+offset_top = -167.0
+offset_right = 278.3617
+offset_bottom = -112.0
+texture = ExtResource("12_p7m6u")
+
 [node name="LifeCounterIcon" type="AnimatedSprite2D" parent="." unique_id=1461465721]
 z_index = 3
-position = Vector2(247, -138)
-scale = Vector2(1.5, 1.5)
+position = Vector2(246.99997, -139)
+scale = Vector2(1.3125006, 1.3125006)
 sprite_frames = SubResource("SpriteFrames_prgf5")
 animation = &"0 life"
 
 [node name="UI" type="Control" parent="." unique_id=331231115]
 process_mode = 2
+visible = false
 z_index = 10
 layout_mode = 3
 anchors_preset = 15
@@ -501,6 +517,32 @@ expand_mode = 1
 
 [node name="WaveManager" type="Node" parent="." unique_id=302771553]
 script = ExtResource("13_uotby")
+
+[node name="Bala" parent="." unique_id=1222037949 node_paths=PackedStringArray("target") instance=ExtResource("14_lahha")]
+visible = false
+collision_layer = 2
+collision_mask = 2
+speed = 0
+penetration = 0
+damage = 0
+target = NodePath("../Arma")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1557476277]
+stream = ExtResource("15_nmifv")
+autoplay = true
+parameters/looping = true
+
+[node name="Fade" type="ColorRect" parent="." unique_id=280751080]
+unique_name_in_owner = true
+process_mode = 3
+visible = false
+z_index = 10
+offset_left = -287.0
+offset_top = -167.0
+offset_right = 289.0
+offset_bottom = 157.0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
 
 [connection signal="enemy_died" from="Path2D/EnemySpawner" to="." method="_on_enemy_spawner_enemy_died"]
 [connection signal="enemy_died" from="Path2D2/EnemySpawner2" to="." method="_on_enemy_spawner_2_enemy_died"]

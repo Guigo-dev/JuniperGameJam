@@ -10,8 +10,8 @@ func _ready() -> void:
 		bitmap.create_from_image_alpha(image)
 		texture_click_mask = bitmap
 		
-func _input(event) -> void:
-	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
-		if event.pressed:
-			pass
-			
+#func _input(event) -> void:
+	#if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
+		#if event.pressed:
+			#pass
+			#

@@ -4,6 +4,8 @@ extends Area2D
 @onready var bulletSpawner := %BulletSpawner
 @onready var bulletCooldownTimer := $BulletCooldown
 
+@onready var damage_sound = $DamageSound
+
 @export var bulletCooldown: float
 @export var speedMultiplier := 1.0
 
@@ -19,6 +21,7 @@ var direction = 1
 
 
 func _ready() -> void:
+	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
 	add_to_group("arma")
 	GameManager.gun_stat_changed.connect(_on_gun_stat_changed)
 	speedMultiplier = GameManager.gunStats["speed"]
@@ -48,6 +51,7 @@ func _on_health_component_died() -> void:
 
 func _on_area_entered(area: Area2D) -> void:
 	if(area.is_in_group("enemy")):
+		damage_sound.play()
 		healthComponent.updateLP(-1)
 		get_parent().update_lifeCounterIcon(healthComponent.lifePoints,0)
 	if(area.is_in_group("lifeGainer")):

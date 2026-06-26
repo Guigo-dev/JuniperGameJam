@@ -32,7 +32,7 @@ var XP:= 100;
 var resets = 0;
 var healthComponent : Node
 
-var souls : int = 0
+var souls : int = 1000
 @export var current_gun : String = "default"
 var waveCounter: int = 0
 var remainingPowersKeys=[]
@@ -47,16 +47,17 @@ func changeSceneGame():
 
 
 func _ready() -> void:
-	process_mode = Node.PROCESS_MODE_WHEN_PAUSED
+	process_mode = Node.PROCESS_MODE_ALWAYS
 	
 func _process(delta: float) -> void:
-	if(Input.is_action_pressed("reset")):
-		get_tree().change_scene_to_packed(main_menu)
+	if(Input.is_action_just_pressed("Pause")):
+		get_tree().paused = !get_tree().paused
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 		
 
-@export var inventory = {0:{}}
+var inventory = {0:{}}
 #Dicionário dos poderes
-@export var powers =	{
+var powers =	{
 	0:{
 		"id": 0,
 		"Name": "Ricochet",
@@ -142,6 +143,8 @@ func resetPool():
 	
 func _on_player_died():
 	get_tree().paused = true
+	var fade = get_tree().current_scene.get_node("%Fade")
+	fade_out(fade)
 	current_upgrade_tree = upgrade_tree_scene.instantiate()
 	get_tree().current_scene.get_node("UI").add_child(current_upgrade_tree)
 
@@ -154,3 +157,19 @@ func restart_game():
 	get_tree().paused = false
 	souls = 0
 	get_tree().reload_current_scene()
+	
+func fade_in(preto: ColorRect, time:= 1.0):
+	preto.visible = true
+	preto.modulate.a = 1.0
+	var tween = create_tween()
+	tween.tween_property(preto, "modulate:a", 0.0, time)
+	await tween.finished
+	preto.visible = false
+	
+func fade_out(preto: ColorRect, time := 1.0):
+	preto.visible = true
+	preto.modulate.a = 0.0
+	var tween = create_tween()
+	tween.tween_property(preto, "modulate:a", 1.0, time)
+	await tween.finished
+	preto.visible = false

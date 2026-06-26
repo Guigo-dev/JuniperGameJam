@@ -7,9 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://cejltycv8ovc7" path="res://Sprites/PNG/target_hover.png" id="4_looxl"]
 [ext_resource type="FontFile" uid="uid://d2ns3wsd4gt2e" path="res://Sprites/PressStart2P.ttf" id="5_428ri"]
 [ext_resource type="AudioStream" uid="uid://o2fplri72yl1" path="res://soundtrack/loja(2).mp3" id="5_tc8st"]
-[ext_resource type="Texture2D" uid="uid://sdxfskcbcdpf" path="res://Sprites/PNG/bt_continue.png" id="8_ynvmu"]
-[ext_resource type="Texture2D" uid="uid://da4bwe0hbgxil" path="res://Sprites/PNG/bt_continue_onclick.png" id="9_c66jw"]
-[ext_resource type="Texture2D" uid="uid://cu76qgroqyy01" path="res://Sprites/PNG/bt_continue_hover.png" id="10_a4x14"]
 
 [node name="Shop" type="Control" unique_id=147490848]
 layout_mode = 3
@@ -39,10 +36,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -142.0
-offset_top = -196.0
-offset_right = 146.0
-offset_bottom = -147.0
+offset_left = -144.0
+offset_top = -131.0
+offset_right = 144.0
+offset_bottom = -82.0
 grow_horizontal = 2
 grow_vertical = 0
 size_flags_vertical = 8
@@ -56,10 +53,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -500.0
-offset_top = -149.0
-offset_right = -2.039978
-offset_bottom = -16.0
+offset_left = -464.0
+offset_top = -161.0
+offset_right = 16.460022
+offset_bottom = 39.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(2, 2)
@@ -67,7 +64,7 @@ scale = Vector2(2, 2)
 [node name="Power0" type="TextureButton" parent="HBoxContainer" unique_id=969416897]
 layout_mode = 2
 size_flags_horizontal = 6
-size_flags_vertical = 8
+size_flags_vertical = 4
 texture_normal = ExtResource("3_looxl")
 texture_hover = ExtResource("4_looxl")
 script = ExtResource("2_kex1f")
@@ -142,7 +139,7 @@ vertical_alignment = 1
 [node name="Power1" type="TextureButton" parent="HBoxContainer" unique_id=1003884521]
 layout_mode = 2
 size_flags_horizontal = 6
-size_flags_vertical = 8
+size_flags_vertical = 4
 texture_normal = ExtResource("3_looxl")
 texture_hover = ExtResource("4_looxl")
 script = ExtResource("2_kex1f")
@@ -217,7 +214,7 @@ vertical_alignment = 1
 [node name="Power2" type="TextureButton" parent="HBoxContainer" unique_id=8557335]
 layout_mode = 2
 size_flags_horizontal = 6
-size_flags_vertical = 8
+size_flags_vertical = 4
 texture_normal = ExtResource("3_looxl")
 texture_hover = ExtResource("4_looxl")
 script = ExtResource("2_kex1f")
@@ -295,59 +292,12 @@ volume_db = 6.078
 autoplay = true
 parameters/looping = true
 
-[node name="ContinueNextWave" type="TextureButton" parent="." unique_id=1760819652]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -99.5
-offset_top = 201.0
-offset_right = 99.5
-offset_bottom = 248.0
-grow_horizontal = 2
-grow_vertical = 2
-offset_transform_enabled = true
-texture_normal = ExtResource("8_ynvmu")
-texture_pressed = ExtResource("9_c66jw")
-texture_hover = ExtResource("10_a4x14")
-
-[node name="SoulsText" type="Label" parent="." unique_id=1192278274]
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -211.0
-offset_top = 116.0
-offset_right = -121.0
-offset_bottom = 146.0
-grow_horizontal = 0
-theme_override_colors/font_color = Color(0.96, 0.96, 0.96, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_offset_x = 1
-theme_override_constants/outline_size = 7
-theme_override_fonts/font = ExtResource("5_428ri")
-theme_override_font_sizes/font_size = 30
-text = "100"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="PowerPurchasedMessage" type="Label" parent="." unique_id=204080515]
-visible = false
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -212.5
-offset_top = -205.0
-offset_right = 214.5
-offset_bottom = -156.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_font_sizes/font_size = 35
-text = "Item has been purchased"
-
-[connection signal="pressed" from="ContinueNextWave" to="." method="_on_continue_next_wave_pressed"]
+[connection signal="mouse_entered" from="HBoxContainer/Power0" to="HBoxContainer/Power0" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="HBoxContainer/Power0" to="HBoxContainer/Power0" method="_on_mouse_exited"]
+[connection signal="pressed" from="HBoxContainer/Power0" to="." method="_on_power_0_pressed"]
+[connection signal="mouse_entered" from="HBoxContainer/Power1" to="HBoxContainer/Power1" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="HBoxContainer/Power1" to="HBoxContainer/Power1" method="_on_mouse_exited"]
+[connection signal="pressed" from="HBoxContainer/Power1" to="." method="_on_power_1_pressed"]
+[connection signal="mouse_entered" from="HBoxContainer/Power2" to="HBoxContainer/Power2" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="HBoxContainer/Power2" to="HBoxContainer/Power2" method="_on_mouse_exited"]
+[connection signal="pressed" from="HBoxContainer/Power2" to="." method="_on_power_2_pressed"]
