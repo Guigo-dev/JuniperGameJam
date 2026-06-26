@@ -111,8 +111,5 @@ func _on_power_2_pressed() -> void:
 	print(GameManager.inventory)
 
 func _on_next_wave_button_pressed() -> void:
-	#get_tree().unload_current_scene(TEST_SCENE)
 	GameManager.changeSceneGame()
-	
-	print("botao apertado")
 	

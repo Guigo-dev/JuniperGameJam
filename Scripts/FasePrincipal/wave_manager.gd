@@ -41,7 +41,6 @@ func _ready():
 	spawner_gordo.enemy_removed.connect(_on_enemy_removed)
 
 	start_wave()
-	print("funcao ready")
 
 func start_wave():
 
