@@ -16,7 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://m6fl22fp30ky" path="res://Scenes/FasePrincipal/enemy_magro.tscn" id="13_5sspw"]
 [ext_resource type="Texture2D" uid="uid://dav8dlukjs14d" path="res://Sprites/PNG/placa_lifecounter.png" id="15_qs22a"]
 [ext_resource type="Texture2D" uid="uid://b5tq0j6uwwq4c" path="res://Sprites/PNG/lifecounter.png" id="16_vdw41"]
-[ext_resource type="Script" uid="uid://cmoiybfwwqc5e" path="res://Scenes/FasePrincipal/wave_manager.gd" id="17_eeo36"]
+[ext_resource type="Script" uid="uid://cmoiybfwwqc5e" path="res://Scripts/FasePrincipal/wave_manager.gd" id="17_eeo36"]
 [ext_resource type="PackedScene" uid="uid://scitov56cg4l" path="res://Scenes/FasePrincipal/Bala.tscn" id="18_hb62x"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jsvmo"]
@@ -333,7 +333,6 @@ script = ExtResource("1_u0kin")
 arma = NodePath("ArmaDeFogo")
 
 [node name="ArmaDeFogo" parent="." unique_id=955160628 instance=ExtResource("2_d1jif")]
-visible = true
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=126124627]
 zoom = Vector2(2, 2)
@@ -529,6 +528,7 @@ animation = &"0 life"
 
 [node name="WaveManager" type="Node" parent="." unique_id=918784295]
 script = ExtResource("17_eeo36")
+wave_time = 5.0
 
 [node name="Bala" parent="." unique_id=1222037949 node_paths=PackedStringArray("target") instance=ExtResource("18_hb62x")]
 visible = false

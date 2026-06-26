@@ -2,11 +2,14 @@
 
 [ext_resource type="Script" uid="uid://cyn63c4njyjh1" path="res://Scripts/Menus/shop.gd" id="1_s0p6e"]
 [ext_resource type="Texture2D" uid="uid://bsohnv72k4hwk" path="res://Sprites/PNG/shopscreen.png" id="2_428ri"]
+[ext_resource type="Texture2D" uid="uid://bhf18linav7ue" path="res://Sprites/PNG/fundo_fase.png" id="2_a4x14"]
 [ext_resource type="Script" uid="uid://dy8jqlbn8tm4o" path="res://Scripts/Menus/botao_comprar.gd" id="2_kex1f"]
+[ext_resource type="Texture2D" uid="uid://rogtftkam8yd" path="res://Sprites/PNG/village.png" id="3_0f340"]
 [ext_resource type="Texture2D" uid="uid://b4mgsv1lvbu5c" path="res://Sprites/PNG/target.png" id="3_looxl"]
 [ext_resource type="Texture2D" uid="uid://cejltycv8ovc7" path="res://Sprites/PNG/target_hover.png" id="4_looxl"]
 [ext_resource type="FontFile" uid="uid://d2ns3wsd4gt2e" path="res://Sprites/PressStart2P.ttf" id="5_428ri"]
 [ext_resource type="AudioStream" uid="uid://o2fplri72yl1" path="res://soundtrack/loja(2).mp3" id="5_tc8st"]
+[ext_resource type="Texture2D" uid="uid://c5lm7xw7m1sy5" path="res://Sprites/PNG/target_locked.png" id="7_0f340"]
 [ext_resource type="Texture2D" uid="uid://sdxfskcbcdpf" path="res://Sprites/PNG/bt_continue.png" id="8_ynvmu"]
 [ext_resource type="Texture2D" uid="uid://da4bwe0hbgxil" path="res://Sprites/PNG/bt_continue_onclick.png" id="9_c66jw"]
 [ext_resource type="Texture2D" uid="uid://cu76qgroqyy01" path="res://Sprites/PNG/bt_continue_hover.png" id="10_a4x14"]
@@ -22,7 +25,19 @@ script = ExtResource("1_s0p6e")
 tween_intensity = 1.2
 tween_duration = 0.3
 
-[node name="Background" type="TextureRect" parent="." unique_id=713984918]
+[node name="BackGround" type="TextureRect" parent="." unique_id=259488869]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("2_a4x14")
+
+[node name="BackGround2" type="TextureRect" parent="." unique_id=105069973]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("3_0f340")
+
+[node name="ShopTexture" type="TextureRect" parent="." unique_id=713984918]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -70,6 +85,7 @@ size_flags_horizontal = 6
 size_flags_vertical = 8
 texture_normal = ExtResource("3_looxl")
 texture_hover = ExtResource("4_looxl")
+texture_disabled = ExtResource("7_0f340")
 script = ExtResource("2_kex1f")
 
 [node name="Cost" type="Label" parent="HBoxContainer/Power0" unique_id=1149111670]
@@ -138,6 +154,7 @@ size_flags_horizontal = 6
 size_flags_vertical = 8
 texture_normal = ExtResource("3_looxl")
 texture_hover = ExtResource("4_looxl")
+texture_disabled = ExtResource("7_0f340")
 script = ExtResource("2_kex1f")
 
 [node name="Cost" type="Label" parent="HBoxContainer/Power1" unique_id=1980097200]
@@ -206,6 +223,7 @@ size_flags_horizontal = 6
 size_flags_vertical = 8
 texture_normal = ExtResource("3_looxl")
 texture_hover = ExtResource("4_looxl")
+texture_disabled = ExtResource("7_0f340")
 script = ExtResource("2_kex1f")
 
 [node name="Cost" type="Label" parent="HBoxContainer/Power2" unique_id=2032979287]
@@ -281,10 +299,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -99.5
-offset_top = 201.0
-offset_right = 99.5
-offset_bottom = 248.0
+offset_left = -100.0
+offset_top = 168.0
+offset_right = 99.0
+offset_bottom = 215.0
 grow_horizontal = 2
 grow_vertical = 2
 texture_normal = ExtResource("8_ynvmu")

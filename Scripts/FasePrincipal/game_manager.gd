@@ -51,35 +51,32 @@ func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	
 func _process(delta: float) -> void:
-	if(Input.is_action_just_pressed("Pause")):
-		get_tree().paused = !get_tree().paused
-		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-		
+	pass
 
 var inventory = {0:{}}
 #Dicionário dos poderes
 var powers =	{
-	0:{
-		"id": 0,
-		"Name": "Ricochet",
-		"Des": "Ricochet bullets",
-		"Cost": 10,
-		"Type": "Modifier"
-	},
-	1:{
-		"id": 1,
-		"Name": "Triple Shot",
-		"Des": "Triple the fun",
-		"Cost": 20,
-		"Type": "Modifier"
-	},
-	2:{
-		"id": 2,
-		"Name": "Laser Aim",
-		"Des": "More precision",
-		"Cost": 30,
-		"Type": "Modifier"
-	},
+	#0:{
+		#"id": 0,
+		#"Name": "Ricochet",
+		#"Des": "Ricochet bullets",
+		#"Cost": 10,
+		#"Type": "Modifier"
+	#},
+	#1:{
+		#"id": 1,
+		#"Name": "Triple Shot",
+		#"Des": "Triple the fun",
+		#"Cost": 20,
+		#"Type": "Modifier"
+	#},
+	#2:{
+		#"id": 2,
+		#"Name": "Laser Aim",
+		#"Des": "More precision",
+		#"Cost": 30,
+		#"Type": "Modifier"
+	#},
 	3:{
 		"id": 3,
 		"Name": "Auto-aim",
@@ -87,13 +84,13 @@ var powers =	{
 		"Cost": 40,
 		"Type": "Trajectory"
 	},
-	4:{
-		"id": 4,
-		"Name": "Spiral Bullet",
-		"Des": "Bullets can curve??",
-		"Cost": 50,
-		"Type": "Trajectory"
-	},
+	#4:{
+		#"id": 4,
+		#"Name": "Spiral Bullet",
+		#"Des": "Bullets can curve??",
+		#"Cost": 50,
+		#"Type": "Trajectory"
+	#},
 	5:{
 		"id": 5,
 		"Name": "Heal",
@@ -101,20 +98,20 @@ var powers =	{
 		"Cost": 60,
 		"Type": "Health"
 	},
-	6:{
-		"id": 6,
-		"Name": "High Noon",
-		"Des": "Everything dies",
-		"Cost": 70,
-		"Type": "Power"
-	},
-	7:{
-		"id": 7,
-		"Name": "Gold Gun",
-		"Des": "MONEY",
-		"Cost": 80,
-		"Type": "Gun"
-	},
+	#6:{
+		#"id": 6,
+		#"Name": "High Noon",
+		#"Des": "Everything dies",
+		#"Cost": 70,
+		#"Type": "Power"
+	#},
+	#7:{
+		#"id": 7,
+		#"Name": "Gold Gun",
+		#"Des": "MONEY",
+		#"Cost": 80,
+		#"Type": "Gun"
+	#},
 	8:{
 		"id": 8,
 		"Name": "Fire Gun",
