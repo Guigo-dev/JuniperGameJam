@@ -29,13 +29,13 @@ func atualizar_labels():
 		$BulletButton/BulletVelStatButton.disabled = true
 	if(GameManager.bulletStat["damageUpgradeQtd"] == 3):
 		$BulletButton/DamageButton.disabled = true
-	$GunButton/LifeStatButton/Level.text = "Level: " +str(GameManager.gunStats["lifeUpgradeQtd"])
-	$GunButton/VelStatButton/Level.text = "Level: " +str(GameManager.gunStats["speedUpgradeQtd"])
-	$GunButton/FireRateButton/Level.text = "Level: " +str(GameManager.gunStats["fire_rateUpgradeQtd"])
+	$GunButton/LifeStatButton/Level.text = str(GameManager.gunStats["lifeUpgradeQtd"])
+	$GunButton/VelStatButton/Level.text = str(GameManager.gunStats["speedUpgradeQtd"])
+	$GunButton/FireRateButton/Level.text = str(GameManager.gunStats["fire_rateUpgradeQtd"])
 	
-	$BulletButton/PenStatButton/Level.text = "Level: " +str(GameManager.bulletStat["penetrationUpgradeQtd"])
-	$BulletButton/BulletVelStatButton/Level.text = "Level: " +str(GameManager.bulletStat["velocityUpgradeQtd"])
-	$BulletButton/DamageButton/Level.text = "Level: " +str(GameManager.bulletStat["damageUpgradeQtd"])
+	$BulletButton/PenStatButton/Level.text = str(GameManager.bulletStat["penetrationUpgradeQtd"])
+	$BulletButton/BulletVelStatButton/Level.text = str(GameManager.bulletStat["velocityUpgradeQtd"])
+	$BulletButton/DamageButton/Level.text = str(GameManager.bulletStat["damageUpgradeQtd"])
 	
 #emitindo sinais de upgrade de arma
 func _on_life_stat_button_pressed() -> void:

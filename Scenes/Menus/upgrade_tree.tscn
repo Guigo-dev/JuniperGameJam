@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://b6u73f5iqtlxy" path="res://Sprites/PNG/bt_upgrade_hover.png" id="7_jkhtc"]
 [ext_resource type="Texture2D" uid="uid://fu8iou4uto0g" path="res://Sprites/PNG/bt_upgrade_onclick.png" id="8_uja6x"]
 [ext_resource type="Texture2D" uid="uid://crjas3wlyok0y" path="res://Sprites/PNG/bt_upgrade_locked.png" id="9_nchab"]
+[ext_resource type="FontFile" uid="uid://d2ns3wsd4gt2e" path="res://Sprites/PressStart2P.ttf" id="10_itart"]
 [ext_resource type="AudioStream" uid="uid://o2fplri72yl1" path="res://soundtrack/loja(2).mp3" id="10_iyos3"]
 
 [node name="UpgradeTree" type="Control" unique_id=460672048]
@@ -64,12 +65,30 @@ texture_disabled = ExtResource("9_nchab")
 [node name="Level" type="Label" parent="GunButton/LifeStatButton" unique_id=544321228]
 texture_filter = 1
 layout_mode = 0
-offset_left = 7.0
-offset_top = -41.0
-offset_right = 70.0
-offset_bottom = -18.0
+offset_left = 41.0
+offset_top = -42.0
+offset_right = 74.0
+offset_bottom = -20.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Level : 1"
+theme_override_fonts/font = ExtResource("10_itart")
+theme_override_font_sizes/font_size = 13
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="GunButton/LifeStatButton" unique_id=880735892]
+texture_filter = 1
+layout_mode = 0
+offset_left = 7.0
+offset_top = -43.0
+offset_right = 48.0
+offset_bottom = -20.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("10_itart")
+theme_override_font_sizes/font_size = 13
+text = "Lv:"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="VelStatButton" type="TextureButton" parent="GunButton" unique_id=26079016]
 texture_filter = 1
@@ -92,12 +111,30 @@ stretch_mode = 0
 [node name="Level" type="Label" parent="GunButton/VelStatButton" unique_id=1798162776]
 texture_filter = 1
 layout_mode = 0
-offset_left = 6.0
-offset_top = -41.0
-offset_right = 69.0
-offset_bottom = -18.0
+offset_left = 41.0
+offset_top = -43.0
+offset_right = 70.0
+offset_bottom = -20.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Level : 1"
+theme_override_fonts/font = ExtResource("10_itart")
+theme_override_font_sizes/font_size = 13
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="GunButton/VelStatButton" unique_id=368711702]
+texture_filter = 1
+layout_mode = 0
+offset_left = 6.0
+offset_top = -43.0
+offset_right = 47.0
+offset_bottom = -20.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("10_itart")
+theme_override_font_sizes/font_size = 13
+text = "Lv:"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="FireRateButton" type="TextureButton" parent="GunButton" unique_id=1126278908]
 texture_filter = 1
@@ -119,12 +156,30 @@ texture_disabled = ExtResource("9_nchab")
 [node name="Level" type="Label" parent="GunButton/FireRateButton" unique_id=411560259]
 texture_filter = 1
 layout_mode = 0
-offset_left = 5.0
-offset_top = -43.0
+offset_left = 41.0
+offset_top = -44.0
 offset_right = 68.0
-offset_bottom = -20.0
+offset_bottom = -21.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Level : 1"
+theme_override_fonts/font = ExtResource("10_itart")
+theme_override_font_sizes/font_size = 13
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="GunButton/FireRateButton" unique_id=1671314369]
+texture_filter = 1
+layout_mode = 0
+offset_left = 7.0
+offset_top = -44.0
+offset_right = 48.0
+offset_bottom = -21.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("10_itart")
+theme_override_font_sizes/font_size = 13
+text = "Lv:"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="BulletButton" type="Control" parent="." unique_id=163085831]
 texture_filter = 1
@@ -155,12 +210,30 @@ stretch_mode = 0
 [node name="Level" type="Label" parent="BulletButton/PenStatButton" unique_id=127694988]
 texture_filter = 1
 layout_mode = 0
-offset_left = 5.9999866
-offset_top = -43.000008
-offset_right = 68.999985
-offset_bottom = -20.000008
+offset_left = 41.0
+offset_top = -43.0
+offset_right = 67.0
+offset_bottom = -20.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Level : 0"
+theme_override_fonts/font = ExtResource("10_itart")
+theme_override_font_sizes/font_size = 13
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="BulletButton/PenStatButton" unique_id=594387911]
+texture_filter = 1
+layout_mode = 0
+offset_left = 7.0
+offset_top = -43.0
+offset_right = 48.0
+offset_bottom = -20.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("10_itart")
+theme_override_font_sizes/font_size = 13
+text = "Lv:"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="BulletVelStatButton" type="TextureButton" parent="BulletButton" unique_id=1973962290]
 texture_filter = 1
@@ -183,12 +256,30 @@ stretch_mode = 0
 [node name="Level" type="Label" parent="BulletButton/BulletVelStatButton" unique_id=9375896]
 texture_filter = 1
 layout_mode = 0
-offset_left = 7.000004
+offset_left = 41.0
 offset_top = -43.0
-offset_right = 70.0
+offset_right = 73.0
 offset_bottom = -20.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Level : 0"
+theme_override_fonts/font = ExtResource("10_itart")
+theme_override_font_sizes/font_size = 13
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="BulletButton/BulletVelStatButton" unique_id=1262015596]
+texture_filter = 1
+layout_mode = 0
+offset_left = 7.0
+offset_top = -43.0
+offset_right = 48.0
+offset_bottom = -20.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("10_itart")
+theme_override_font_sizes/font_size = 13
+text = "Lv:"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="DamageButton" type="TextureButton" parent="BulletButton" unique_id=1045180756]
 texture_filter = 1
@@ -211,12 +302,30 @@ stretch_mode = 0
 [node name="Level" type="Label" parent="BulletButton/DamageButton" unique_id=113134609]
 texture_filter = 1
 layout_mode = 0
-offset_left = 7.0000076
+offset_left = 41.0
 offset_top = -43.0
-offset_right = 70.000015
+offset_right = 72.0
 offset_bottom = -20.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Level : 0"
+theme_override_fonts/font = ExtResource("10_itart")
+theme_override_font_sizes/font_size = 13
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="BulletButton/DamageButton" unique_id=206258387]
+texture_filter = 1
+layout_mode = 0
+offset_left = 7.0
+offset_top = -43.0
+offset_right = 48.0
+offset_bottom = -20.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("10_itart")
+theme_override_font_sizes/font_size = 13
+text = "Lv:"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=602461339]
 stream = ExtResource("10_iyos3")
