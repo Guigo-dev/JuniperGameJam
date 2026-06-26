@@ -38,6 +38,7 @@ func start_tween(object: Object, property: String, final_val: Variant, duration:
 	
 
 func _on_button_mouse_entered(button: TextureButton) -> void:
+	print(button)
 	if button.disabled:
 		return
 	button.pivot_offset = button.size / 2
@@ -109,8 +110,7 @@ func _on_button_pressed(button: TextureButton) -> void:
 	buyItem(currentItemSlot)
 	showPowerPurchasedMessage(button)
 	updateSouls()
-	$HBoxContainer/Power0.disabled = true
-	print(GameManager.inventory)
+	button.disabled = true
 
 func _on_continue_next_wave_pressed() -> void:
 	GameManager.changeSceneGame()
