@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://cujm7g51ekk01"]
+
+[ext_resource type="Script" uid="uid://bb4ryig7lpxrk" path="res://Scripts/Poderes/spiral_bullet.gd" id="1_heee1"]
+
+[node name="BalaEspiral" type="Node2D" unique_id=595441125]
+script = ExtResource("1_heee1")
