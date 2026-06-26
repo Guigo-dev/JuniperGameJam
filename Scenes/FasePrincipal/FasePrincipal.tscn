@@ -372,7 +372,6 @@ layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.38
 anchor_top = -0.4390244
-anchor_right = 0.38
 offset_left = 6.0
 offset_top = 18.0
 offset_right = 100.0
@@ -465,6 +464,7 @@ animation = &"0 life"
 
 [node name="UI" type="Control" parent="." unique_id=331231115]
 process_mode = 2
+visible = false
 z_index = 10
 layout_mode = 3
 anchors_preset = 15
@@ -521,6 +521,7 @@ parameters/looping = true
 [node name="Fade" type="ColorRect" parent="." unique_id=280751080]
 unique_name_in_owner = true
 process_mode = 3
+visible = false
 z_index = 10
 offset_left = -287.0
 offset_top = -167.0

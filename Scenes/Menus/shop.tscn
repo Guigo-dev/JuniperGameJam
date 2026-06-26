@@ -1,9 +1,11 @@
 [gd_scene format=3 uid="uid://bar0018wu477x"]
 
-[ext_resource type="Texture2D" uid="uid://b3jojimujk667" path="res://Sprites/AlvoPlaceHolder.png" id="1_jfcl1"]
 [ext_resource type="Script" uid="uid://cyn63c4njyjh1" path="res://Scripts/Menus/shop.gd" id="1_s0p6e"]
+[ext_resource type="Texture2D" uid="uid://bsohnv72k4hwk" path="res://Sprites/PNG/shopscreen.png" id="2_428ri"]
 [ext_resource type="Script" uid="uid://dy8jqlbn8tm4o" path="res://Scripts/Menus/botao_comprar.gd" id="2_kex1f"]
-[ext_resource type="Texture2D" uid="uid://brgcudm2qdvyc" path="res://Sprites/AlvoPlaceHolderHover.png" id="2_s0p6e"]
+[ext_resource type="Texture2D" uid="uid://b4mgsv1lvbu5c" path="res://Sprites/PNG/target.png" id="3_looxl"]
+[ext_resource type="Texture2D" uid="uid://cejltycv8ovc7" path="res://Sprites/PNG/target_hover.png" id="4_looxl"]
+[ext_resource type="FontFile" uid="uid://d2ns3wsd4gt2e" path="res://Sprites/PressStart2P.ttf" id="5_428ri"]
 [ext_resource type="AudioStream" uid="uid://o2fplri72yl1" path="res://soundtrack/loja(2).mp3" id="5_tc8st"]
 
 [node name="Shop" type="Control" unique_id=147490848]
@@ -24,6 +26,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+texture = ExtResource("2_428ri")
 
 [node name="InsufficientSouls" type="Label" parent="." unique_id=1505735491]
 visible = false
@@ -50,19 +53,20 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -426.0
-offset_top = -100.0
-offset_right = 426.0
-offset_bottom = 100.0
+offset_left = -464.0
+offset_top = -161.0
+offset_right = 16.460022
+offset_bottom = 39.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(2, 2)
 
 [node name="Power0" type="TextureButton" parent="HBoxContainer" unique_id=969416897]
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
-texture_normal = ExtResource("1_jfcl1")
-texture_hover = ExtResource("2_s0p6e")
+texture_normal = ExtResource("3_looxl")
+texture_hover = ExtResource("4_looxl")
 script = ExtResource("2_kex1f")
 
 [node name="Cost" type="Label" parent="HBoxContainer/Power0" unique_id=1149111670]
@@ -72,12 +76,21 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -0.5
-offset_bottom = 40.0
+offset_left = -28.0
+offset_top = -53.0
+offset_right = 29.0
+offset_bottom = -32.5
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_font_sizes/font_size = 30
+theme_override_colors/font_color = Color(0.96, 0.96, 0.96, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/outline_size = 7
+theme_override_fonts/font = ExtResource("5_428ri")
+theme_override_font_sizes/font_size = 19
 text = "100"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="SoulIcon" type="TextureRect" parent="HBoxContainer/Power0" unique_id=366647842]
 layout_mode = 0
@@ -93,28 +106,42 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -20.0
-offset_top = -23.0
-offset_right = 20.0
+offset_left = -26.0
+offset_top = -108.0
+offset_right = 26.5
+offset_bottom = -92.0
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_fonts/font = ExtResource("5_428ri")
+theme_override_font_sizes/font_size = 9
+text = "description"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
 
 [node name="Name" type="Label" parent="HBoxContainer/Power0" unique_id=1910118775]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -20.0
-offset_right = 20.0
-offset_bottom = 23.0
+offset_left = -26.0
+offset_top = -47.5
+offset_right = 26.0
+offset_bottom = -24.5
 grow_horizontal = 2
+theme_override_colors/font_color = Color(0.9647059, 0.6666667, 0.10980392, 1)
+theme_override_fonts/font = ExtResource("5_428ri")
+theme_override_font_sizes/font_size = 11
+text = "Name"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Power1" type="TextureButton" parent="HBoxContainer" unique_id=1003884521]
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
-texture_normal = ExtResource("1_jfcl1")
-texture_hover = ExtResource("2_s0p6e")
+texture_normal = ExtResource("3_looxl")
+texture_hover = ExtResource("4_looxl")
 script = ExtResource("2_kex1f")
 
 [node name="Cost" type="Label" parent="HBoxContainer/Power1" unique_id=1980097200]
@@ -124,12 +151,21 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -0.5
-offset_bottom = 40.0
+offset_left = -28.0
+offset_top = -53.0
+offset_right = 29.0
+offset_bottom = -32.5
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_font_sizes/font_size = 30
+theme_override_colors/font_color = Color(0.96, 0.96, 0.96, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/outline_size = 7
+theme_override_fonts/font = ExtResource("5_428ri")
+theme_override_font_sizes/font_size = 19
 text = "100"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="SoulIcon" type="TextureRect" parent="HBoxContainer/Power1" unique_id=1896609115]
 layout_mode = 0
@@ -145,28 +181,42 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -20.0
-offset_top = -23.0
-offset_right = 20.0
+offset_left = -26.0
+offset_top = -109.5
+offset_right = 26.5
+offset_bottom = -86.5
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_fonts/font = ExtResource("5_428ri")
+theme_override_font_sizes/font_size = 9
+text = "description"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
 
 [node name="Name" type="Label" parent="HBoxContainer/Power1" unique_id=960210259]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -20.0
-offset_right = 20.0
-offset_bottom = 23.0
+offset_left = -26.0
+offset_top = -47.5
+offset_right = 26.0
+offset_bottom = -24.5
 grow_horizontal = 2
+theme_override_colors/font_color = Color(0.9647059, 0.6666667, 0.10980392, 1)
+theme_override_fonts/font = ExtResource("5_428ri")
+theme_override_font_sizes/font_size = 11
+text = "Name"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Power2" type="TextureButton" parent="HBoxContainer" unique_id=8557335]
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
-texture_normal = ExtResource("1_jfcl1")
-texture_hover = ExtResource("2_s0p6e")
+texture_normal = ExtResource("3_looxl")
+texture_hover = ExtResource("4_looxl")
 script = ExtResource("2_kex1f")
 
 [node name="Cost" type="Label" parent="HBoxContainer/Power2" unique_id=2032979287]
@@ -176,12 +226,21 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -0.5
-offset_bottom = 40.0
+offset_left = -28.0
+offset_top = -53.0
+offset_right = 29.0
+offset_bottom = -34.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_font_sizes/font_size = 30
+theme_override_colors/font_color = Color(0.96, 0.96, 0.96, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/outline_size = 7
+theme_override_fonts/font = ExtResource("5_428ri")
+theme_override_font_sizes/font_size = 19
 text = "100"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="SoulIcon" type="TextureRect" parent="HBoxContainer/Power2" unique_id=1917389525]
 layout_mode = 0
@@ -197,33 +256,35 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -20.0
-offset_top = -23.0
-offset_right = 20.0
+offset_left = -26.0
+offset_top = -109.5
+offset_right = 26.5
+offset_bottom = -86.5
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_fonts/font = ExtResource("5_428ri")
+theme_override_font_sizes/font_size = 9
+text = "description"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
 
 [node name="Name" type="Label" parent="HBoxContainer/Power2" unique_id=508312039]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -20.0
-offset_right = 20.0
-offset_bottom = 23.0
+offset_left = -26.0
+offset_top = -47.5
+offset_right = 26.0
+offset_bottom = -24.5
 grow_horizontal = 2
-
-[node name="Label" type="Label" parent="." unique_id=91402503]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -20.0
-offset_right = 20.0
-offset_bottom = 23.0
-grow_horizontal = 2
-theme_override_font_sizes/font_size = 50
-text = "LOJA"
+theme_override_colors/font_color = Color(0.9647059, 0.6666667, 0.10980392, 1)
+theme_override_fonts/font = ExtResource("5_428ri")
+theme_override_font_sizes/font_size = 11
+text = "Name"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1253416226]
 stream = ExtResource("5_tc8st")
