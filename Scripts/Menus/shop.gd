@@ -37,15 +37,7 @@ func start_tween(object: Object, property: String, final_val: Variant, duration:
 	var tween = create_tween()
 	tween.tween_property(object, property, final_val, duration)
 	
-#func btn_hovered(button: TextureButton):
-	#button.pivot_offset = button.size/2
-	#if button.is_hovered():
-		#start_tween(button,"scale", Vector2.ONE * tween_intensity, tween_duration)
-	#else:
-		#start_tween(button,"scale", Vector2.ONE, tween_duration)
-
 func _on_button_mouse_entered(button: TextureButton) -> void:
-	print(button)
 	if button.disabled:
 		return
 	button.pivot_offset = button.size / 2
