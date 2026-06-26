@@ -9,8 +9,9 @@
 [ext_resource type="Texture2D" uid="uid://bjj65py057a70" path="res://Sprites/PNG/bt_credits.png" id="7_godxv"]
 [ext_resource type="Texture2D" uid="uid://bngx1ibtj0vp3" path="res://Sprites/PNG/bt_credits_onclick.png" id="8_js4h4"]
 [ext_resource type="Texture2D" uid="uid://b3fyhwxma1e0p" path="res://Sprites/PNG/bt_credits_hover.png" id="9_inq5d"]
+[ext_resource type="AudioStream" uid="uid://cantnamgqcetx" path="res://soundtrack/hitslab-western-cowboy-western-music-543089.mp3" id="10_eibcr"]
 
-[node name="MenuInicial" type="Control" unique_id=1641631300 node_paths=PackedStringArray("iniciarButton")]
+[node name="MenuInicial" type="Control" unique_id=1641631300]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -18,7 +19,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_8555o")
-iniciarButton = NodePath("")
 cenaPrincipal = ExtResource("2_y6kec")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=344592134]
@@ -58,5 +58,10 @@ scale = Vector2(2, 2)
 texture_normal = ExtResource("7_godxv")
 texture_pressed = ExtResource("8_js4h4")
 texture_hover = ExtResource("9_inq5d")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1127134428]
+stream = ExtResource("10_eibcr")
+autoplay = true
+parameters/looping = true
 
 [connection signal="pressed" from="IniciarButton" to="." method="_on_iniciar_button_pressed"]

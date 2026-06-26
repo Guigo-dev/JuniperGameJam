@@ -13,6 +13,7 @@ var shopPowers = {}
 
 func _ready() -> void:
 	$InsufficientSouls.visible = false
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	for i in range(0,shopSlots):	
 		var currentPower = GameManager.powers[getNextPower()]
 		shopPowers[i]=currentPower	
@@ -21,6 +22,7 @@ func _ready() -> void:
 		get_node("HBoxContainer/Power%s/Cost"%i).text = str(currentPower["Cost"])
 		
 
+	
 func _process(delta: float) -> void:
 	btn_hovered(power0)
 	btn_hovered(power1)

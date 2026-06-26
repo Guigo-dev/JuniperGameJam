@@ -7,6 +7,7 @@ extends Node2D
 
 
 func _ready() -> void:
+	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
 	if(GameManager.resets == 0):
 		$UI/Tutorial.visible = true
 		await get_tree().create_timer(3).timeout

@@ -19,6 +19,7 @@ var direction = 1
 
 
 func _ready() -> void:
+	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
 	add_to_group("arma")
 	GameManager.gun_stat_changed.connect(_on_gun_stat_changed)
 	speedMultiplier = GameManager.gunStats["speed"]
