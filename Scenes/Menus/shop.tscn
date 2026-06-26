@@ -95,13 +95,6 @@ text = "100"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="SoulIcon" type="TextureRect" parent="HBoxContainer/Power0" unique_id=366647842]
-layout_mode = 0
-offset_left = 224.0
-offset_top = 113.0
-offset_right = 264.0
-offset_bottom = 153.0
-
 [node name="Description" type="Label" parent="HBoxContainer/Power0" unique_id=112414471]
 layout_mode = 1
 anchors_preset = 7
@@ -170,13 +163,6 @@ text = "100"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="SoulIcon" type="TextureRect" parent="HBoxContainer/Power1" unique_id=1896609115]
-layout_mode = 0
-offset_left = 224.0
-offset_top = 113.0
-offset_right = 264.0
-offset_bottom = 153.0
-
 [node name="Description" type="Label" parent="HBoxContainer/Power1" unique_id=249975441]
 layout_mode = 1
 anchors_preset = 7
@@ -244,13 +230,6 @@ theme_override_font_sizes/font_size = 19
 text = "100"
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="SoulIcon" type="TextureRect" parent="HBoxContainer/Power2" unique_id=1917389525]
-layout_mode = 0
-offset_left = 224.0
-offset_top = 113.0
-offset_right = 264.0
-offset_bottom = 153.0
 
 [node name="Description" type="Label" parent="HBoxContainer/Power2" unique_id=752984888]
 layout_mode = 1

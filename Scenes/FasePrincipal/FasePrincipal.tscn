@@ -478,7 +478,6 @@ animation = &"0 life"
 
 [node name="UI" type="Control" parent="." unique_id=331231115]
 process_mode = 2
-visible = false
 z_index = 10
 layout_mode = 3
 anchors_preset = 15

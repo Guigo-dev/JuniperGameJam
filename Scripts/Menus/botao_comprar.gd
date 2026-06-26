@@ -9,6 +9,7 @@ func _ready() -> void:
 		var bitmap = BitMap.new()
 		bitmap.create_from_image_alpha(image)
 		texture_click_mask = bitmap
+		print(bitmap)
 		
 #func _input(event) -> void:
 	#if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
