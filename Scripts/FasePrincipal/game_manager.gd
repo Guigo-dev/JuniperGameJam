@@ -3,6 +3,7 @@ extends Node
 signal gun_changed(new_gun)
 signal gun_stat_changed(stat: int)
 signal bullet_stat_changed(stat: int)
+signal powerUpBuyed(powerUpType)
 
 var gunStats := {
 	"life": 3,

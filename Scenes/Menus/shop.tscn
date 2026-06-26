@@ -287,7 +287,6 @@ offset_right = 99.5
 offset_bottom = 248.0
 grow_horizontal = 2
 grow_vertical = 2
-offset_transform_enabled = true
 texture_normal = ExtResource("8_ynvmu")
 texture_pressed = ExtResource("9_c66jw")
 texture_hover = ExtResource("10_a4x14")

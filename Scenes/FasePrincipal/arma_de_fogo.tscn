@@ -5,12 +5,13 @@
 [ext_resource type="Script" uid="uid://boemys4v5i1gw" path="res://Scripts/FasePrincipal/bullet_spawner.gd" id="2_p8s0x"]
 [ext_resource type="Script" uid="uid://dj8j1pu2ilxua" path="res://Scripts/FasePrincipal/HealthComponent.gd" id="3_aymjp"]
 [ext_resource type="PackedScene" uid="uid://d2qcmxi41x3ny" path="res://Scenes/FasePrincipal/bala_de_fogo.tscn" id="3_p8s0x"]
+[ext_resource type="AudioStream" uid="uid://ry7p1e2mnacd" path="res://Sounds/gunShot.wav" id="6_bnmer"]
+[ext_resource type="AudioStream" uid="uid://brhh7u6nx1ew2" path="res://Sounds/playerDamage.wav" id="7_87f1g"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bnmer"]
 size = Vector2(24, 15)
 
 [node name="ArmaDeFogo" type="Area2D" unique_id=955160628]
-visible = false
 script = ExtResource("1_aymjp")
 bulletCooldown = 0.5
 
@@ -35,10 +36,35 @@ script = ExtResource("2_p8s0x")
 bala = ExtResource("3_p8s0x")
 metadata/_custom_type_script = "uid://boemys4v5i1gw"
 
+[node name="CPUParticles2D" type="CPUParticles2D" parent="BulletSpawner" unique_id=1341660692]
+emitting = false
+amount = 10
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+lifetime_randomness = 0.23
+direction = Vector2(10, 0.28)
+spread = 15.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 20.0
+initial_velocity_max = 70.0
+damping_min = 53.576
+damping_max = 90.197
+scale_amount_max = 3.0
+color = Color(0.6269067, 0.4942754, 0.17048678, 1)
+
+[node name="gunShotSound" type="AudioStreamPlayer2D" parent="BulletSpawner" unique_id=1323177035]
+position = Vector2(-15, 6)
+stream = ExtResource("6_bnmer")
+
 [node name="BulletCooldown" type="Timer" parent="." unique_id=1428372066]
 wait_time = 0.5
 one_shot = true
 autostart = true
+
+[node name="DamageSound" type="AudioStreamPlayer2D" parent="." unique_id=2145420514]
+stream = ExtResource("7_87f1g")
+volume_db = -0.68
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="died" from="HealthComponent" to="." method="_on_health_component_died"]

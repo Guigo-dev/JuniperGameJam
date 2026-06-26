@@ -6,7 +6,13 @@ class_name BulletSpawner extends Node2D
 @onready var cpu_particles_2d = $CPUParticles2D
 @onready var gun_shot_sound = $gunShotSound
 
-func spawnBullet() -> void:
+func defineInstanceLocal(modifier, bullet) -> void:
+	if(modifier != null):
+		if(modifier == "SpiralBullet"):
+			get_parent().add_child(bullet)
+	else:
+		get_parent().get_parent().add_child(bullet)
+func spawnBullet(modifier = null) -> void:
 	var bullet = bala.instantiate()
 	bullet.target = arma
 	bullet.position = global_position
