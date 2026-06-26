@@ -1,3 +1,6 @@
 [gd_scene format=3 uid="uid://bmxnvifdaj1ul"]
 
+[ext_resource type="Script" uid="uid://q3ypgc24jq70" path="res://Scripts/Poderes/triple_shot.gd" id="1_utd65"]
+
 [node name="TripleShot" type="Node" unique_id=227185740]
+script = ExtResource("1_utd65")
