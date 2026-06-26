@@ -32,12 +32,18 @@ var XP:= 100;
 var resets = 0;
 var healthComponent : Node
 
-@export var souls : int = 1000
+var souls : int = 1000
 @export var current_gun : String = "default"
 var waveCounter: int = 0
-@export var remainingPowersKeys=[]
+var remainingPowersKeys=[]
 
+const SHOP_SCENE = "res://Scenes/Menus/shop.tscn"
+const GAME_SCENE = "res://Scenes/FasePrincipal/FasePrincipal.tscn"
 
+func changeSceneShop(): 
+	get_tree().change_scene_to_file(SHOP_SCENE)
+func changeSceneGame():
+	get_tree().change_scene_to_file(GAME_SCENE)
 
 
 func _ready() -> void:
@@ -49,9 +55,9 @@ func _process(delta: float) -> void:
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 		
 
-@export var inventory = {0:{}}
+var inventory = {0:{}}
 #Dicionário dos poderes
-@export var powers =	{
+var powers =	{
 	0:{
 		"id": 0,
 		"Name": "Ricochet",
@@ -134,6 +140,7 @@ func resetPool():
 	remainingPowersKeys.shuffle()
 	
 
+	
 func _on_player_died():
 	get_tree().paused = true
 	var fade = get_tree().current_scene.get_node("%Fade")

@@ -3,7 +3,6 @@ extends Node
 @export var wave_time := 30.0
 
 
-
 var wave_enemies = {
 	1: {"A": 20, "B": 0, "C": 0},
 	2: {"A": 20, "B": 2, "C": 4},
@@ -45,10 +44,8 @@ func _ready():
 
 func start_wave():
 
-	wave += 1
-
-
-	print("wave ", wave)
+	GameManager.waveCounter += 1
+	print("wave ", GameManager.waveCounter)
 
 	wave_timer = 0.0
 	wave_finished = false
@@ -57,7 +54,7 @@ func start_wave():
 
 	spawn_events.clear()
 
-	var data = wave_enemies[wave]
+	var data = wave_enemies[GameManager.waveCounter]
 
 	generate_events("A", data["A"])
 	generate_events("B", data["B"])
@@ -85,8 +82,8 @@ func _process(delta):
 	if wave_finished:
 
 		if enemies_alive <= 0:
-			start_wave()
-
+			GameManager.changeSceneShop()
+			wave_finished=true
 		return
 
 	wave_timer += delta

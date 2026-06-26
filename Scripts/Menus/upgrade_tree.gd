@@ -4,6 +4,7 @@ extends Control
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	atualizar_labels()
+	GameManager.waveCounter=0
 	await GameManager.fade_in(get_parent().get_parent().get_node("%Fade"))
 
 func _process(delta: float) -> void:
