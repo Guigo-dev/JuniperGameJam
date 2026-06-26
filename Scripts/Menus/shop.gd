@@ -112,7 +112,7 @@ func _on_power_2_pressed() -> void:
 
 func _on_next_wave_button_pressed() -> void:
 	#get_tree().unload_current_scene(TEST_SCENE)
-	get_tree().change_scene_to_file("res://Scenes/FasePrincipal/FasePrincipal.tscn")
+	GameManager.changeSceneGame()
 	
 	print("botao apertado")
 	

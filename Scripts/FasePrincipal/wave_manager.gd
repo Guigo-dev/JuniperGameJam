@@ -41,14 +41,12 @@ func _ready():
 	spawner_magro.enemy_removed.connect(_on_enemy_removed)
 	spawner_gordo.enemy_removed.connect(_on_enemy_removed)
 
-	start_wave()
+	print("funcao read")
 
 func start_wave():
 
-	wave += 1
-
-
-	print("wave ", wave)
+	GameManager.waveCounter += 1
+	print("wave ", GameManager.waveCounter)
 
 	wave_timer = 0.0
 	wave_finished = false
@@ -57,7 +55,7 @@ func start_wave():
 
 	spawn_events.clear()
 
-	var data = wave_enemies[wave]
+	var data = wave_enemies[GameManager.waveCounter]
 
 	generate_events("A", data["A"])
 	generate_events("B", data["B"])
@@ -86,8 +84,6 @@ func _process(delta):
 
 		if enemies_alive <= 0:
 			get_tree().change_scene_to_packed(cenaShop)
-			start_wave()
-
 		return
 
 	wave_timer += delta
