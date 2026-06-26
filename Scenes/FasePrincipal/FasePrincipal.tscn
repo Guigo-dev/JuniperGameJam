@@ -13,6 +13,8 @@
 [ext_resource type="Texture2D" uid="uid://by6btomxrcfl2" path="res://Sprites/PNG/bt_tutorial_arrowkeys.png" id="11_o2jkb"]
 [ext_resource type="Texture2D" uid="uid://pupprjjyi64h" path="res://Sprites/PNG/bt_tutorial_space.png" id="12_uotby"]
 [ext_resource type="Script" uid="uid://cmoiybfwwqc5e" path="res://Scenes/FasePrincipal/wave_manager.gd" id="13_uotby"]
+[ext_resource type="PackedScene" uid="uid://scitov56cg4l" path="res://Scenes/FasePrincipal/Bala.tscn" id="14_lahha"]
+[ext_resource type="AudioStream" uid="uid://dut2708n5muat" path="res://soundtrack/sonican-cinematic-spaghetti-loop-western-adventure-394920.mp3" id="15_nmifv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jsvmo"]
 atlas = ExtResource("5_1hlo7")
@@ -34,7 +36,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_jsvmo")
 }],
-"loop": 0,
+"loop": false,
 "name": &"default",
 "speed": 5.0
 }]
@@ -225,7 +227,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_o2jkb")
 }],
-"loop": 0,
+"loop": false,
 "name": &"0 life",
 "speed": 5.0
 }, {
@@ -242,7 +244,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_u4hfx")
 }],
-"loop": 0,
+"loop": false,
 "name": &"1 life",
 "speed": 5.0
 }, {
@@ -259,7 +261,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_p7m6u")
 }],
-"loop": 0,
+"loop": false,
 "name": &"2 life",
 "speed": 5.0
 }, {
@@ -276,7 +278,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_y67md")
 }],
-"loop": 0,
+"loop": false,
 "name": &"3 life",
 "speed": 5.0
 }, {
@@ -293,7 +295,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_vfujf")
 }],
-"loop": 0,
+"loop": false,
 "name": &"4 life",
 "speed": 5.0
 }, {
@@ -310,7 +312,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_06hhq")
 }],
-"loop": 0,
+"loop": false,
 "name": &"5 life",
 "speed": 5.0
 }, {
@@ -318,7 +320,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_irivd")
 }],
-"loop": 0,
+"loop": false,
 "name": &"6 life",
 "speed": 5.0
 }]
@@ -501,6 +503,20 @@ expand_mode = 1
 
 [node name="WaveManager" type="Node" parent="." unique_id=302771553]
 script = ExtResource("13_uotby")
+
+[node name="Bala" parent="." unique_id=1222037949 node_paths=PackedStringArray("target") instance=ExtResource("14_lahha")]
+visible = false
+collision_layer = 2
+collision_mask = 2
+speed = 0
+penetration = 0
+damage = 0
+target = NodePath("../Arma")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1557476277]
+stream = ExtResource("15_nmifv")
+autoplay = true
+parameters/looping = true
 
 [connection signal="enemy_died" from="Path2D/EnemySpawner" to="." method="_on_enemy_spawner_enemy_died"]
 [connection signal="enemy_died" from="Path2D2/EnemySpawner2" to="." method="_on_enemy_spawner_2_enemy_died"]
