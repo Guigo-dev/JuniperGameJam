@@ -54,7 +54,6 @@ func getNextPower():
 	
 func buyItem(currentShopSlot: int):
 	if GameManager.souls >= shopPowers[currentShopSlot]["Cost"]:
-		GameManager.powerUpBuyed.emit(shopPowers[currentShopSlot]["Name"])
 		GameManager.souls = GameManager.souls - shopPowers[currentShopSlot]["Cost"]
 		if GameManager.inventory[0].is_empty() and !shopPowers[currentShopSlot]["Type"]=="Health":
 			GameManager.inventory[0] = shopPowers[currentShopSlot]

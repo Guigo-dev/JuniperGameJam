@@ -3,7 +3,6 @@ extends Node
 signal gun_changed(new_gun)
 signal gun_stat_changed(stat: int)
 signal bullet_stat_changed(stat: int)
-signal powerUpBuyed(powerUpType)
 signal inventoryUpdated
 
 var gunStats := {
@@ -69,75 +68,75 @@ const FIRE_GUN_SCENE = preload("res://Scenes/Poderes/arma_de_fogo.tscn")
 var inventory = {0:{}}
 #Dicionário dos poderes
 var powers =	{
-	0:{
-		"id": 0,
-		"Name": "Ricochet",
-		"Des": "Ricochet bullets",
-		"Cost": 10,
-		"Type": "Bullet Modifier",
-		"Scene": RICOCHET_SCENE
-	},
-	1:{
-		"id": 1,
-		"Name": "Triple Shot",
-		"Des": "Triple the fun",
-		"Cost": 20,
-		"Type": "Bullet Modifier",
-		"Scene": TRIPLE_SHOT_SCENE
-	},
-	2:{
-		"id": 2,
-		"Name": "Laser Aim",
-		"Des": "More precision",
-		"Cost": 30,
-		"Type": "Gun Modifier",
-		"Scene": LASER_AIM_SCENE
-	},
-	3:{
-		"id": 3,
-		"Name": "Auto-aim",
-		"Des": "Literal Aimbot",
-		"Cost": 40,
-		"Type": "Trajectory",
-		"Scene": AUTO_AIM_SCENE
-	},
-	4:{
-		"id": 4,
-		"Name": "Spiral Bullet",
-		"Des": "Bullets can curve??",
-		"Cost": 50,
-		"Type": "Trajectory",
-		"Scene": SPIRAL_BULLET_SCENE
-	},
+	#0:{
+		#"id": 0,
+		#"Name": "Ricochet",
+		#"Des": "Ricochet bullets",
+		#"Cost": 10,
+		#"Type": "Bullet Modifier",
+		#"Scene": RICOCHET_SCENE
+	#},
+	#1:{
+		#"id": 1,
+		#"Name": "Triple Shot",
+		#"Des": "Triple the fun",
+		#"Cost": 20,
+		#"Type": "Bullet Modifier",
+		#"Scene": TRIPLE_SHOT_SCENE
+	#},
+	#2:{
+		#"id": 2,
+		#"Name": "Laser Aim",
+		#"Des": "More precision",
+		#"Cost": 30,
+		#"Type": "Gun Modifier",
+		#"Scene": LASER_AIM_SCENE
+	#},
+	#3:{
+		#"id": 3,
+		#"Name": "Auto-aim",
+		#"Des": "Literal Aimbot",
+		#"Cost": 40,
+		#"Type": "Trajectory",
+		#"Scene": AUTO_AIM_SCENE
+	#},
+	#4:{
+		#"id": 4,
+		#"Name": "Spiral Bullet",
+		#"Des": "Bullets can curve??",
+		#"Cost": 50,
+		#"Type": "Trajectory",
+		#"Scene": SPIRAL_BULLET_SCENE
+	#},
 	5:{
 		"id": 5,
 		"Name": "Heal",
 		"Des": "More HP",
-		"Cost": 60,
+		"Cost": 1,
 		"Type": "Health",
 		"Scene": null
 	},
-	6:{
-		"id": 6,
-		"Name": "High Noon",
-		"Des": "Everything dies",
-		"Cost": 70,
-		"Type": "Power",
-		"Scene": HIGH_NOON_SCENE
-	},
-	7:{
-		"id": 7,
-		"Name": "Gold Gun",
-		"Des": "MONEY",
-		"Cost": 80,
-		"Type": "Gun",
-		"Scene": GOLD_GUN_SCENE
-	},
+	#6:{
+		#"id": 6,
+		#"Name": "High Noon",
+		#"Des": "Everything dies",
+		#"Cost": 70,
+		#"Type": "Power",
+		#"Scene": HIGH_NOON_SCENE
+	#},
+	#7:{
+		#"id": 7,
+		#"Name": "Gold Gun",
+		#"Des": "MONEY",
+		#"Cost": 80,
+		#"Type": "Gun",
+		#"Scene": GOLD_GUN_SCENE
+	#},
 	8:{
 		"id": 8,
 		"Name": "Fire Gun",
 		"Des": "Fireball",
-		"Cost": 90,
+		"Cost": 1,
 		"Type": "Gun",
 		"Scene": FIRE_GUN_SCENE
 	},
@@ -145,7 +144,7 @@ var powers =	{
 		"id": 9,
 		"Name": "Ice Gun",
 		"Des": "Achooo!",
-		"Cost": 100,
+		"Cost": 1,
 		"Type": "Gun",
 		"Scene": ICE_GUN_SCENE
 	},

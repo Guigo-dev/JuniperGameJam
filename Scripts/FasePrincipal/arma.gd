@@ -25,7 +25,6 @@ func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
 	add_to_group("arma")
 	GameManager.gun_stat_changed.connect(_on_gun_stat_changed)
-	GameManager.powerUpBuyed.connect(_on_upgrade_buyed)
 	speedMultiplier = GameManager.gunStats["speed"]
 	updateMaxHealth(GameManager.gunStats["life"])
 	bulletCooldown = GameManager.gunStats["fire_rate"]
@@ -85,7 +84,3 @@ func _on_gun_stat_changed(stat_type: int):
 	elif(stat_type == GameManager.GunStat.fire_rate):
 		GameManager.gunStats["fire_rate"] -= 0.25
 		
-func _on_upgrade_buyed(upgrade_name):
-	var upgrade_scene = load("res://Scenes/Poderes/%s.tscn" % upgrade_name)
-	var upgrade_instance = upgrade_scene.instantiate()
-	add_child(upgrade_instance)
