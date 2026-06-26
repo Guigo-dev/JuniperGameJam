@@ -20,5 +20,3 @@ func spawnBullet(modifier = null) -> void:
 	get_parent().get_parent().add_child(bullet)
 	cpu_particles_2d.emitting = true
 	gun_shot_sound.play()
-	
-	
