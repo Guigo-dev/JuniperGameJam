@@ -11,6 +11,8 @@ var powerKey = 0
 var shopSlots = 3
 var shopPowers = {}
 
+signal powerUpBuyed(powerUpType)
+
 func _ready() -> void:
 	$InsufficientSouls.visible = false
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
@@ -32,7 +34,7 @@ func start_tween(object: Object, property: String, final_val: Variant, duration:
 	var tween = create_tween()
 	tween.tween_property(object, property, final_val, duration)
 	
-func 	btn_hovered(button: TextureButton):
+func btn_hovered(button: TextureButton):
 	button.pivot_offset = button.size/2
 	if button.is_hovered():
 		start_tween(button,"scale", Vector2.ONE * tween_intensity, tween_duration)
@@ -47,6 +49,7 @@ func getNextPower():
 	
 func buyItem(currentShopSlot: int):
 	if GameManager.souls >= shopPowers[currentShopSlot]["Cost"]:
+		print(shopPowers[currentShopSlot]["Name"])
 		GameManager.souls = GameManager.souls - shopPowers[currentShopSlot]["Cost"]
 		print(GameManager.souls)
 		if GameManager.inventory[0].is_empty() and !shopPowers[currentShopSlot]["Type"]=="Health":
