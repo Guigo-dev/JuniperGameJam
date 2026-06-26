@@ -1,7 +1,7 @@
 extends Node
 
 @export var wave_time := 30.0
-
+@export var cenaShop : PackedScene
 
 
 var wave_enemies = {
@@ -85,6 +85,7 @@ func _process(delta):
 	if wave_finished:
 
 		if enemies_alive <= 0:
+			get_tree().change_scene_to_packed(cenaShop)
 			start_wave()
 
 		return

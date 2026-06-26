@@ -32,12 +32,18 @@ var XP:= 100;
 var resets = 0;
 var healthComponent : Node
 
-@export var souls : int = 1000
+var souls : int = 0
 @export var current_gun : String = "default"
 var waveCounter: int = 0
-@export var remainingPowersKeys=[]
+var remainingPowersKeys=[]
 
+const SHOP_SCENE = "res://Scenes/Menus/shop.tscn"
+const GAME_SCENE = "res://Scenes/FasePrincipal/FasePrincipal.tscn"
 
+func changeSceneShop(): 
+	get_tree().change_scene_to_file(SHOP_SCENE)
+func changeSceneGame():
+	get_tree().change_scene_to_file(GAME_SCENE)
 
 
 func _ready() -> void:
@@ -133,6 +139,7 @@ func resetPool():
 	remainingPowersKeys.shuffle()
 	
 
+	
 func _on_player_died():
 	get_tree().paused = true
 	current_upgrade_tree = upgrade_tree_scene.instantiate()

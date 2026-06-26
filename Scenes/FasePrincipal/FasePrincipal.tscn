@@ -12,7 +12,8 @@
 [ext_resource type="Texture2D" uid="uid://b5tq0j6uwwq4c" path="res://Sprites/PNG/lifecounter.png" id="10_xjset"]
 [ext_resource type="Texture2D" uid="uid://by6btomxrcfl2" path="res://Sprites/PNG/bt_tutorial_arrowkeys.png" id="11_o2jkb"]
 [ext_resource type="Texture2D" uid="uid://pupprjjyi64h" path="res://Sprites/PNG/bt_tutorial_space.png" id="12_uotby"]
-[ext_resource type="Script" uid="uid://cmoiybfwwqc5e" path="res://Scenes/FasePrincipal/wave_manager.gd" id="13_uotby"]
+[ext_resource type="Script" uid="uid://cmoiybfwwqc5e" path="res://Scripts/FasePrincipal/wave_manager.gd" id="13_uotby"]
+[ext_resource type="PackedScene" uid="uid://bar0018wu477x" path="res://Scenes/Menus/shop.tscn" id="14_lahha"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jsvmo"]
 atlas = ExtResource("5_1hlo7")
@@ -501,6 +502,7 @@ expand_mode = 1
 
 [node name="WaveManager" type="Node" parent="." unique_id=302771553]
 script = ExtResource("13_uotby")
+cenaShop = ExtResource("14_lahha")
 
 [connection signal="enemy_died" from="Path2D/EnemySpawner" to="." method="_on_enemy_spawner_enemy_died"]
 [connection signal="enemy_died" from="Path2D2/EnemySpawner2" to="." method="_on_enemy_spawner_2_enemy_died"]

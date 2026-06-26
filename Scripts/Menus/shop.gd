@@ -6,6 +6,7 @@ extends Control
 @onready var power0 : TextureButton = $HBoxContainer/Power0
 @onready var power1 : TextureButton = $HBoxContainer/Power1
 @onready var power2 : TextureButton = $HBoxContainer/Power2
+@onready var soulCounterIcon = $Souls/SoulCounterIcon
 
 var powerKey = 0
 var shopSlots = 3
@@ -13,6 +14,7 @@ var shopPowers = {}
 
 func _ready() -> void:
 	$InsufficientSouls.visible = false
+	get_node("Souls/SoulsText").text = str(GameManager.souls)
 	for i in range(0,shopSlots):	
 		var currentPower = GameManager.powers[getNextPower()]
 		shopPowers[i]=currentPower	
@@ -107,3 +109,10 @@ func _on_power_2_pressed() -> void:
 	buyItem(2)
 	$HBoxContainer/Power2.disabled = true
 	print(GameManager.inventory)
+
+func _on_next_wave_button_pressed() -> void:
+	#get_tree().unload_current_scene(TEST_SCENE)
+	get_tree().change_scene_to_file("res://Scenes/FasePrincipal/FasePrincipal.tscn")
+	
+	print("botao apertado")
+	

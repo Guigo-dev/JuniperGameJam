@@ -4,6 +4,32 @@
 [ext_resource type="Script" uid="uid://cyn63c4njyjh1" path="res://Scripts/Menus/shop.gd" id="1_s0p6e"]
 [ext_resource type="Script" uid="uid://dy8jqlbn8tm4o" path="res://Scripts/Menus/botao_comprar.gd" id="2_kex1f"]
 [ext_resource type="Texture2D" uid="uid://brgcudm2qdvyc" path="res://Sprites/AlvoPlaceHolderHover.png" id="2_s0p6e"]
+[ext_resource type="Texture2D" uid="uid://c2buru432eq5g" path="res://Sprites/PNG/soulcounter.png" id="6_looxl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jsvmo"]
+atlas = ExtResource("6_looxl")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xjset"]
+atlas = ExtResource("6_looxl")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_r3mto"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jsvmo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xjset")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jsvmo")
+}],
+"loop": 0,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Shop" type="Control" unique_id=147490848]
 layout_mode = 3
@@ -212,7 +238,7 @@ offset_right = 20.0
 offset_bottom = 23.0
 grow_horizontal = 2
 
-[node name="Label" type="Label" parent="." unique_id=91402503]
+[node name="ShopTitle" type="Label" parent="." unique_id=91402503]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -222,7 +248,67 @@ offset_right = 20.0
 offset_bottom = 23.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 50
-text = "LOJA"
+text = "SHOP"
+
+[node name="NextWaveButton" type="Button" parent="." unique_id=641087398]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -178.0
+offset_top = -58.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Label" type="Label" parent="NextWaveButton" unique_id=1210573712]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -83.5
+offset_top = -21.0
+offset_right = 83.5
+offset_bottom = 21.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+text = "NEXT WAVE"
+
+[node name="Souls" type="ColorRect" parent="." unique_id=1293049138]
+z_index = 3
+texture_filter = 1
+layout_mode = 1
+offset_right = 100.0
+offset_bottom = 41.0
+color = Color(0.8745098, 0.44313726, 0.14901961, 1)
+
+[node name="SoulsText" type="RichTextLabel" parent="Souls" unique_id=1191497251]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.38
+anchor_top = -0.4390244
+anchor_right = 0.38
+offset_left = 6.0
+offset_top = 18.0
+offset_right = 100.0
+offset_bottom = 40.0
+theme_override_colors/default_color = Color(0.56078434, 0.3372549, 0.23137255, 1)
+theme_override_font_sizes/normal_font_size = 20
+text = "0"
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="SoulCounterIcon" type="AnimatedSprite2D" parent="Souls" unique_id=933224943]
+position = Vector2(26, 18)
+scale = Vector2(1.5, 1.5)
+sprite_frames = SubResource("SpriteFrames_r3mto")
 
 [connection signal="mouse_entered" from="HBoxContainer/Power0" to="HBoxContainer/Power0" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="HBoxContainer/Power0" to="HBoxContainer/Power0" method="_on_mouse_exited"]
@@ -233,3 +319,4 @@ text = "LOJA"
 [connection signal="mouse_entered" from="HBoxContainer/Power2" to="HBoxContainer/Power2" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="HBoxContainer/Power2" to="HBoxContainer/Power2" method="_on_mouse_exited"]
 [connection signal="pressed" from="HBoxContainer/Power2" to="." method="_on_power_2_pressed"]
+[connection signal="pressed" from="NextWaveButton" to="." method="_on_next_wave_button_pressed"]
