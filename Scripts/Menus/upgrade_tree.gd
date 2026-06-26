@@ -3,6 +3,7 @@ extends Control
 
 func _ready() -> void:
 	atualizar_labels()
+	GameManager.waveCounter=0
 
 func _process(delta: float) -> void:
 	if(GameManager.XP == 0):

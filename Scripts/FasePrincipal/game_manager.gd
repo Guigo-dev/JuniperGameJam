@@ -41,10 +41,8 @@ const SHOP_SCENE = "res://Scenes/Menus/shop.tscn"
 const GAME_SCENE = "res://Scenes/FasePrincipal/FasePrincipal.tscn"
 
 func changeSceneShop(): 
-	get_tree().paused=true
 	get_tree().change_scene_to_file(SHOP_SCENE)
 func changeSceneGame():
-	get_tree().paused=true
 	get_tree().change_scene_to_file(GAME_SCENE)
 
 

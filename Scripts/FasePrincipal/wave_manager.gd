@@ -1,7 +1,6 @@
 extends Node
 
 @export var wave_time := 30.0
-@export var cenaShop : PackedScene
 
 
 var wave_enemies = {
@@ -41,7 +40,8 @@ func _ready():
 	spawner_magro.enemy_removed.connect(_on_enemy_removed)
 	spawner_gordo.enemy_removed.connect(_on_enemy_removed)
 
-	print("funcao read")
+	start_wave()
+	print("funcao ready")
 
 func start_wave():
 
@@ -83,7 +83,8 @@ func _process(delta):
 	if wave_finished:
 
 		if enemies_alive <= 0:
-			get_tree().change_scene_to_packed(cenaShop)
+			GameManager.changeSceneShop()
+			wave_finished=true
 		return
 
 	wave_timer += delta
