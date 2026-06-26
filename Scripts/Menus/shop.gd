@@ -101,15 +101,20 @@ func showPowerPurchasedMessage(button: TextureButton):
 func updateSouls():
 	get_node("SoulsText").text = str(GameManager.souls)
 
+
+
 func _on_button_pressed(button: TextureButton) -> void:
 	var currentItemSlot =  int(button.name.trim_prefix("Power"))
 	if !hasEnoughSouls(button):
 		showInsufficientSouls()
 		return
 	buyItem(currentItemSlot)
+	GameManager.isInventoryUpdated()
+		
 	showPowerPurchasedMessage(button)
 	updateSouls()
 	button.disabled = true
 
 func _on_continue_next_wave_pressed() -> void:
 	GameManager.changeSceneGame()
+	

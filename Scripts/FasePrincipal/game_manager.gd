@@ -4,6 +4,7 @@ signal gun_changed(new_gun)
 signal gun_stat_changed(stat: int)
 signal bullet_stat_changed(stat: int)
 signal powerUpBuyed(powerUpType)
+signal inventoryUpdated
 
 var gunStats := {
 	"life": 3,
@@ -37,14 +38,16 @@ var souls : int = 1000
 @export var current_gun : String = "default"
 var waveCounter: int = 0
 var remainingPowersKeys=[]
+var inventoryUpdatedFlag := false
 
 const SHOP_SCENE = "res://Scenes/Menus/shop.tscn"
-const GAME_SCENE = "res://Scenes/FasePrincipal/FasePrincipal.tscn"
+const GAME_SCENE = preload("res://Scenes/FasePrincipal/FasePrincipal.tscn")
+
 
 func changeSceneShop(): 
 	get_tree().change_scene_to_file(SHOP_SCENE)
 func changeSceneGame():
-	get_tree().change_scene_to_file(GAME_SCENE)
+	get_tree().change_scene_to_packed(GAME_SCENE)
 
 
 func _ready() -> void:
@@ -55,6 +58,15 @@ func _process(delta: float) -> void:
 		get_tree().paused = !get_tree().paused
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 		
+const RICOCHET_SCENE = preload("res://Scenes/Poderes/ricochet.tscn")
+const TRIPLE_SHOT_SCENE = preload("res://Scenes/Poderes/triple_shot.tscn")
+const LASER_AIM_SCENE = preload("res://Scenes/Poderes/laser_aim.tscn")
+const AUTO_AIM_SCENE = preload("res://Scenes/Poderes/auto_aim.tscn")
+const SPIRAL_BULLET_SCENE = preload("res://Scenes/Poderes/spiral_bullet.tscn")
+const HIGH_NOON_SCENE = preload("res://Scenes/Poderes/high_noon.tscn")
+const GOLD_GUN_SCENE = preload("res://Scenes/Poderes/gold_gun.tscn")
+const ICE_GUN_SCENE = preload("res://Scenes/Poderes/ice_gun.tscn")
+const FIRE_GUN_SCENE = preload("res://Scenes/Poderes/arma_de_fogo.tscn")
 
 var inventory = {0:{}}
 #Dicionário dos poderes
@@ -64,70 +76,80 @@ var powers =	{
 		"Name": "Ricochet",
 		"Des": "Ricochet bullets",
 		"Cost": 10,
-		"Type": "Modifier"
+		"Type": "Bullet Modifier",
+		"Scene": RICOCHET_SCENE
 	},
 	1:{
 		"id": 1,
 		"Name": "Triple Shot",
 		"Des": "Triple the fun",
 		"Cost": 20,
-		"Type": "Modifier"
+		"Type": "Bullet Modifier",
+		"Scene": TRIPLE_SHOT_SCENE
 	},
 	2:{
 		"id": 2,
 		"Name": "Laser Aim",
 		"Des": "More precision",
 		"Cost": 30,
-		"Type": "Modifier"
+		"Type": "Gun Modifier",
+		"Scene": LASER_AIM_SCENE
 	},
 	3:{
 		"id": 3,
 		"Name": "Auto-aim",
 		"Des": "Literal Aimbot",
 		"Cost": 40,
-		"Type": "Trajectory"
+		"Type": "Trajectory",
+		"Scene": AUTO_AIM_SCENE
 	},
 	4:{
 		"id": 4,
 		"Name": "Spiral Bullet",
 		"Des": "Bullets can curve??",
 		"Cost": 50,
-		"Type": "Trajectory"
+		"Type": "Trajectory",
+		"Scene": SPIRAL_BULLET_SCENE
 	},
 	5:{
 		"id": 5,
 		"Name": "Heal",
 		"Des": "More HP",
 		"Cost": 60,
-		"Type": "Health"
+		"Type": "Health",
+		"Scene": null
 	},
 	6:{
 		"id": 6,
 		"Name": "High Noon",
 		"Des": "Everything dies",
 		"Cost": 70,
-		"Type": "Power"
+		"Type": "Power",
+		"Scene": HIGH_NOON_SCENE
 	},
 	7:{
 		"id": 7,
 		"Name": "Gold Gun",
 		"Des": "MONEY",
 		"Cost": 80,
-		"Type": "Gun"
+		"Type": "Gun",
+		"Scene": GOLD_GUN_SCENE
 	},
 	8:{
 		"id": 8,
 		"Name": "Fire Gun",
 		"Des": "Fireball",
 		"Cost": 90,
-		"Type": "Gun"
+		"Type": "Gun",
+		"Scene": FIRE_GUN_SCENE
 	},
 	9:{
 		"id": 9,
 		"Name": "Ice Gun",
 		"Des": "Achooo!",
 		"Cost": 100,
-		"Type": "Gun"
+		"Type": "Gun",
+		"Scene": ICE_GUN_SCENE
 	},
 }
 #Reseta a pool de poderes
@@ -140,7 +162,8 @@ func resetPool():
 					remainingPowersKeys.remove_at(j)
 	remainingPowersKeys.shuffle()
 	
-
+func isInventoryUpdated():
+	inventoryUpdatedFlag = true
 	
 func _on_player_died():
 	get_tree().paused = true

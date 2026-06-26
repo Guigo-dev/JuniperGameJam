@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://liuaqg1ij0hr" path="res://Sprites/PNG/arma_fogo.png" id="1_isqu5"]
 [ext_resource type="Script" uid="uid://boemys4v5i1gw" path="res://Scripts/FasePrincipal/bullet_spawner.gd" id="2_p8s0x"]
 [ext_resource type="Script" uid="uid://dj8j1pu2ilxua" path="res://Scripts/FasePrincipal/HealthComponent.gd" id="3_aymjp"]
-[ext_resource type="PackedScene" uid="uid://d2qcmxi41x3ny" path="res://Scenes/FasePrincipal/bala_de_fogo.tscn" id="3_p8s0x"]
+[ext_resource type="PackedScene" uid="uid://d2qcmxi41x3ny" path="res://Scenes/Poderes/bala_de_fogo.tscn" id="3_p8s0x"]
 [ext_resource type="AudioStream" uid="uid://ry7p1e2mnacd" path="res://Sounds/gunShot.wav" id="6_bnmer"]
 [ext_resource type="AudioStream" uid="uid://brhh7u6nx1ew2" path="res://Sounds/playerDamage.wav" id="7_87f1g"]
 

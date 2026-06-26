@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://di1qhd6unc7n6"]
+
+[ext_resource type="Script" uid="uid://c2hcpm5q4gffs" path="res://Scripts/Poderes/auto_aim.gd" id="1_i202n"]
+
+[node name="AutoAim" type="Node" unique_id=480095700]
+script = ExtResource("1_i202n")

@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://dqpasjakby3f5"]
+
+[ext_resource type="Script" uid="uid://bnudfcr5s6jg7" path="res://Scripts/Poderes/power_manager.gd" id="1_qr2ux"]
+
+[node name="PowerManager" type="Node" unique_id=1531452156]
+script = ExtResource("1_qr2ux")
