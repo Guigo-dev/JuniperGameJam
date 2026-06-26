@@ -136,6 +136,8 @@ func resetPool():
 
 func _on_player_died():
 	get_tree().paused = true
+	var fade = get_tree().current_scene.get_node("%Fade")
+	fade_out(fade)
 	current_upgrade_tree = upgrade_tree_scene.instantiate()
 	get_tree().current_scene.get_node("UI").add_child(current_upgrade_tree)
 
@@ -148,3 +150,19 @@ func restart_game():
 	get_tree().paused = false
 	souls = 0
 	get_tree().reload_current_scene()
+	
+func fade_in(preto: ColorRect, time:= 1.0):
+	preto.visible = true
+	preto.modulate.a = 1.0
+	var tween = create_tween()
+	tween.tween_property(preto, "modulate:a", 0.0, time)
+	await tween.finished
+	preto.visible = false
+	
+func fade_out(preto: ColorRect, time := 1.0):
+	preto.visible = true
+	preto.modulate.a = 0.0
+	var tween = create_tween()
+	tween.tween_property(preto, "modulate:a", 1.0, time)
+	await tween.finished
+	preto.visible = false

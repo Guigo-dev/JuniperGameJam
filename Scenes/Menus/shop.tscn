@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://cyn63c4njyjh1" path="res://Scripts/Menus/shop.gd" id="1_s0p6e"]
 [ext_resource type="Script" uid="uid://dy8jqlbn8tm4o" path="res://Scripts/Menus/botao_comprar.gd" id="2_kex1f"]
 [ext_resource type="Texture2D" uid="uid://brgcudm2qdvyc" path="res://Sprites/AlvoPlaceHolderHover.png" id="2_s0p6e"]
+[ext_resource type="AudioStream" uid="uid://o2fplri72yl1" path="res://soundtrack/loja(2).mp3" id="5_tc8st"]
 
 [node name="Shop" type="Control" unique_id=147490848]
 layout_mode = 3
@@ -223,6 +224,12 @@ offset_bottom = 23.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 50
 text = "LOJA"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1253416226]
+stream = ExtResource("5_tc8st")
+volume_db = 6.078
+autoplay = true
+parameters/looping = true
 
 [connection signal="mouse_entered" from="HBoxContainer/Power0" to="HBoxContainer/Power0" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="HBoxContainer/Power0" to="HBoxContainer/Power0" method="_on_mouse_exited"]
