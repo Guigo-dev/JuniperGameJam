@@ -54,9 +54,7 @@ func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	
 func _process(delta: float) -> void:
-	if(Input.is_action_just_pressed("Pause")):
-		get_tree().paused = !get_tree().paused
-		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	pass
 		
 const RICOCHET_SCENE = preload("res://Scenes/Poderes/ricochet.tscn")
 const TRIPLE_SHOT_SCENE = preload("res://Scenes/Poderes/triple_shot.tscn")

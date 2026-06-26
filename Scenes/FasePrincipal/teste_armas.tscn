@@ -333,7 +333,6 @@ script = ExtResource("1_u0kin")
 arma = NodePath("ArmaDeFogo")
 
 [node name="ArmaDeFogo" parent="." unique_id=955160628 instance=ExtResource("2_d1jif")]
-visible = true
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=126124627]
 zoom = Vector2(2, 2)
@@ -529,6 +528,7 @@ animation = &"0 life"
 
 [node name="WaveManager" type="Node" parent="." unique_id=918784295]
 script = ExtResource("17_eeo36")
+wave_time = 5.0
 
 [node name="Bala" parent="." unique_id=1222037949 node_paths=PackedStringArray("target") instance=ExtResource("18_hb62x")]
 visible = false

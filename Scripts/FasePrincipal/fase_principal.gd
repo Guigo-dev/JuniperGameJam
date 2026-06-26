@@ -19,6 +19,11 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 @warning_ignore("unused_parameter")
 func _process(delta: float) -> void:
+	if(Input.is_action_just_pressed("Pause")):
+		$UI/Pause.visible = true
+		get_tree().paused = true
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+		
 	soulsText.text = (var_to_str(GameManager.souls))
 	
 
@@ -51,3 +56,9 @@ func update_lifeCounterIcon(life_amount: int, frame: int):
 	lifeCounterIcon.play(animationName)
 	if(frame != null):
 		lifeCounterIcon.set_frame_and_progress(frame,0.0)
+
+
+func _on_continue_bt_pressed() -> void:
+	get_tree().paused = false
+	$UI/Pause.visible = false
+	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN

@@ -18,6 +18,10 @@
 [ext_resource type="Script" uid="uid://cmoiybfwwqc5e" path="res://Scripts/FasePrincipal/wave_manager.gd" id="13_uotby"]
 [ext_resource type="PackedScene" uid="uid://scitov56cg4l" path="res://Scenes/FasePrincipal/Bala.tscn" id="14_lahha"]
 [ext_resource type="AudioStream" uid="uid://dut2708n5muat" path="res://soundtrack/sonican-cinematic-spaghetti-loop-western-adventure-394920.mp3" id="15_nmifv"]
+[ext_resource type="Texture2D" uid="uid://kl2m32tw5cxl" path="res://Sprites/PNG/pausescreen.png" id="16_fol42"]
+[ext_resource type="Texture2D" uid="uid://sdxfskcbcdpf" path="res://Sprites/PNG/bt_continue.png" id="17_xe2kd"]
+[ext_resource type="Texture2D" uid="uid://da4bwe0hbgxil" path="res://Sprites/PNG/bt_continue_onclick.png" id="18_y67md"]
+[ext_resource type="Texture2D" uid="uid://cu76qgroqyy01" path="res://Sprites/PNG/bt_continue_hover.png" id="19_6dx8m"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jsvmo"]
 atlas = ExtResource("5_1hlo7")
@@ -39,7 +43,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_jsvmo")
 }],
-"loop": 0,
+"loop": false,
 "name": &"default",
 "speed": 5.0
 }]
@@ -230,7 +234,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_o2jkb")
 }],
-"loop": 0,
+"loop": false,
 "name": &"0 life",
 "speed": 5.0
 }, {
@@ -247,7 +251,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_u4hfx")
 }],
-"loop": 0,
+"loop": false,
 "name": &"1 life",
 "speed": 5.0
 }, {
@@ -264,7 +268,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_p7m6u")
 }],
-"loop": 0,
+"loop": false,
 "name": &"2 life",
 "speed": 5.0
 }, {
@@ -281,7 +285,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_y67md")
 }],
-"loop": 0,
+"loop": false,
 "name": &"3 life",
 "speed": 5.0
 }, {
@@ -298,7 +302,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_vfujf")
 }],
-"loop": 0,
+"loop": false,
 "name": &"4 life",
 "speed": 5.0
 }, {
@@ -315,7 +319,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_06hhq")
 }],
-"loop": 0,
+"loop": false,
 "name": &"5 life",
 "speed": 5.0
 }, {
@@ -323,7 +327,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_irivd")
 }],
-"loop": 0,
+"loop": false,
 "name": &"6 life",
 "speed": 5.0
 }]
@@ -383,7 +387,7 @@ offset_right = 53.0
 offset_bottom = 40.0
 theme_override_fonts/font = ExtResource("6_s446e")
 theme_override_font_sizes/font_size = 13
-text = "0"
+text = "100"
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
@@ -444,7 +448,7 @@ curve = SubResource("Curve2D_uotby")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D3" unique_id=828801030]
 position = Vector2(351, -179)
-rotation = 3.1415927
+rotation = 3.1415925
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Path2D3/PathFollow2D" unique_id=480699026]
 libraries/ = SubResource("AnimationLibrary_jsvmo")
@@ -455,7 +459,7 @@ remote_path = NodePath("../../EnemySpawner3")
 
 [node name="EnemySpawner3" parent="Path2D3" unique_id=119011415 node_paths=PackedStringArray("target") instance=ExtResource("2_1lh45")]
 position = Vector2(351, -179)
-rotation = -3.1415925
+rotation = 3.1415925
 enemyScene = ExtResource("3_82kia")
 target = NodePath("../../Arma")
 
@@ -512,6 +516,40 @@ offset_bottom = 351.0
 texture = ExtResource("12_uotby")
 expand_mode = 1
 
+[node name="Pause" type="TextureRect" parent="UI" unique_id=192525408]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -240.5
+offset_top = -115.0
+offset_right = 240.5
+offset_bottom = 115.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("16_fol42")
+
+[node name="ContinueBt" type="TextureButton" parent="UI/Pause" unique_id=880044941]
+process_mode = 2
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -11.0
+offset_right = 99.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("17_xe2kd")
+texture_pressed = ExtResource("18_y67md")
+texture_hover = ExtResource("19_6dx8m")
+
 [node name="WaveManager" type="Node" parent="." unique_id=302771553]
 script = ExtResource("13_uotby")
 
@@ -544,5 +582,4 @@ color = Color(0, 0, 0, 1)
 [connection signal="enemy_died" from="Path2D/EnemySpawner" to="." method="_on_enemy_spawner_enemy_died"]
 [connection signal="enemy_died" from="Path2D2/EnemySpawner2" to="." method="_on_enemy_spawner_2_enemy_died"]
 [connection signal="enemy_died" from="Path2D3/EnemySpawner3" to="." method="_on_enemy_spawner_3_enemy_died"]
-
-[editable path="Arma"]
+[connection signal="pressed" from="UI/Pause/ContinueBt" to="." method="_on_continue_bt_pressed"]
