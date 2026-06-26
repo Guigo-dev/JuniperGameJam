@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://d0byha24h1at7"]
 
 [ext_resource type="Script" uid="uid://bf0ow8cb6r4ar" path="res://Scripts/FasePrincipal/fase_principal.gd" id="1_u0kin"]
-[ext_resource type="PackedScene" uid="uid://chlfhvwo5bpts" path="res://Scenes/FasePrincipal/arma_de_fogo.tscn" id="2_d1jif"]
+[ext_resource type="PackedScene" uid="uid://chlfhvwo5bpts" path="res://Scenes/Poderes/arma_de_fogo.tscn" id="2_d1jif"]
 [ext_resource type="PackedScene" uid="uid://cuge5u3bblqwa" path="res://Scenes/FasePrincipal/enemy_spawner.tscn" id="3_6tpii"]
 [ext_resource type="PackedScene" uid="uid://13ixk6h33t1i" path="res://Scenes/FasePrincipal/EnemyDefault.tscn" id="4_i0fb1"]
 [ext_resource type="Texture2D" uid="uid://by6btomxrcfl2" path="res://Sprites/PNG/bt_tutorial_arrowkeys.png" id="5_6tpii"]
