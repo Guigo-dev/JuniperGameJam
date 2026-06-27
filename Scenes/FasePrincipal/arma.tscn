@@ -23,6 +23,7 @@ metadata/_edit_group_ = true
 [node name="BulletSpawner" type="Node2D" parent="." unique_id=18130942]
 unique_name_in_owner = true
 position = Vector2(15, -6)
+rotation = -0.0052359877
 script = ExtResource("4_xutcm")
 bala = ExtResource("5_1wt7n")
 metadata/_custom_type_script = "uid://boemys4v5i1gw"

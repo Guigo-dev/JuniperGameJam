@@ -1,10 +1,10 @@
 extends Node
 
-@export var wave_time := 30.0
+@export var wave_time := 1.0
 
 
 var wave_enemies = {
-	1: {"A": 20, "B": 0, "C": 0},
+	1: {"A": 1, "B": 0, "C": 0},
 	2: {"A": 20, "B": 2, "C": 4},
 	3: {"A": 25, "B": 5, "C": 4},
 	4: {"A": 10, "B": 20, "C": 5},

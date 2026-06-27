@@ -1,3 +1,6 @@
 [gd_scene format=3 uid="uid://c07x75bjurx8y"]
 
+[ext_resource type="Script" uid="uid://ssc7eu5egrlk" path="res://Scripts/Poderes/laser_aim.gd" id="1_daora"]
+
 [node name="LaserAim" type="Node" unique_id=1409954409]
+script = ExtResource("1_daora")
