@@ -93,6 +93,14 @@ var powers =	{
 		#"Type": "Gun Modifier",
 		#"Scene": LASER_AIM_SCENE
 	#},
+	2:{
+		"id": 2,
+		"Name": "Laser Aim",
+		"Des": "More precision",
+		"Cost": 30,
+		"Type": "Trajectory",
+		"Scene": LASER_AIM_SCENE
+	},
 	#3:{
 		#"id": 3,
 		#"Name": "Auto-aim",
