@@ -1,3 +1,6 @@
 [gd_scene format=3 uid="uid://b25ilqvigjcj6"]
 
+[ext_resource type="Script" uid="uid://choxhxgjeuerc" path="res://Scripts/Poderes/ice_gun.gd" id="1_bj2a4"]
+
 [node name="IceGun" type="Node" unique_id=972112692]
+script = ExtResource("1_bj2a4")

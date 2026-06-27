@@ -5,6 +5,7 @@ var direction
 @export var penetration = 1
 @export var damage := 1
 @export var target: Node2D
+@export var pocoGelo: PackedScene
 
 
 func _ready() -> void:
@@ -15,12 +16,14 @@ func _ready() -> void:
 	penetration = GameManager.bulletStat["penetration"]
 	damage = GameManager.bulletStat["damage"]
 	
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	global_position += direction * speed * delta * -1
-	if(penetration == 0 || global_position.x > 300 || global_position.x < -300
-						|| global_position.y < -180 || global_position.y > 165 ):
-		queue_free()
+	if(penetration == 0):
+		var poco = pocoGelo.instantiate()
+		poco.global_position = global_position
+		get_parent().get_parent().add_child(poco)
+		
+		free()
 	
 func _on_area_entered(area: Area2D) -> void:
 	if(area.is_in_group("enemy")):
@@ -30,6 +33,6 @@ func _on_bullet_stat_changed(stat_type: int):
 	if(stat_type == GameManager.BulletStat.penetration):
 		GameManager.bulletStat["penetration"] += 1
 	elif(stat_type == GameManager.BulletStat.velocity):
-		GameManager.bulletStat["velocity"] += 7
+		GameManager.bulletStat["velocity"] += 5
 	elif(stat_type == GameManager.BulletStat.damage):
 		GameManager.bulletStat["damage"] += 1

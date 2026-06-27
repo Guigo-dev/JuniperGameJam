@@ -1,0 +1,73 @@
+[gd_scene format=3 uid="uid://yjm6jc0el8u6"]
+
+[ext_resource type="Script" uid="uid://catlquktk67fb" path="res://Scripts/FasePrincipal/poco_de_gelo.gd" id="1_8mnpo"]
+[ext_resource type="Texture2D" uid="uid://fyandrucfo2u" path="res://Sprites/PNG/ice.png" id="2_kuxlp"]
+[ext_resource type="AudioStream" uid="uid://cugc1mx8hkb4j" path="res://Sounds/bonfire.wav" id="3_t1bo2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t1bo2"]
+atlas = ExtResource("2_kuxlp")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y1yrg"]
+atlas = ExtResource("2_kuxlp")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qanx1"]
+atlas = ExtResource("2_kuxlp")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t0edd"]
+atlas = ExtResource("2_kuxlp")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_y1yrg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t1bo2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y1yrg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qanx1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t0edd")
+}],
+"loop": false,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qanx1"]
+radius = 34.0147
+
+[node name="PocoDeGelo" type="Area2D" unique_id=817309161]
+z_index = -1
+script = ExtResource("1_8mnpo")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=166471552]
+texture_filter = 1
+position = Vector2(-1.9073486e-06, -2.999999)
+scale = Vector2(1.53125, 1.75)
+sprite_frames = SubResource("SpriteFrames_y1yrg")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1577105927]
+position = Vector2(0, 3)
+shape = SubResource("CircleShape2D_qanx1")
+
+[node name="Duracao" type="Timer" parent="." unique_id=1729064170]
+wait_time = 3.0
+autostart = true
+
+[node name="bonfireSound" type="AudioStreamPlayer2D" parent="." unique_id=977267386]
+stream = ExtResource("3_t1bo2")
+volume_db = 24.0
+max_distance = 4096.0
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]
+[connection signal="timeout" from="Duracao" to="." method="_on_duracao_timeout"]

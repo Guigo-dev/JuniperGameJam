@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://d2qcmxi41x3ny"]
 
 [ext_resource type="Texture2D" uid="uid://cs2fpypbwfmds" path="res://Sprites/PNG/bala_fogo.png" id="1_hkkwc"]
-[ext_resource type="Script" uid="uid://bp8yt8c1oioi" path="res://Scripts/FasePrincipal/bala_de_fogo.gd" id="1_ks1cl"]
+[ext_resource type="Script" uid="uid://bp8yt8c1oioi" path="res://Scripts/Poderes/bala_de_fogo.gd" id="1_ks1cl"]
 [ext_resource type="PackedScene" uid="uid://c1p2nt62ftaxs" path="res://Scenes/Poderes/poco_de_fogo.tscn" id="2_4l7br"]
 [ext_resource type="Script" uid="uid://cgava8paqhbng" path="res://Scripts/FasePrincipal/line_2d.gd" id="4_1wdcm"]
 

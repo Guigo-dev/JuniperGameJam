@@ -1,3 +1,6 @@
 [gd_scene format=3 uid="uid://cak1ha2064uf"]
 
+[ext_resource type="Script" uid="uid://xepdprgivgcw" path="res://Scripts/Poderes/gold_gun.gd" id="1_ckce4"]
+
 [node name="GoldGun" type="Node" unique_id=619287377]
+script = ExtResource("1_ckce4")

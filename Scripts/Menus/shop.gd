@@ -73,12 +73,9 @@ func buyItem(currentShopSlot: int):
 			GameManager.inventory[GameManager.inventory.size()]=shopPowers[currentShopSlot]
 			return
 		if shopPowers[currentShopSlot]["Type"] =="Health":
-			if GameManager.healthComponent:
-				GameManager.healthComponent.updateLP(1)
-				return
-			else:
-				push_warning("HealthComponent do player null")
-				return
+			if GameManager.currentGunLife + 1 <= GameManager.gunStats["life"]:
+				GameManager.currentGunLife +1
+			return
 		else:
 			GameManager.inventory[GameManager.inventory.size()]=shopPowers[currentShopSlot]
 			return

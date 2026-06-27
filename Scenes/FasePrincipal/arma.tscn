@@ -59,7 +59,7 @@ shape = SubResource("RectangleShape2D_ckcjq")
 [node name="HealthComponent" type="Node" parent="." unique_id=226578181]
 unique_name_in_owner = true
 script = ExtResource("3_n5qd3")
-MAX_LIFE = 3
+MAX_LIFE = 6
 lifePoints = 3
 metadata/_custom_type_script = "uid://dj8j1pu2ilxua"
 

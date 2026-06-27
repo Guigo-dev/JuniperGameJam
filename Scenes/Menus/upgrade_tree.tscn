@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://crjas3wlyok0y" path="res://Sprites/PNG/bt_upgrade_locked.png" id="9_nchab"]
 [ext_resource type="FontFile" uid="uid://d2ns3wsd4gt2e" path="res://Sprites/PressStart2P.ttf" id="10_itart"]
 [ext_resource type="AudioStream" uid="uid://o2fplri72yl1" path="res://soundtrack/loja(2).mp3" id="10_iyos3"]
+[ext_resource type="Texture2D" uid="uid://bw4no0yktis35" path="res://Sprites/PNG/placa_soulcounter.png" id="12_n5ehw"]
 
 [node name="UpgradeTree" type="Control" unique_id=460672048]
 texture_filter = 1
@@ -332,6 +333,36 @@ stream = ExtResource("10_iyos3")
 volume_db = 6.078
 autoplay = true
 parameters/looping = true
+
+[node name="XpRect" type="TextureRect" parent="." unique_id=221437153]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 264.0
+offset_right = 102.0
+offset_bottom = 311.0
+texture = ExtResource("12_n5ehw")
+
+[node name="XPLabel" type="Label" parent="XpRect" unique_id=347052938]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 58.0
+offset_bottom = 41.0
+theme_override_fonts/font = ExtResource("10_itart")
+text = "XP:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="XPQtdLabel" type="Label" parent="XpRect" unique_id=875876827]
+layout_mode = 0
+offset_left = 56.0
+offset_top = 10.0
+offset_right = 86.0
+offset_bottom = 41.0
+theme_override_fonts/font = ExtResource("10_itart")
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="pressed" from="TryAgainButton" to="." method="_on_try_again_button_pressed"]
 [connection signal="pressed" from="GunButton/LifeStatButton" to="." method="_on_life_stat_button_pressed"]

@@ -8,6 +8,7 @@ func _ready() -> void:
 	await GameManager.fade_in(get_parent().get_parent().get_node("%Fade"))
 
 func _process(delta: float) -> void:
+	$XpRect/XPQtdLabel.text = str(GameManager.XP)
 	if(GameManager.XP == 0):
 		$GunButton/LifeStatButton.disabled = true
 		$GunButton/VelStatButton.disabled = true

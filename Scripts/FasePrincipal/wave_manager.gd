@@ -82,8 +82,9 @@ func _process(delta):
 	if wave_finished:
 
 		if enemies_alive <= 0:
-			GameManager.changeSceneShop()
+			GameManager.incrementXp()
 			wave_finished=true
+			GameManager.changeSceneShop()
 		return
 
 	wave_timer += delta

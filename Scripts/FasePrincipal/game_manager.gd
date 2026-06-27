@@ -29,13 +29,14 @@ enum BulletStat {penetration, velocity, damage}
 @export var upgrade_tree_scene : PackedScene
 var current_upgrade_tree
 
-var XP:= 100;
+var XP:= 0;
 var resets = 0;
-var healthComponent : Node
+var currentGunLife : int
 
-var souls : int = 1000
+var souls : int = 0
 @export var current_gun : String = "default"
 var waveCounter: int = 0
+var maxWaveCounter: int = 0
 var remainingPowersKeys=[]
 var inventoryUpdatedFlag := false
 
@@ -88,7 +89,7 @@ var powers =	{
 		#"id": 2,
 		#"Name": "Laser Aim",
 		#"Des": "More precision",
-		#"Cost": 30,
+		#"Cost": 25,
 		#"Type": "Gun Modifier",
 		#"Scene": LASER_AIM_SCENE
 	#},
@@ -104,39 +105,39 @@ var powers =	{
 		#"id": 4,
 		#"Name": "Spiral Bullet",
 		#"Des": "Bullets can curve??",
-		#"Cost": 50,
+		#"Cost": 15,
 		#"Type": "Trajectory",
 		#"Scene": SPIRAL_BULLET_SCENE
 	#},
-	5:{
-		"id": 5,
-		"Name": "Heal",
-		"Des": "More HP",
-		"Cost": 1,
-		"Type": "Health",
-		"Scene": null
-	},
+	#5:{
+		#"id": 5,
+		#"Name": "Heal",
+		#"Des": "More HP",
+		#"Cost": 10,
+		#"Type": "Health",
+		#"Scene": null
+	#},
 	#6:{
 		#"id": 6,
 		#"Name": "High Noon",
 		#"Des": "Everything dies",
-		#"Cost": 70,
+		#"Cost": 30,
 		#"Type": "Power",
 		#"Scene": HIGH_NOON_SCENE
 	#},
-	#7:{
-		#"id": 7,
-		#"Name": "Gold Gun",
-		#"Des": "MONEY",
-		#"Cost": 80,
-		#"Type": "Gun",
-		#"Scene": GOLD_GUN_SCENE
-	#},
+	7:{
+		"id": 7,
+		"Name": "Gold Gun",
+		"Des": "MONEY",
+		"Cost": 20,
+		"Type": "Gun",
+		"Scene": GOLD_GUN_SCENE
+	},
 	8:{
 		"id": 8,
 		"Name": "Fire Gun",
 		"Des": "Fireball",
-		"Cost": 1,
+		"Cost": 20,
 		"Type": "Gun",
 		"Scene": FIRE_GUN_SCENE
 	},
@@ -144,7 +145,7 @@ var powers =	{
 		"id": 9,
 		"Name": "Ice Gun",
 		"Des": "Achooo!",
-		"Cost": 1,
+		"Cost": 20,
 		"Type": "Gun",
 		"Scene": ICE_GUN_SCENE
 	},
@@ -194,3 +195,8 @@ func fade_out(preto: ColorRect, time := 1.0):
 	tween.tween_property(preto, "modulate:a", 1.0, time)
 	await tween.finished
 	preto.visible = false
+	
+func incrementXp():
+	if waveCounter > maxWaveCounter:
+		maxWaveCounter = waveCounter
+		XP +=1

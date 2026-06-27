@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://ssncfsfo0lrs"]
+
+[ext_resource type="Script" uid="uid://dfvu3qdcjgan4" path="res://Scripts/Poderes/bala_de_ouro.gd" id="1_2aib8"]
+[ext_resource type="Texture2D" uid="uid://dgwp4n524mesc" path="res://Sprites/PNG/bala_gold.png" id="2_a88oi"]
+[ext_resource type="Script" uid="uid://cgava8paqhbng" path="res://Scripts/FasePrincipal/line_2d.gd" id="3_aujyb"]
+
+[sub_resource type="Curve" id="Curve_4e3dw"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_nx0u5"]
+offsets = PackedFloat32Array(0, 0.4852941)
+colors = PackedColorArray(1, 1, 1, 0, 0.75686276, 0.14901961, 0, 1)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_q0b0i"]
+radius = 6.0
+
+[node name="BalaDeOuro" type="Area2D" unique_id=1584557316]
+script = ExtResource("1_2aib8")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=911289399]
+texture_filter = 1
+texture_repeat = 1
+texture = ExtResource("2_a88oi")
+
+[node name="Line2D" type="Line2D" parent="Sprite2D" unique_id=1197676771]
+top_level = true
+width = 4.0
+width_curve = SubResource("Curve_4e3dw")
+default_color = Color(0.5411765, 0.5372549, 0.5254902, 1)
+gradient = SubResource("Gradient_nx0u5")
+script = ExtResource("3_aujyb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1967503241]
+shape = SubResource("CircleShape2D_q0b0i")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

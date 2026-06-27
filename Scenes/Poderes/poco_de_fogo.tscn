@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://c1p2nt62ftaxs"]
 
 [ext_resource type="Script" uid="uid://b87yq1arpiqgu" path="res://Scripts/FasePrincipal/poco_de_fogo.gd" id="1_7eqcp"]
-[ext_resource type="Texture2D" uid="uid://knpcyuvrygur" path="res://Sprites/PNG/fire.png" id="2_u870v"]
+[ext_resource type="Texture2D" uid="uid://b7qy1da33cmui" path="res://Sprites/PNG/fire.png" id="2_u870v"]
 [ext_resource type="AudioStream" uid="uid://cugc1mx8hkb4j" path="res://Sounds/bonfire.wav" id="3_u870v"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_a2efu"]
@@ -56,8 +56,9 @@ autostart = true
 
 [node name="bonfireSound" type="AudioStreamPlayer2D" parent="." unique_id=863307958]
 stream = ExtResource("3_u870v")
-volume_db = -1.115
-max_distance = 839.0
+volume_db = 24.0
+autoplay = true
+max_distance = 4096.0
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="area_exited" from="." to="." method="_on_area_exited"]

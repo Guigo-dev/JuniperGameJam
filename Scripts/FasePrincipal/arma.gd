@@ -28,8 +28,16 @@ func _ready() -> void:
 	speedMultiplier = GameManager.gunStats["speed"]
 	updateMaxHealth(GameManager.gunStats["life"])
 	bulletCooldown = GameManager.gunStats["fire_rate"]
+	if(GameManager.waveCounter == 0):
+		print("aqui")
+		healthComponent.lifePoints = healthComponent.MAX_LIFE
+		GameManager.currentGunLife = healthComponent.lifePoints
+	else:
+		healthComponent.lifePoints = GameManager.currentGunLife
+	print(GameManager.gunStats["life"])
 	get_parent().update_lifeCounterIcon(healthComponent.lifePoints,0)
-	GameManager.healthComponent = healthComponent
+
+	
 
 func _physics_process(delta: float) -> void:
 	speed = 85  #velocidade base de rotacao
@@ -54,15 +62,16 @@ func _on_area_entered(area: Area2D) -> void:
 	if(area.is_in_group("enemy")):
 		damage_sound.play()
 		healthComponent.updateLP(-1)
+		GameManager.currentGunLife = healthComponent.lifePoints
 		get_parent().update_lifeCounterIcon(healthComponent.lifePoints,0)
 	if(area.is_in_group("lifeGainer")):
 		healthComponent.updateLP(1)
+		GameManager.currentGunLife = healthComponent.lifePoints
 		get_parent().update_lifeCounterIcon(healthComponent.lifePoints,0)
 		
 	
 func updateMaxHealth(amount: int):
 	healthComponent.MAX_LIFE = amount
-	healthComponent.updateLP(amount)
 
 func updateSpeedMultiplier(amount: float):
 	speedMultiplier = amount
@@ -79,6 +88,8 @@ func shake(delta:float) -> void:
 func _on_gun_stat_changed(stat_type: int):
 	if(stat_type == GameManager.GunStat.life):
 		GameManager.gunStats["life"] += 1
+		healthComponent.updateLP(GameManager.gunStats["life"])
+		GameManager.currentGunLife = healthComponent.lifePoints
 	elif(stat_type == GameManager.GunStat.speed):
 		GameManager.gunStats["speed"] -= 0.15
 	elif(stat_type == GameManager.GunStat.fire_rate):

@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://clik4aohq5u1b"]
+
+[ext_resource type="Texture2D" uid="uid://bhfqqtjtbwp23" path="res://Sprites/PNG/bala_gelo.png" id="1_dge07"]
+[ext_resource type="Script" uid="uid://bmyan4wm2vd04" path="res://Scripts/Poderes/bala_de_gelo.gd" id="1_nwrj3"]
+[ext_resource type="PackedScene" uid="uid://yjm6jc0el8u6" path="res://Scenes/Poderes/poco_de_gelo.tscn" id="2_0dbxy"]
+[ext_resource type="Script" uid="uid://cgava8paqhbng" path="res://Scripts/FasePrincipal/line_2d.gd" id="2_nwrj3"]
+
+[sub_resource type="Curve" id="Curve_0dbxy"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_oefy7"]
+offsets = PackedFloat32Array(0, 0.4852941)
+colors = PackedColorArray(1, 1, 1, 0, 0.75686276, 0.14901961, 0, 1)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wg5tp"]
+radius = 6.0
+
+[node name="BalaDeGelo" type="Area2D" unique_id=139717203]
+script = ExtResource("1_nwrj3")
+pocoGelo = ExtResource("2_0dbxy")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1960230949]
+texture_filter = 1
+texture_repeat = 1
+texture = ExtResource("1_dge07")
+
+[node name="Line2D" type="Line2D" parent="Sprite2D" unique_id=1512859324]
+top_level = true
+width = 4.0
+width_curve = SubResource("Curve_0dbxy")
+default_color = Color(0.5411765, 0.5372549, 0.5254902, 1)
+gradient = SubResource("Gradient_oefy7")
+script = ExtResource("2_nwrj3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=221337252]
+shape = SubResource("CircleShape2D_wg5tp")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
