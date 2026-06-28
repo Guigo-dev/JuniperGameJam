@@ -19,11 +19,13 @@ func _process(delta: float) -> void:
 	global_position += direction * speed * delta * -1
 	if(penetration == 0):
 		GameManager.souls += 2
-		free()
+		queue_free()
 	
 func _on_area_entered(area: Area2D) -> void:
 	if(area.is_in_group("enemy")):
+		print(penetration)
 		penetration -= 1
+		print(penetration)
 
 func _on_bullet_stat_changed(stat_type: int):
 	if(stat_type == GameManager.BulletStat.penetration):

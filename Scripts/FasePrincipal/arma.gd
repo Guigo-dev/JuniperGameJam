@@ -29,12 +29,10 @@ func _ready() -> void:
 	updateMaxHealth(GameManager.gunStats["life"])
 	bulletCooldown = GameManager.gunStats["fire_rate"]
 	if(GameManager.waveCounter == 0):
-		print("aqui")
 		healthComponent.lifePoints = healthComponent.MAX_LIFE
 		GameManager.currentGunLife = healthComponent.lifePoints
 	else:
 		healthComponent.lifePoints = GameManager.currentGunLife
-	print(GameManager.gunStats["life"])
 	get_parent().update_lifeCounterIcon(healthComponent.lifePoints,0)
 
 	

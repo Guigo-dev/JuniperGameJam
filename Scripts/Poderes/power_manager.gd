@@ -33,5 +33,5 @@ func _on_upgrade_buyed():
 				add_sibling.call_deferred(powerNode)
 		else:
 			push_error("vmtnc")
-	
+		
 	

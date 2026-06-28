@@ -37,6 +37,7 @@ var souls : int = 0
 @export var current_gun : String = "default"
 var waveCounter: int = 0
 var maxWaveCounter: int = 0
+var lastWave: int = -1
 var remainingPowersKeys=[]
 var inventoryUpdatedFlag := false
 
@@ -93,14 +94,6 @@ var powers =	{
 		#"Type": "Gun Modifier",
 		#"Scene": LASER_AIM_SCENE
 	#},
-	2:{
-		"id": 2,
-		"Name": "Laser Aim",
-		"Des": "More precision",
-		"Cost": 30,
-		"Type": "Trajectory",
-		"Scene": LASER_AIM_SCENE
-	},
 	#3:{
 		#"id": 3,
 		#"Name": "Auto-aim",
@@ -117,14 +110,14 @@ var powers =	{
 		#"Type": "Trajectory",
 		#"Scene": SPIRAL_BULLET_SCENE
 	#},
-	#5:{
-		#"id": 5,
-		#"Name": "Heal",
-		#"Des": "More HP",
-		#"Cost": 10,
-		#"Type": "Health",
-		#"Scene": null
-	#},
+	0:{
+		"id": 5,
+		"Name": "Heal",
+		"Des": "More HP",
+		"Cost": 10,
+		"Type": "Health",
+		"Scene": null
+	},
 	#6:{
 		#"id": 6,
 		#"Name": "High Noon",
@@ -133,7 +126,7 @@ var powers =	{
 		#"Type": "Power",
 		#"Scene": HIGH_NOON_SCENE
 	#},
-	7:{
+	1:{
 		"id": 7,
 		"Name": "Gold Gun",
 		"Des": "MONEY",
@@ -141,7 +134,7 @@ var powers =	{
 		"Type": "Gun",
 		"Scene": GOLD_GUN_SCENE
 	},
-	8:{
+	2:{
 		"id": 8,
 		"Name": "Fire Gun",
 		"Des": "Fireball",
@@ -149,7 +142,7 @@ var powers =	{
 		"Type": "Gun",
 		"Scene": FIRE_GUN_SCENE
 	},
-	9:{
+	3:{
 		"id": 9,
 		"Name": "Ice Gun",
 		"Des": "Achooo!",

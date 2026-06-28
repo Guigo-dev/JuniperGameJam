@@ -10,6 +10,10 @@
 [ext_resource type="Texture2D" uid="uid://bngx1ibtj0vp3" path="res://Sprites/PNG/bt_credits_onclick.png" id="8_js4h4"]
 [ext_resource type="Texture2D" uid="uid://b3fyhwxma1e0p" path="res://Sprites/PNG/bt_credits_hover.png" id="9_inq5d"]
 [ext_resource type="AudioStream" uid="uid://cantnamgqcetx" path="res://soundtrack/hitslab-western-cowboy-western-music-543089.mp3" id="10_eibcr"]
+[ext_resource type="Texture2D" uid="uid://bq2ho45h1duro" path="res://Sprites/ASEPRITE/creditspage.png" id="11_q3dwa"]
+[ext_resource type="Texture2D" uid="uid://x7f773u55ytf" path="res://Sprites/PNG/bt_back.png" id="12_gnkud"]
+[ext_resource type="Texture2D" uid="uid://cf2p38yh4octo" path="res://Sprites/PNG/bt_back_onclick.png" id="13_bi55c"]
+[ext_resource type="Texture2D" uid="uid://dgbqfv70kw23i" path="res://Sprites/PNG/bt_back_hover.png" id="14_1bug1"]
 
 [node name="MenuInicial" type="Control" unique_id=1641631300]
 layout_mode = 3
@@ -64,4 +68,24 @@ stream = ExtResource("10_eibcr")
 autoplay = true
 parameters/looping = true
 
+[node name="Credits" type="TextureRect" parent="." unique_id=1377643811]
+visible = false
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 653.0
+texture = ExtResource("11_q3dwa")
+
+[node name="BackButton" type="TextureButton" parent="Credits" unique_id=1088350367]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 16.0
+offset_right = 89.0
+offset_bottom = 63.0
+scale = Vector2(2, 2)
+texture_normal = ExtResource("12_gnkud")
+texture_pressed = ExtResource("13_bi55c")
+texture_hover = ExtResource("14_1bug1")
+
 [connection signal="pressed" from="IniciarButton" to="." method="_on_iniciar_button_pressed"]
+[connection signal="pressed" from="CreditsButton" to="." method="_on_credits_button_pressed"]
+[connection signal="pressed" from="Credits/BackButton" to="." method="_on_back_button_pressed"]

@@ -9,6 +9,11 @@ extends Node2D
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
 	GameManager.fade_in($Fade)
+	var tween2 = create_tween()
+	$UI/Wave/WaveCounter.text = str(GameManager.waveCounter)
+	await get_tree().create_timer(3).timeout
+	tween2.tween_property($UI/Wave, "modulate:a", 0.0, 1.0)
+	$UI/Wave.visible = false;
 	if(GameManager.resets == 0 && GameManager.waveCounter == 1):
 		$UI/Tutorial.visible = true
 		await get_tree().create_timer(3).timeout

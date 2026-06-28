@@ -75,7 +75,8 @@ func buyItem(currentShopSlot: int):
 		if shopPowers[currentShopSlot]["Type"] =="Health":
 			if GameManager.currentGunLife + 1 <= GameManager.gunStats["life"]:
 				GameManager.currentGunLife +1
-			return
+				return
+
 		else:
 			GameManager.inventory[GameManager.inventory.size()]=shopPowers[currentShopSlot]
 			return

@@ -550,6 +550,33 @@ texture_normal = ExtResource("17_xe2kd")
 texture_pressed = ExtResource("18_y67md")
 texture_hover = ExtResource("19_6dx8m")
 
+[node name="Wave" type="Control" parent="UI" unique_id=1306514054]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Wave" type="Label" parent="UI/Wave" unique_id=438351559]
+layout_mode = 0
+offset_left = 233.0
+offset_top = 106.0
+offset_right = 297.0
+offset_bottom = 129.0
+theme_override_fonts/font = ExtResource("6_s446e")
+text = "Wave"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="WaveCounter" type="Label" parent="UI/Wave" unique_id=1088121972]
+layout_mode = 0
+offset_left = 303.0
+offset_top = 106.0
+offset_right = 339.0
+offset_bottom = 129.0
+theme_override_fonts/font = ExtResource("6_s446e")
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="WaveManager" type="Node" parent="." unique_id=302771553]
 script = ExtResource("13_uotby")
 
