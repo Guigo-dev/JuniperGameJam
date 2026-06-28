@@ -13,7 +13,8 @@ func _physics_process(delta):
 
 		if enemies[enemy] >= tick_time:
 			enemies[enemy] -= tick_time
-			enemy.healthComponent.updateLP(-1)
+			if enemy.healthComponent.lifePoints > 0:
+				enemy.healthComponent.updateLP(-1)
 
 
 func _on_area_entered(area: Area2D) -> void:

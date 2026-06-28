@@ -114,7 +114,7 @@ var powers =	{
 		"id": 5,
 		"Name": "Heal",
 		"Des": "More HP",
-		"Cost": 10,
+		"Cost": 1,
 		"Type": "Health",
 		"Scene": null
 	},
@@ -130,7 +130,7 @@ var powers =	{
 		"id": 7,
 		"Name": "Gold Gun",
 		"Des": "MONEY",
-		"Cost": 20,
+		"Cost": 1,
 		"Type": "Gun",
 		"Scene": GOLD_GUN_SCENE
 	},
@@ -138,7 +138,7 @@ var powers =	{
 		"id": 8,
 		"Name": "Fire Gun",
 		"Des": "Fireball",
-		"Cost": 20,
+		"Cost": 1,
 		"Type": "Gun",
 		"Scene": FIRE_GUN_SCENE
 	},
@@ -146,7 +146,7 @@ var powers =	{
 		"id": 9,
 		"Name": "Ice Gun",
 		"Des": "Achooo!",
-		"Cost": 20,
+		"Cost": 1,
 		"Type": "Gun",
 		"Scene": ICE_GUN_SCENE
 	},
