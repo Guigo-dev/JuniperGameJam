@@ -29,7 +29,7 @@ enum BulletStat {PENETRATION, VELOCITY, DAMAGE}
 @export var upgrade_tree_scene : PackedScene
 var current_upgrade_tree
 
-var XP:= 1000;
+var XP:= 0;
 var resets = 0;
 var currentGunLife : int = 3
 
@@ -178,7 +178,7 @@ func _on_upgrades_finished():
 func restart_game():
 	resets += 1
 	get_tree().paused = false
-	souls = 1000
+	souls = 0
 	inventory = {0:{}}
 	resetPool()
 	get_tree().reload_current_scene()
