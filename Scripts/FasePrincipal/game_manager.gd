@@ -31,9 +31,9 @@ var current_upgrade_tree
 
 var XP:= 0;
 var resets = 0;
-var currentGunLife : int
+var currentGunLife : int = 3
 
-var souls : int = 0
+var souls : int = 1000
 @export var current_gun : String = "default"
 var waveCounter: int = 0
 var maxWaveCounter: int = 0
@@ -111,10 +111,10 @@ var powers =	{
 		#"Scene": SPIRAL_BULLET_SCENE
 	#},
 	0:{
-		"id": 5,
+		"id": 0,
 		"Name": "Heal",
 		"Des": "More HP",
-		"Cost": 1,
+		"Cost": 10,
 		"Type": "Health",
 		"Scene": null
 	},
@@ -127,26 +127,26 @@ var powers =	{
 		#"Scene": HIGH_NOON_SCENE
 	#},
 	1:{
-		"id": 7,
+		"id": 1,
 		"Name": "Gold Gun",
 		"Des": "MONEY",
-		"Cost": 1,
+		"Cost": 20,
 		"Type": "Gun",
 		"Scene": GOLD_GUN_SCENE
 	},
 	2:{
-		"id": 8,
+		"id": 2,
 		"Name": "Fire Gun",
 		"Des": "Fireball",
-		"Cost": 1,
+		"Cost": 20,
 		"Type": "Gun",
 		"Scene": FIRE_GUN_SCENE
 	},
 	3:{
-		"id": 9,
+		"id": 3,
 		"Name": "Ice Gun",
 		"Des": "Achooo!",
-		"Cost": 1,
+		"Cost": 20,
 		"Type": "Gun",
 		"Scene": ICE_GUN_SCENE
 	},
@@ -179,6 +179,8 @@ func restart_game():
 	resets += 1
 	get_tree().paused = false
 	souls = 0
+	inventory = {0:{}}
+	resetPool()
 	get_tree().reload_current_scene()
 	
 func fade_in(preto: ColorRect, time:= 1.0):

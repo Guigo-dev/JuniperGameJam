@@ -74,7 +74,7 @@ func buyItem(currentShopSlot: int):
 			return
 		if shopPowers[currentShopSlot]["Type"] =="Health":
 			if GameManager.currentGunLife + 1 <= GameManager.gunStats["life"]:
-				GameManager.currentGunLife +1
+				GameManager.currentGunLife += 1
 				return
 
 		else:
@@ -106,8 +106,9 @@ func _on_button_pressed(button: TextureButton) -> void:
 		showInsufficientSouls()
 		return
 	buyItem(currentItemSlot)
-	GameManager.isInventoryUpdated()
-		
+	if !GameManager.inventory[0].is_empty():
+		GameManager.isInventoryUpdated()
+	print(GameManager.inventory)
 	showPowerPurchasedMessage(button)
 	updateSouls()
 	button.disabled = true

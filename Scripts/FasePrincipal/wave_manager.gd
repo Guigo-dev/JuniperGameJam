@@ -45,7 +45,6 @@ func _ready():
 func start_wave():
 
 	GameManager.waveCounter += 1
-	print("wave ", GameManager.waveCounter)
 
 	wave_timer = 0.0
 	wave_finished = false

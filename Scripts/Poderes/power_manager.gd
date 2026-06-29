@@ -10,6 +10,8 @@ func _ready() -> void:
 		GameManager.inventoryUpdatedFlag = false
 	
 func _on_upgrade_buyed():
+	if GameManager.inventory[0].is_empty():
+			return
 	for i in GameManager.inventory:
 		currentPowerScene = GameManager.inventory[i]["Scene"]
 		powerNode = currentPowerScene.instantiate()
