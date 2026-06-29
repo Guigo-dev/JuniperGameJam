@@ -65,6 +65,7 @@ func _on_pen_stat_button_pressed() -> void:
 	GameManager.XP -=1
 	atualizar_labels()
 	GameManager.bullet_stat_changed.emit(GameManager.BulletStat.penetration)
+	print(GameManager.bulletStat["penetrationUpgradeQtd"])
 
 func _on_bullet_vel_stat_button_pressed() -> void:
 	GameManager.bulletStat["velocityUpgradeQtd"] += 1

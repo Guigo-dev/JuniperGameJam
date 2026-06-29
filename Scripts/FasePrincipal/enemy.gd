@@ -21,7 +21,6 @@ func _process(delta):
 
 func _on_area_entered(area: Area2D) -> void:
 	if(area.is_in_group("bala")):
-		print("Enemy.gd, bala entrou na hitbox do enemy")
 		hit_sound.play() 
 		healthComponent.updateLP(-area.damage)
 		flash_damage()

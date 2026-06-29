@@ -20,11 +20,9 @@ func _process(delta: float) -> void:
 	
 func _on_area_entered(area: Area2D) -> void:
 	if(area.is_in_group("enemy")):
-		print(penetration)
+		GameManager.souls += 2
 		penetration -= 1
-		print(penetration)
 		if(penetration <= 0):
-			GameManager.souls += 2
 			queue_free()
 
 func _on_bullet_stat_changed(stat_type: int):
