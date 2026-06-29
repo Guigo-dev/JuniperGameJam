@@ -13,6 +13,7 @@ func _ready() -> void:
 	GameManager.bullet_stat_changed.connect(_on_bullet_stat_changed)
 	speed = GameManager.bulletStat["velocity"]
 	penetration = GameManager.bulletStat["penetration"]
+	print("penetration on bullet ready "+str(GameManager.bulletStat["penetration"]))
 	damage = GameManager.bulletStat["damage"]
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.

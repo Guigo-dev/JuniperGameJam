@@ -29,7 +29,7 @@ enum BulletStat {penetration, velocity, damage}
 @export var upgrade_tree_scene : PackedScene
 var current_upgrade_tree
 
-var XP:= 0;
+var XP:= 1000;
 var resets = 0;
 var currentGunLife : int = 3
 
