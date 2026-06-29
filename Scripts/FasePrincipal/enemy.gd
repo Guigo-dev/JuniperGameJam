@@ -21,6 +21,7 @@ func _process(delta):
 
 func _on_area_entered(area: Area2D) -> void:
 	if(area.is_in_group("bala")):
+		print("Enemy.gd, bala entrou na hitbox do enemy")
 		hit_sound.play() 
 		healthComponent.updateLP(-area.damage)
 		flash_damage()
@@ -39,6 +40,7 @@ func _on_area_entered(area: Area2D) -> void:
 		
 
 func _on_health_component_died() -> void:
+	$CollisionShape2D.set_deferred("disabled", true)
 	speed = 0
 	for i in range(3):
 		sprite.modulate = Color.RED

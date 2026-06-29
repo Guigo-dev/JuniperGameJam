@@ -178,7 +178,7 @@ func _on_upgrades_finished():
 func restart_game():
 	resets += 1
 	get_tree().paused = false
-	souls = 0
+	souls = 1000
 	inventory = {0:{}}
 	resetPool()
 	get_tree().reload_current_scene()

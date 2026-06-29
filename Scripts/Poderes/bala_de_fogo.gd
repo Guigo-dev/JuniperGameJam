@@ -18,16 +18,18 @@ func _ready() -> void:
 	
 func _process(delta: float) -> void:
 	global_position += direction * speed * delta * -1
-	if(penetration == 0):
-		var poco = pocoFogo.instantiate()
-		poco.global_position = global_position
-		get_parent().get_parent().add_child(poco)
-		queue_free()
 	
 func _on_area_entered(area: Area2D) -> void:
 	if(area.is_in_group("enemy")):
+		print("bala de fogo acertou enemy")
 		penetration -= 1
-
+		print(penetration)
+		if(penetration <= 0):
+			var poco = pocoFogo.instantiate()
+			poco.global_position = global_position
+			get_parent().get_parent().add_child(poco)
+			queue_free()
+	
 func _on_bullet_stat_changed(stat_type: int):
 	if(stat_type == GameManager.BulletStat.penetration):
 		GameManager.bulletStat["penetration"] += 1

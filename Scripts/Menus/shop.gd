@@ -98,6 +98,9 @@ func showPowerPurchasedMessage(button: TextureButton):
 func updateSouls():
 	get_node("SoulsText").text = str(GameManager.souls)
 
+func checkInventoryEmpty():
+	if !GameManager.inventory[0].is_empty():
+		GameManager.isInventoryUpdated()
 
 
 func _on_button_pressed(button: TextureButton) -> void:
@@ -106,8 +109,7 @@ func _on_button_pressed(button: TextureButton) -> void:
 		showInsufficientSouls()
 		return
 	buyItem(currentItemSlot)
-	if !GameManager.inventory[0].is_empty():
-		GameManager.isInventoryUpdated()
+	checkInventoryEmpty()
 	print(GameManager.inventory)
 	showPowerPurchasedMessage(button)
 	updateSouls()
@@ -115,4 +117,5 @@ func _on_button_pressed(button: TextureButton) -> void:
 
 func _on_continue_next_wave_pressed() -> void:
 	GameManager.changeSceneGame()
+	checkInventoryEmpty()		
 	

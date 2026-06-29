@@ -36,7 +36,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_yxt74")
 }],
-"loop": true,
+"loop": 1,
 "name": &"default",
 "speed": 10.0
 }]
@@ -55,7 +55,7 @@ texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_30wkq")
 autoplay = "default"
 
-[node name="ColissionShape2D" type="CollisionShape2D" parent="." unique_id=1196915142]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1196915142]
 position = Vector2(0, 4)
 shape = SubResource("CapsuleShape2D_0u6kh")
 
