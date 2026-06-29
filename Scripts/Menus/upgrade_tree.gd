@@ -2,10 +2,12 @@ extends Control
 
 
 func _ready() -> void:
+	$TryAgainButton.disabled = true
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	atualizar_labels()
 	GameManager.waveCounter=0
 	await GameManager.fade_in(get_parent().get_parent().get_node("%Fade"))
+	$TryAgainButton.disabled = false
 
 func _process(delta: float) -> void:
 	$XpRect/XPQtdLabel.text = str(GameManager.XP)
@@ -44,19 +46,19 @@ func _on_life_stat_button_pressed() -> void:
 	GameManager.gunStats["lifeUpgradeQtd"] += 1
 	atualizar_labels()
 	GameManager.XP -=1
-	GameManager.gun_stat_changed.emit(GameManager.GunStat.life)
+	GameManager.gunStatChange(0)
 
 func _on_vel_stat_button_pressed() -> void:
 	GameManager.gunStats["speedUpgradeQtd"] += 1
 	atualizar_labels()
 	GameManager.XP -=1
-	GameManager.gun_stat_changed.emit(GameManager.GunStat.speed)
+	GameManager.gunStatChange(1)
 
 func _on_fire_rate_button_pressed() -> void:
 	GameManager.gunStats["fire_rateUpgradeQtd"] += 1
 	atualizar_labels()
 	GameManager.XP -=1
-	GameManager.gun_stat_changed.emit(GameManager.GunStat.fire_rate)
+	GameManager.gunStatChange(2)
 
 
 #emitindo sinais de upgrade de bala
@@ -64,20 +66,20 @@ func _on_pen_stat_button_pressed() -> void:
 	GameManager.bulletStat["penetrationUpgradeQtd"] += 1
 	GameManager.XP -=1
 	atualizar_labels()
-	GameManager.bullet_stat_changed.emit(GameManager.BulletStat.penetration)
-	print(GameManager.bulletStat["penetrationUpgradeQtd"])
+	GameManager.bulletStatChange(0)
+	print(str("penetrationqtd atual: " + str(GameManager.bulletStat["penetrationUpgradeQtd"])))
 
 func _on_bullet_vel_stat_button_pressed() -> void:
 	GameManager.bulletStat["velocityUpgradeQtd"] += 1
 	atualizar_labels()
 	GameManager.XP -=1
-	GameManager.bullet_stat_changed.emit(GameManager.BulletStat.velocity)
+	GameManager.bulletStatChange(1)
 
 func _on_damage_button_pressed() -> void:
 	GameManager.bulletStat["damageUpgradeQtd"] += 1
 	atualizar_labels()
 	GameManager.XP -=1
-	GameManager.bullet_stat_changed.emit(GameManager.BulletStat.damage)
+	GameManager.bulletStatChange(2)
 
 func _on_try_again_button_pressed() -> void:
 	GameManager._on_upgrades_finished()

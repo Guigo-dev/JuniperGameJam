@@ -24,7 +24,6 @@ var direction = 1
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
 	add_to_group("arma")
-	GameManager.gun_stat_changed.connect(_on_gun_stat_changed)
 	speedMultiplier = GameManager.gunStats["speed"]
 	updateMaxHealth(GameManager.gunStats["life"])
 	bulletCooldown = GameManager.gunStats["fire_rate"]
@@ -83,13 +82,5 @@ func shake(delta:float) -> void:
 		1.0 - juicyDisplacement
 	)
 	
-func _on_gun_stat_changed(stat_type: int):
-	if(stat_type == GameManager.GunStat.life):
-		GameManager.gunStats["life"] += 1
-		healthComponent.updateLP(GameManager.gunStats["life"])
-		GameManager.currentGunLife = healthComponent.lifePoints
-	elif(stat_type == GameManager.GunStat.speed):
-		GameManager.gunStats["speed"] -= 0.15
-	elif(stat_type == GameManager.GunStat.fire_rate):
-		GameManager.gunStats["fire_rate"] -= 0.25
+
 		

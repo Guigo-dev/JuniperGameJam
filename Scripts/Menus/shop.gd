@@ -110,7 +110,6 @@ func _on_button_pressed(button: TextureButton) -> void:
 		return
 	buyItem(currentItemSlot)
 	checkInventoryEmpty()
-	print(GameManager.inventory)
 	showPowerPurchasedMessage(button)
 	updateSouls()
 	button.disabled = true

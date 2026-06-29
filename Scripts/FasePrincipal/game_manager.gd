@@ -23,13 +23,13 @@ var bulletStat := {
 }
 
 
-enum GunStat {life,speed,fire_rate} 
-enum BulletStat {penetration, velocity, damage}
+enum GunStat {LIFE,SPEED,FIRE_RATE} 
+enum BulletStat {PENETRATION, VELOCITY, DAMAGE}
 @export var main_menu: PackedScene
 @export var upgrade_tree_scene : PackedScene
 var current_upgrade_tree
 
-var XP:= 0;
+var XP:= 1000;
 var resets = 0;
 var currentGunLife : int = 3
 
@@ -178,7 +178,7 @@ func _on_upgrades_finished():
 func restart_game():
 	resets += 1
 	get_tree().paused = false
-	souls = 0
+	souls = 1000
 	inventory = {0:{}}
 	resetPool()
 	get_tree().reload_current_scene()
@@ -203,3 +203,23 @@ func incrementXp():
 	if waveCounter > maxWaveCounter:
 		maxWaveCounter = waveCounter
 		XP +=1
+
+func bulletStatChange(stat_type: int):
+	if(stat_type == BulletStat.PENETRATION):
+		print("BulletStat.PENETRATION = "+str(BulletStat.PENETRATION))
+		bulletStat["penetration"] += 1
+		print("_on_bullet_stat_changed_: bulletStat.penetration"+ str(bulletStat["penetration"]))
+	elif(stat_type == BulletStat.VELOCITY):
+		bulletStat["velocity"] += 7
+	elif(stat_type == BulletStat.DAMAGE):
+		bulletStat["damage"] += 1
+		
+func gunStatChange(stat_type: int):
+	if(stat_type == GameManager.GunStat.LIFE):
+		GameManager.gunStats["life"] += 1
+		get_tree().current_scene.get_node("Arma/HealthComponent").updateLP(GameManager.gunStats["life"])
+		GameManager.currentGunLife = get_tree().current_scene.get_node("Arma/HealthComponent").lifePoints
+	elif(stat_type == GameManager.GunStat.SPEED):
+		GameManager.gunStats["speed"] -= 0.15
+	elif(stat_type == GameManager.GunStat.FIRE_RATE):
+		GameManager.gunStats["fire_rate"] -= 0.25

@@ -1,0 +1,81 @@
+[gd_scene format=3 uid="uid://r3ugmixsldxe"]
+
+[ext_resource type="Script" uid="uid://dortgqdt8w8cr" path="res://Scripts/FasePrincipal/arma.gd" id="1_nwb0c"]
+[ext_resource type="Texture2D" uid="uid://di5spql8w6b8k" path="res://Sprites/PNG/arma_default_R.png" id="2_nwb0c"]
+[ext_resource type="Script" uid="uid://dj8j1pu2ilxua" path="res://Scripts/FasePrincipal/HealthComponent.gd" id="3_n5qd3"]
+[ext_resource type="Script" uid="uid://boemys4v5i1gw" path="res://Scripts/FasePrincipal/bullet_spawner.gd" id="4_xutcm"]
+[ext_resource type="PackedScene" uid="uid://scitov56cg4l" path="res://Scenes/FasePrincipal/Bala.tscn" id="5_1wt7n"]
+[ext_resource type="AudioStream" uid="uid://ry7p1e2mnacd" path="res://Sounds/gunShot.wav" id="6_t2b7e"]
+[ext_resource type="AudioStream" uid="uid://brhh7u6nx1ew2" path="res://Sounds/playerDamage.wav" id="7_n5qd3"]
+[ext_resource type="Script" uid="uid://bnudfcr5s6jg7" path="res://Scripts/Poderes/power_manager.gd" id="8_xutcm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ckcjq"]
+size = Vector2(25, 15)
+
+[node name="Arma" type="Area2D" unique_id=44014132]
+process_mode = 3
+script = ExtResource("1_nwb0c")
+bulletCooldown = 0.75
+spring = 59.81
+damp = 46.364
+metadata/_edit_group_ = true
+
+[node name="BulletSpawner" type="Node2D" parent="." unique_id=18130942]
+unique_name_in_owner = true
+position = Vector2(15, -6)
+rotation = -0.0052359877
+script = ExtResource("4_xutcm")
+bala = ExtResource("5_1wt7n")
+metadata/_custom_type_script = "uid://boemys4v5i1gw"
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="BulletSpawner" unique_id=688327528]
+emitting = false
+amount = 10
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+lifetime_randomness = 0.23
+direction = Vector2(10, 0.28)
+spread = 15.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 20.0
+initial_velocity_max = 70.0
+damping_min = 53.576
+damping_max = 90.197
+scale_amount_max = 3.0
+color = Color(0.6269067, 0.4942754, 0.17048678, 1)
+
+[node name="gunShotSound" type="AudioStreamPlayer2D" parent="BulletSpawner" unique_id=1514325362]
+position = Vector2(-15, 6)
+stream = ExtResource("6_t2b7e")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=464802998]
+texture_filter = 1
+texture = ExtResource("2_nwb0c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=818591544]
+position = Vector2(-0.5, 0.5)
+shape = SubResource("RectangleShape2D_ckcjq")
+
+[node name="HealthComponent" type="Node" parent="." unique_id=226578181]
+unique_name_in_owner = true
+script = ExtResource("3_n5qd3")
+MAX_LIFE = 6
+lifePoints = 3
+metadata/_custom_type_script = "uid://dj8j1pu2ilxua"
+
+[node name="BulletCooldown" type="Timer" parent="." unique_id=1789207473]
+wait_time = 0.5
+one_shot = true
+autostart = true
+
+[node name="DamageSound" type="AudioStreamPlayer2D" parent="." unique_id=1008944507]
+stream = ExtResource("7_n5qd3")
+volume_db = -0.68
+
+[node name="PowerManager" type="Node" parent="." unique_id=228999751]
+script = ExtResource("8_xutcm")
+metadata/_custom_type_script = "uid://bnudfcr5s6jg7"
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="died" from="HealthComponent" to="." method="_on_health_component_died"]
