@@ -20,6 +20,7 @@ func _process(delta: float) -> void:
 	if(penetration <= 0 || global_position.x > 300 || global_position.x < -300
 						|| global_position.y < -180 || global_position.y > 165 ):
 		queue_free()
+
 	
 func _on_area_entered(area: Area2D) -> void:
 	if(area.is_in_group("enemy")):
