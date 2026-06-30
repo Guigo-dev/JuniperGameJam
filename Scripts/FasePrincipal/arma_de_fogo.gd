@@ -1,6 +1,8 @@
 extends Node
 
 func _ready() -> void:
+	add_to_group("item")
+	add_to_group("gun")
 	updateGun()
 	
 func updateGun():

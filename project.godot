@@ -12,12 +12,13 @@ config_version=5
 
 config/name="Blebers"
 run/main_scene="uid://b61g6ji72jiog"
-config/features=PackedStringArray("4.6", "GL Compatibility")
+config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [autoload]
 
 GameManager="*uid://cr72m4iwaj6fy"
+ItemManager="*uid://d5q7yb7q3kjj"
 
 [display]
 

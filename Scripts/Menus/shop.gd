@@ -22,16 +22,12 @@ func _ready() -> void:
 		button.mouse_exited.connect(_on_button_mouse_exited.bind(button))
 		button.pressed.connect(_on_button_pressed.bind(button))
 	for i in range(0,shopSlots):	
-		var currentPower = GameManager.powers[getNextPower()]
+		var currentPower = ItemManager.powers[getNextPower()]
 		shopPowers[i]=currentPower	
 		get_node("HBoxContainer/Power%s/Name" %i).text = currentPower["Name"]
 		get_node("HBoxContainer/Power%s/Description"%i).text = currentPower["Des"]
 		get_node("HBoxContainer/Power%s/Cost"%i).text = str(currentPower["Cost"])
 		
-
-
-func _process(delta: float) -> void:
-	pass
 
 func start_tween(object: Object, property: String, final_val: Variant, duration: float):
 	var tween = create_tween()
@@ -47,30 +43,30 @@ func _on_button_mouse_exited(button: TextureButton) -> void:
 	start_tween(button, "scale", Vector2.ONE, tween_duration)
 		
 func getNextPower():
-	if GameManager.remainingPowersKeys.is_empty():
-		GameManager.resetPool()
-	powerKey = GameManager.remainingPowersKeys.pop_back()
+	if ItemManager.remainingPowersKeys.is_empty():
+		ItemManager.resetPool()
+	powerKey = ItemManager.remainingPowersKeys.pop_back()
 	return powerKey
 	
 func buyItem(currentShopSlot: int):
 	if GameManager.souls >= shopPowers[currentShopSlot]["Cost"]:
 		GameManager.souls = GameManager.souls - shopPowers[currentShopSlot]["Cost"]
-		if GameManager.inventory[0].is_empty() and !shopPowers[currentShopSlot]["Type"]=="Health":
-			GameManager.inventory[0] = shopPowers[currentShopSlot]
+		if ItemManager.inventory[0].is_empty() and !shopPowers[currentShopSlot]["Type"]=="Health":
+			ItemManager.inventory[0] = shopPowers[currentShopSlot]
 			return
 		if shopPowers[currentShopSlot]["Type"] == "Gun":
-			for i in GameManager.inventory:
-				if GameManager.inventory[i]["Type"] == "Gun":
-					GameManager.inventory[i] = shopPowers[currentShopSlot]
+			for i in ItemManager.inventory:
+				if ItemManager.inventory[i]["Type"] == "Gun":
+					ItemManager.inventory[i] = shopPowers[currentShopSlot]
 					return
-			GameManager.inventory[GameManager.inventory.size()]=shopPowers[currentShopSlot]
+			ItemManager.inventory[ItemManager.inventory.size()]=shopPowers[currentShopSlot]
 			return
 		if shopPowers[currentShopSlot]["Type"] =="Trajectory":
-			for i in GameManager.inventory:
-				if GameManager.inventory[i]["Type"] == "Trajectory":
-					GameManager.inventory[i] = shopPowers[currentShopSlot]
+			for i in ItemManager.inventory:
+				if ItemManager.inventory[i]["Type"] == "Trajectory":
+					ItemManager.inventory[i] = shopPowers[currentShopSlot]
 					return
-			GameManager.inventory[GameManager.inventory.size()]=shopPowers[currentShopSlot]
+			ItemManager.inventory[ItemManager.inventory.size()]=shopPowers[currentShopSlot]
 			return
 		if shopPowers[currentShopSlot]["Type"] =="Health":
 			if GameManager.currentGunLife + 1 <= GameManager.gunStats["life"]:
@@ -78,7 +74,7 @@ func buyItem(currentShopSlot: int):
 				return
 
 		else:
-			GameManager.inventory[GameManager.inventory.size()]=shopPowers[currentShopSlot]
+			ItemManager.inventory[ItemManager.inventory.size()]=shopPowers[currentShopSlot]
 			return
 
 func hasEnoughSouls(button: TextureButton):
@@ -99,8 +95,8 @@ func updateSouls():
 	get_node("SoulsText").text = str(GameManager.souls)
 
 func checkInventoryEmpty():
-	if !GameManager.inventory[0].is_empty():
-		GameManager.isInventoryUpdated()
+	if !ItemManager.inventory[0].is_empty():
+		ItemManager.isInventoryUpdated()
 
 
 func _on_button_pressed(button: TextureButton) -> void:

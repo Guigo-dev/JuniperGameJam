@@ -5,7 +5,7 @@ var direction
 @export var penetration = 1
 @export var damage := 1
 @export var target: Node2D
-
+enum GunType {FIRE,ICE,GOLD}
 
 func _ready() -> void:
 	add_to_group("bala")

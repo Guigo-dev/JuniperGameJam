@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://d5q7yb7q3kjj"]
+
+[ext_resource type="Script" uid="uid://b32281vmskgbm" path="res://Scripts/FasePrincipal/item_manager.gd" id="1_s5al6"]
+
+[node name="ItemManager" type="Node" unique_id=1256233045]
+script = ExtResource("1_s5al6")
