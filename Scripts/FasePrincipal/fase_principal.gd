@@ -9,19 +9,10 @@ extends Node2D
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
 	GameManager.fade_in($Fade)
-	var tween2 = create_tween()
-	$UI/Wave/WaveCounter.text = str(GameManager.waveCounter)
-	await get_tree().create_timer(3).timeout
-	tween2.tween_property($UI/Wave, "modulate:a", 0.0, 1.0)
-	$UI/Wave.visible = false;
-	if(GameManager.resets == 0 && GameManager.waveCounter == 1):
-		$UI/Tutorial.visible = true
-		await get_tree().create_timer(3).timeout
-		var tween = create_tween()
-		tween.tween_property($UI/Tutorial, "modulate:a", 0.0, 1.0)
-		await tween.finished
-		$UI/Tutorial.visible = false
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+	showCurrentWave()
+	showTutorial()
+	
+
 @warning_ignore("unused_parameter")
 func _process(delta: float) -> void:
 	if(Input.is_action_just_pressed("Pause")):
@@ -31,6 +22,26 @@ func _process(delta: float) -> void:
 		
 	soulsText.text = (var_to_str(GameManager.souls))
 	
+func showCurrentWave():
+	$UI/Wave/WaveCounter.text = str(GameManager.waveCounter)
+	$UI/Wave.modulate.a = 0.0
+	await get_tree().create_timer(1).timeout
+	start_tween($UI/Wave, "modulate:a", 1.0, 1.5)
+	await get_tree().create_timer(3).timeout
+	start_tween($UI/Wave, "modulate:a", 0.0, 2.5)
+	#$UI/Wave.visible = false;
+
+func showTutorial():
+	$UI/Tutorial.modulate.a = 0.0
+	if(GameManager.resets == 0 && GameManager.waveCounter == 1):
+		await get_tree().create_timer(1).timeout
+		start_tween($UI/Tutorial, "modulate:a", 1.0, 1.0)
+		await get_tree().create_timer(5).timeout
+		start_tween($UI/Tutorial, "modulate:a", 0.0, 3.0)
+
+func start_tween(object: Object, property: String, final_val: Variant, duration: float):
+	var tween = create_tween()
+	tween.tween_property(object, property, final_val, duration)
 
 func updateGun(newGun:PackedScene) -> void:
 	var novaArma = newGun.instantiate()
