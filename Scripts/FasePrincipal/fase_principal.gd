@@ -36,7 +36,7 @@ func showTutorial():
 	if(GameManager.resets == 0 && GameManager.waveCounter == 1):
 		await get_tree().create_timer(1).timeout
 		start_tween($UI/Tutorial, "modulate:a", 1.0, 1.0)
-		await get_tree().create_timer(5).timeout
+		await get_tree().create_timer(3).timeout
 		start_tween($UI/Tutorial, "modulate:a", 0.0, 3.0)
 
 func start_tween(object: Object, property: String, final_val: Variant, duration: float):

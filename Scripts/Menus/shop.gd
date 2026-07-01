@@ -51,28 +51,30 @@ func getNextPower():
 func buyItem(currentShopSlot: int):
 	if GameManager.souls >= shopPowers[currentShopSlot]["Cost"]:
 		GameManager.souls = GameManager.souls - shopPowers[currentShopSlot]["Cost"]
-		if ItemManager.inventory[0].is_empty() and !shopPowers[currentShopSlot]["Type"]=="Health":
+		if ItemManager.inventory[0].is_empty() and !shopPowers[currentShopSlot]["Type"]=="health":
 			ItemManager.inventory[0] = shopPowers[currentShopSlot]
 			return
-		if shopPowers[currentShopSlot]["Type"] == "Gun":
+		if shopPowers[currentShopSlot]["Type"] == "gun":
 			for i in ItemManager.inventory:
-				if ItemManager.inventory[i]["Type"] == "Gun":
+				if ItemManager.inventory[i]["Type"] == "gun":
 					ItemManager.inventory[i] = shopPowers[currentShopSlot]
 					return
 			ItemManager.inventory[ItemManager.inventory.size()]=shopPowers[currentShopSlot]
 			return
-		if shopPowers[currentShopSlot]["Type"] =="Trajectory":
+		if shopPowers[currentShopSlot]["Type"] =="trajectory":
 			for i in ItemManager.inventory:
-				if ItemManager.inventory[i]["Type"] == "Trajectory":
+				if ItemManager.inventory[i]["Type"] == "trajectory":
 					ItemManager.inventory[i] = shopPowers[currentShopSlot]
 					return
 			ItemManager.inventory[ItemManager.inventory.size()]=shopPowers[currentShopSlot]
 			return
-		if shopPowers[currentShopSlot]["Type"] =="Health":
+		if shopPowers[currentShopSlot]["Type"] =="health":
+			print("entrou no if do health")
 			if GameManager.currentGunLife + 1 <= GameManager.gunStats["life"]:
 				GameManager.currentGunLife += 1
 				return
-
+			else:
+				return
 		else:
 			ItemManager.inventory[ItemManager.inventory.size()]=shopPowers[currentShopSlot]
 			return
@@ -112,5 +114,6 @@ func _on_button_pressed(button: TextureButton) -> void:
 
 func _on_continue_next_wave_pressed() -> void:
 	GameManager.changeSceneGame()
-	checkInventoryEmpty()		
+	checkInventoryEmpty()
+	print(ItemManager.inventory)
 	

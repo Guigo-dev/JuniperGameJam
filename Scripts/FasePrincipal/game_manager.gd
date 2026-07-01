@@ -29,11 +29,11 @@ enum BulletStat {PENETRATION, VELOCITY, DAMAGE}
 @export var upgrade_tree_scene : PackedScene
 var current_upgrade_tree
 
-var XP:= 1000;
+var XP:= 0;
 var resets = 0;
 var currentGunLife : int = 3
 
-var souls : int = 1000
+var souls : int = 0
 @export var current_gun : String = "default"
 var waveCounter: int = 0
 var maxWaveCounter: int = 0
@@ -67,7 +67,7 @@ func _on_upgrades_finished():
 func restart_game():
 	resets += 1
 	get_tree().paused = false
-	souls = 1000
+	souls = 0
 	ItemManager.inventory = {0:{}}
 	ItemManager.resetPool()
 	get_tree().reload_current_scene()
@@ -95,9 +95,7 @@ func incrementXp():
 
 func bulletStatChange(stat_type: int):
 	if(stat_type == BulletStat.PENETRATION):
-		print("BulletStat.PENETRATION = "+str(BulletStat.PENETRATION))
 		bulletStat["penetration"] += 1
-		print("_on_bullet_stat_changed_: bulletStat.penetration"+ str(bulletStat["penetration"]))
 	elif(stat_type == BulletStat.VELOCITY):
 		bulletStat["velocity"] += 7
 	elif(stat_type == BulletStat.DAMAGE):

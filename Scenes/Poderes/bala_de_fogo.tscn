@@ -18,8 +18,8 @@ radius = 6.0
 
 [node name="BalaDeFogo" type="Area2D" unique_id=810302981]
 script = ExtResource("1_ks1cl")
-speed = 30
 pocoFogo = ExtResource("2_4l7br")
+speed = 30
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1854406360]
 texture_filter = 1

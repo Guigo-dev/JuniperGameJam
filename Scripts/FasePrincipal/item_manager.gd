@@ -87,7 +87,8 @@ var powers =	{
 		"Des": "MONEY",
 		"Cost": 20,
 		"Type": GUN,
-		"Scene": GOLD_GUN_SCENE
+		"Scene": GOLD_GUN_SCENE,
+		"NodeName" : "GoldGun"
 	},
 	2:{
 		"id": 2,
@@ -95,7 +96,8 @@ var powers =	{
 		"Des": "Fireball",
 		"Cost": 20,
 		"Type": GUN,
-		"Scene": FIRE_GUN_SCENE
+		"Scene": FIRE_GUN_SCENE,
+		"NodeName" : "ArmaDeFogo"
 	},
 	3:{
 		"id": 3,
@@ -103,7 +105,8 @@ var powers =	{
 		"Des": "Achooo!",
 		"Cost": 20,
 		"Type": GUN,
-		"Scene": ICE_GUN_SCENE
+		"Scene": ICE_GUN_SCENE,
+		"NodeName" : "IceGun"
 	},
 }
 
@@ -111,10 +114,10 @@ var powers =	{
 func resetPool():
 	remainingPowersKeys=powers.keys()
 	if !inventory[0].is_empty():
-		for i in inventory:
-			for j in remainingPowersKeys:
-				if int(inventory[i]["id"]) == remainingPowersKeys[j]:
-					remainingPowersKeys.remove_at(j)
+		for index in inventory:
+			for key in remainingPowersKeys:
+				if inventory[index]["id"] == key:
+					remainingPowersKeys.erase(key)
 	remainingPowersKeys.shuffle()
 
 func isInventoryUpdated():

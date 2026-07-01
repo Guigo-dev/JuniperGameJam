@@ -580,7 +580,6 @@ vertical_alignment = 1
 
 [node name="WaveManager" type="Node" parent="." unique_id=302771553]
 script = ExtResource("13_uotby")
-wave_time = 5.0
 
 [node name="Bala" parent="." unique_id=1222037949 node_paths=PackedStringArray("target") instance=ExtResource("14_lahha")]
 process_mode = 0
