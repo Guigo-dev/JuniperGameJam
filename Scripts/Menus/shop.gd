@@ -57,11 +57,12 @@ func _on_button_pressed(button: TextureButton) -> void:
 	if !hasEnoughSouls(button):
 		showInsufficientSouls()
 		return
-	buyItem(currentItemSlot)
-	checkInventoryEmpty()
-	showPowerPurchasedMessage(button)
-	updateSouls()
-	button.disabled = true
+	else: 
+		buyItem(currentItemSlot)
+		checkInventoryEmpty()
+		showPowerPurchasedMessage(button)
+		updateSouls()
+		button.disabled = true
 	
 	
 func buyItem(currentShopSlot: int):
