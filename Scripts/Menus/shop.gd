@@ -11,28 +11,32 @@ extends Control
 
 var powerKey = 0
 var shopSlots = 3
-var shopPowers = {}
+var shopItems = {}
 
 
 func _ready() -> void:
 	updateSouls()
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	initiate_buttons()
+
+#Buttons========================
+func start_tween(object: Object, property: String, final_val: Variant, duration: float):
+	var tween = create_tween()
+	tween.tween_property(object, property, final_val, duration)
+
+func initiate_buttons():
 	for button in buttons:
 		button.mouse_entered.connect(_on_button_mouse_entered.bind(button))
 		button.mouse_exited.connect(_on_button_mouse_exited.bind(button))
 		button.pressed.connect(_on_button_pressed.bind(button))
+		
 	for i in range(0,shopSlots):	
 		var currentPower = ItemManager.powers[getNextPower()]
-		shopPowers[i]=currentPower	
+		shopItems[i]=currentPower	
 		get_node("HBoxContainer/Power%s/Name" %i).text = currentPower["Name"]
 		get_node("HBoxContainer/Power%s/Description"%i).text = currentPower["Des"]
 		get_node("HBoxContainer/Power%s/Cost"%i).text = str(currentPower["Cost"])
-		
 
-func start_tween(object: Object, property: String, final_val: Variant, duration: float):
-	var tween = create_tween()
-	tween.tween_property(object, property, final_val, duration)
-	
 func _on_button_mouse_entered(button: TextureButton) -> void:
 	if button.disabled:
 		return
@@ -47,36 +51,39 @@ func getNextPower():
 		ItemManager.resetPool()
 	powerKey = ItemManager.remainingPowersKeys.pop_back()
 	return powerKey
+
+func _on_button_pressed(button: TextureButton) -> void:
+	var currentItemSlot =  int(button.name.trim_prefix("Power"))
+	if !hasEnoughSouls(button):
+		showInsufficientSouls()
+		return
+	buyItem(currentItemSlot)
+	checkInventoryEmpty()
+	showPowerPurchasedMessage(button)
+	updateSouls()
+	button.disabled = true
+	
 	
 func buyItem(currentShopSlot: int):
-	if GameManager.souls >= shopPowers[currentShopSlot]["Cost"]:
-		GameManager.souls = GameManager.souls - shopPowers[currentShopSlot]["Cost"]
-		if ItemManager.inventory[0].is_empty() and !shopPowers[currentShopSlot]["Type"]=="health":
-			ItemManager.inventory[0] = shopPowers[currentShopSlot]
-			return
-		if shopPowers[currentShopSlot]["Type"] == "gun":
-			for i in ItemManager.inventory:
-				if ItemManager.inventory[i]["Type"] == "gun":
-					ItemManager.inventory[i] = shopPowers[currentShopSlot]
-					return
-			ItemManager.inventory[ItemManager.inventory.size()]=shopPowers[currentShopSlot]
-			return
-		if shopPowers[currentShopSlot]["Type"] =="trajectory":
-			for i in ItemManager.inventory:
-				if ItemManager.inventory[i]["Type"] == "trajectory":
-					ItemManager.inventory[i] = shopPowers[currentShopSlot]
-					return
-			ItemManager.inventory[ItemManager.inventory.size()]=shopPowers[currentShopSlot]
-			return
-		if shopPowers[currentShopSlot]["Type"] =="health":
-			print("entrou no if do health")
+	if GameManager.souls >= shopItems[currentShopSlot]["Cost"]:
+		GameManager.souls = GameManager.souls - shopItems[currentShopSlot]["Cost"]
+		if shopItems[currentShopSlot]["Type"] =="health":
 			if GameManager.currentGunLife + 1 <= GameManager.gunStats["life"]:
 				GameManager.currentGunLife += 1
 				return
 			else:
 				return
+		if ItemManager.inventory[0].is_empty():
+			ItemManager.inventory[0] = shopItems[currentShopSlot]
+			return
+		if isExclusiveShopItem(currentShopSlot):
+			for i in ItemManager.inventory:
+				if ItemManager.inventory[i]["Type"] == shopItems[currentShopSlot]["Type"]:
+					ItemManager.inventory[i] = shopItems[currentShopSlot]
+					return
+			ItemManager.inventory[ItemManager.inventory.size()]=shopItems[currentShopSlot]
 		else:
-			ItemManager.inventory[ItemManager.inventory.size()]=shopPowers[currentShopSlot]
+			ItemManager.inventory[ItemManager.inventory.size()]=shopItems[currentShopSlot]
 			return
 
 func hasEnoughSouls(button: TextureButton):
@@ -100,63 +107,12 @@ func checkInventoryEmpty():
 	if !ItemManager.inventory[0].is_empty():
 		ItemManager.isInventoryUpdated()
 
-
-func _on_button_pressed(button: TextureButton) -> void:
-	var currentItemSlot =  int(button.name.trim_prefix("Power"))
-	if !hasEnoughSouls(button):
-		showInsufficientSouls()
-		return
-	buyItem(currentItemSlot)
-	checkInventoryEmpty()
-	showPowerPurchasedMessage(button)
-	updateSouls()
-	button.disabled = true
-
 func _on_continue_next_wave_pressed() -> void:
 	GameManager.changeSceneGame()
 	checkInventoryEmpty()
 	print("inventario",ItemManager.inventory)
 
-#func updateInventory():
-	#alreadyEquippedItems = ItemManager.inventory
-	
-#func sortTypes():
-	#var index1 = 0
-	#var index2 = 0
-	#for i in ItemManager.powers:
-		#if ItemManager.powers[i]["Type"]== ItemManager.BULLET_MODIFIER or  ItemManager.powers[i]["Type"]== ItemManager.TRAJECTORY or  ItemManager.powers[i]["Type"]== ItemManager.POWER:
-			#bulletSpawnerChildNodes[index1] = ItemManager.powers[i]
-			#index1+=1
-		#if ItemManager.powers[i]["Type"]== ItemManager.GUN_MODIFIER or ItemManager.powers[i]["Type"] == ItemManager.GUN:
-			#gunChildNodes[index2] = ItemManager.powers[i]
-			#index2+=1
-
-#func isItemAlreadyEquipped(index : int):
-	#for currentItem in ItemManager.alreadyEquippedItems:
-		#if ItemManager.inventory[index]["Name"] == ItemManager.alreadyEquippedItems[currentItem]["Name"]:
-			#return true
-	#return false
-#
-#func isExclusiveItem(index: int):
-	#if ItemManager.inventory[index]["Type"] in ItemManager.EXCLUSIVE_ITEMS:
-		#return true
-	#return false
-#
-#
-#func isEquippedItemsEmpty():
-	#if ItemManager.alreadyEquippedItems[0].is_empty():
-		#print("Equipped Items vazio")
-		#return true
-	#return false
-#
-#func getEquippedExclusiveItemName(index : int):
-	#for currentItem in ItemManager.alreadyEquippedItems:
-		#if ItemManager.inventory[index]["Type"] == ItemManager.alreadyEquippedItems[currentItem]["Type"]:
-			#print("Type do inventario: ",ItemManager.inventory[index]["Type"])
-			#print("Type do equipado: ",ItemManager.alreadyEquippedItems[currentItem]["Type"])
-			#print("NodeName",ItemManager.alreadyEquippedItems[currentItem]["NodeName"])
-			#return ItemManager.alreadyEquippedItems[currentItem]["NodeName"]
-	#return	
-#
-#func addNewItemEquipped(index : int):
-	#ItemManager.alreadyEquippedItems[ItemManager.alreadyEquippedItems.size()]= ItemManager.inventory[index]	
+func isExclusiveShopItem(index: int):
+	if shopItems[index]["Type"] in ItemManager.EXCLUSIVE_ITEMS:
+		return true
+	return false

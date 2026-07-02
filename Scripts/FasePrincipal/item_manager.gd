@@ -14,7 +14,6 @@ var remainingPowersKeys=[]
 var inventory = {0:{}}
 var inventoryUpdatedFlag := false
 var alreadyEquippedItems = {0:{}}
-#enum Type {BULLET_MODIFIER,TRAJECTORY,GUN_MODIFIER,GUN,HEALTH}
 const BULLET_MODIFIER = "bullet_modifier"
 const TRAJECTORY = "trajectory"
 const GUN_MODIFIER = "gun_modifier"
@@ -31,7 +30,7 @@ var powers =	{
 		#"Name": "Ricochet",
 		#"Des": "Ricochet bullets",
 		#"Cost": 10,
-		#"Type": "Bullet Modifier",
+		#"Type": BULLET_MODIFIER,
 		#"Scene": RICOCHET_SCENE
 	#},
 	#1:{
@@ -39,7 +38,7 @@ var powers =	{
 		#"Name": "Triple Shot",
 		#"Des": "Triple the fun",
 		#"Cost": 20,
-		#"Type": "Bullet Modifier",
+		#"Type": BULLET_MODIFIER,
 		#"Scene": TRIPLE_SHOT_SCENE
 	#},
 	#2:{
@@ -47,7 +46,7 @@ var powers =	{
 		#"Name": "Laser Aim",
 		#"Des": "More precision",
 		#"Cost": 25,
-		#"Type": "Gun Modifier",
+		#"Type": GUN_MODIFIER,
 		#"Scene": LASER_AIM_SCENE
 	#},
 	#3:{
@@ -55,7 +54,7 @@ var powers =	{
 		#"Name": "Auto-aim",
 		#"Des": "Literal Aimbot",
 		#"Cost": 40,
-		#"Type": "Trajectory",
+		#"Type": TRAJECTORY,
 		#"Scene": AUTO_AIM_SCENE
 	#},
 	#4:{
@@ -63,7 +62,7 @@ var powers =	{
 		#"Name": "Spiral Bullet",
 		#"Des": "Bullets can curve??",
 		#"Cost": 15,
-		#"Type": "Trajectory",
+		#"Type": TRAJECTORY,
 		#"Scene": SPIRAL_BULLET_SCENE
 	#},
 	0:{
@@ -79,7 +78,7 @@ var powers =	{
 		#"Name": "High Noon",
 		#"Des": "Everything dies",
 		#"Cost": 30,
-		#"Type": "Power",
+		#"Type": POWER,
 		#"Scene": HIGH_NOON_SCENE
 	#},
 	1:{
