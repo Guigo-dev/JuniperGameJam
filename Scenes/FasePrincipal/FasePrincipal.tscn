@@ -339,7 +339,6 @@ lifeCounterIcon = NodePath("LifeCounterIcon")
 
 [node name="Arma" parent="." unique_id=44014132 instance=ExtResource("1_x5p2i")]
 process_mode = 0
-speedMultiplier = null
 
 [node name="BackGround" type="TextureRect" parent="." unique_id=641143662]
 z_index = -1
@@ -580,6 +579,7 @@ vertical_alignment = 1
 
 [node name="WaveManager" type="Node" parent="." unique_id=302771553]
 script = ExtResource("13_uotby")
+wave_time = 3.0
 
 [node name="Bala" parent="." unique_id=1222037949 node_paths=PackedStringArray("target") instance=ExtResource("14_lahha")]
 process_mode = 0

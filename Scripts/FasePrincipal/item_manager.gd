@@ -13,6 +13,7 @@ const FIRE_GUN_SCENE = preload("res://Scenes/Poderes/arma_de_fogo.tscn")
 var remainingPowersKeys=[]
 var inventory = {0:{}}
 var inventoryUpdatedFlag := false
+var alreadyEquippedItems = {0:{}}
 #enum Type {BULLET_MODIFIER,TRAJECTORY,GUN_MODIFIER,GUN,HEALTH}
 const BULLET_MODIFIER = "bullet_modifier"
 const TRAJECTORY = "trajectory"

@@ -5,7 +5,6 @@ func _ready() -> void:
 	add_to_group("gun")
 	updateGun()
 	
-	
 func updateGun():
 	var sprite = get_parent().get_parent().get_node("Sprite2D")
 	var bulletSpawner = get_parent().get_parent().get_node("BulletSpawner")

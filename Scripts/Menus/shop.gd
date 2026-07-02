@@ -115,5 +115,48 @@ func _on_button_pressed(button: TextureButton) -> void:
 func _on_continue_next_wave_pressed() -> void:
 	GameManager.changeSceneGame()
 	checkInventoryEmpty()
-	print(ItemManager.inventory)
+	print("inventario",ItemManager.inventory)
+
+#func updateInventory():
+	#alreadyEquippedItems = ItemManager.inventory
 	
+#func sortTypes():
+	#var index1 = 0
+	#var index2 = 0
+	#for i in ItemManager.powers:
+		#if ItemManager.powers[i]["Type"]== ItemManager.BULLET_MODIFIER or  ItemManager.powers[i]["Type"]== ItemManager.TRAJECTORY or  ItemManager.powers[i]["Type"]== ItemManager.POWER:
+			#bulletSpawnerChildNodes[index1] = ItemManager.powers[i]
+			#index1+=1
+		#if ItemManager.powers[i]["Type"]== ItemManager.GUN_MODIFIER or ItemManager.powers[i]["Type"] == ItemManager.GUN:
+			#gunChildNodes[index2] = ItemManager.powers[i]
+			#index2+=1
+
+#func isItemAlreadyEquipped(index : int):
+	#for currentItem in ItemManager.alreadyEquippedItems:
+		#if ItemManager.inventory[index]["Name"] == ItemManager.alreadyEquippedItems[currentItem]["Name"]:
+			#return true
+	#return false
+#
+#func isExclusiveItem(index: int):
+	#if ItemManager.inventory[index]["Type"] in ItemManager.EXCLUSIVE_ITEMS:
+		#return true
+	#return false
+#
+#
+#func isEquippedItemsEmpty():
+	#if ItemManager.alreadyEquippedItems[0].is_empty():
+		#print("Equipped Items vazio")
+		#return true
+	#return false
+#
+#func getEquippedExclusiveItemName(index : int):
+	#for currentItem in ItemManager.alreadyEquippedItems:
+		#if ItemManager.inventory[index]["Type"] == ItemManager.alreadyEquippedItems[currentItem]["Type"]:
+			#print("Type do inventario: ",ItemManager.inventory[index]["Type"])
+			#print("Type do equipado: ",ItemManager.alreadyEquippedItems[currentItem]["Type"])
+			#print("NodeName",ItemManager.alreadyEquippedItems[currentItem]["NodeName"])
+			#return ItemManager.alreadyEquippedItems[currentItem]["NodeName"]
+	#return	
+#
+#func addNewItemEquipped(index : int):
+	#ItemManager.alreadyEquippedItems[ItemManager.alreadyEquippedItems.size()]= ItemManager.inventory[index]	

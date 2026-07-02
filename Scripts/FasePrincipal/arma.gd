@@ -34,8 +34,6 @@ func _ready() -> void:
 		healthComponent.lifePoints = GameManager.currentGunLife
 	get_parent().update_lifeCounterIcon(healthComponent.lifePoints,0)
 
-	
-
 func _physics_process(delta: float) -> void:
 	speed = 85  #velocidade base de rotacao
 	if(Input.is_action_pressed("Direita")):

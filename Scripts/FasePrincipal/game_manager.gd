@@ -33,7 +33,7 @@ var XP:= 0;
 var resets = 0;
 var currentGunLife : int = 3
 
-var souls : int = 0
+var souls : int = 1000
 @export var current_gun : String = "default"
 var waveCounter: int = 0
 var maxWaveCounter: int = 0
